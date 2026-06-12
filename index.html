@@ -608,7 +608,7 @@
           </div>
         </div>
       </div>
-      <form class="contact-form" onsubmit="handleSubmit(event)">
+      <form class="contact-form" action="https://formspree.io/f/xpqeoqna" method="POST">
         <div class="form-row">
           <input type="text" placeholder="Name" required />
           <input type="email" placeholder="Email" required />
@@ -657,7 +657,7 @@
       btn.classList.add('active');
     }
 
-    function handleSubmit(e) {
+    
       e.preventDefault();
       const btn = e.target.querySelector('button[type="submit"]');
       btn.textContent = 'Sent. We will be in touch.';
