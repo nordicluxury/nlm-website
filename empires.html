@@ -1,0 +1,510 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>European Empires Ranked by How They Still Rule the World — Nordic Luxury Media</title>
+  <meta name="description" content="Most empire rankings look at peak size. We ranked them by what they actually left behind — language, law, borders, and conflicts still happening today." />
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,400;0,500;0,700;1,400;1,600&family=Inter:wght@300;400;500&display=swap" rel="stylesheet" />
+  <style>
+    *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+    :root {
+      --black: #080808;
+      --surface: #111111;
+      --surface-2: #181818;
+      --border: #222222;
+      --border-light: #2C2C2C;
+      --white: #F4F1EC;
+      --white-dim: rgba(244,241,236,0.55);
+      --white-faint: rgba(244,241,236,0.18);
+      --white-ghost: rgba(244,241,236,0.07);
+    }
+    html { scroll-behavior: smooth; }
+    body {
+      background: var(--black);
+      color: var(--white);
+      font-family: 'Inter', sans-serif;
+      font-size: 16px;
+      line-height: 1.7;
+      -webkit-font-smoothing: antialiased;
+    }
+    nav {
+      position: fixed; top: 0; left: 0; right: 0; z-index: 100;
+      display: flex; align-items: center; justify-content: space-between;
+      padding: 0 52px; height: 60px;
+      background: rgba(8,8,8,0.97);
+      border-bottom: 1px solid var(--border);
+      backdrop-filter: blur(12px);
+    }
+    .nav-logo {
+      font-family: 'Playfair Display', serif; font-size: 14px; font-weight: 700;
+      letter-spacing: 0.2em; text-transform: uppercase; color: var(--white); text-decoration: none;
+    }
+    .nav-back {
+      font-size: 11px; letter-spacing: 0.13em; text-transform: uppercase;
+      color: var(--white-dim); text-decoration: none; transition: color 0.2s;
+    }
+    .nav-back:hover { color: var(--white); }
+    .article-hero {
+      padding: 120px 52px 72px;
+      border-bottom: 1px solid var(--border);
+      max-width: 860px;
+    }
+    .article-tag {
+      font-size: 10px; letter-spacing: 0.2em; text-transform: uppercase;
+      color: var(--white-faint); margin-bottom: 24px; display: block;
+    }
+    .article-title {
+      font-family: 'Playfair Display', serif;
+      font-size: clamp(36px, 5.5vw, 70px);
+      font-weight: 700; line-height: 1.02; color: var(--white);
+      margin-bottom: 28px; letter-spacing: -0.01em;
+    }
+    .article-title em { font-style: italic; font-weight: 400; }
+    .article-deck {
+      font-size: 19px; font-weight: 300; color: var(--white-dim);
+      line-height: 1.7; max-width: 620px; margin-bottom: 36px;
+    }
+    .article-meta {
+      font-size: 11px; letter-spacing: 0.12em; text-transform: uppercase;
+      color: var(--white-faint); display: flex; gap: 24px; flex-wrap: wrap;
+      padding-top: 24px; border-top: 1px solid var(--border);
+    }
+    .article-wrap {
+      display: grid;
+      grid-template-columns: 1fr 240px;
+    }
+    .article-body {
+      padding: 64px 60px 80px 52px;
+      border-right: 1px solid var(--border);
+    }
+    .article-body p {
+      font-size: 17px; color: var(--white-dim); line-height: 1.9;
+      margin-bottom: 26px; max-width: 680px;
+    }
+    .article-body strong { color: var(--white); font-weight: 500; }
+    .intro-block { margin-bottom: 56px; padding-bottom: 56px; border-bottom: 1px solid var(--border); }
+    .pull-quote {
+      font-family: 'Playfair Display', serif;
+      font-size: clamp(20px, 2.4vw, 26px); font-style: italic; font-weight: 400;
+      color: var(--white); line-height: 1.5;
+      border-left: 1px solid var(--border-light);
+      padding: 4px 0 4px 28px;
+      margin: 44px 0; max-width: 600px;
+    }
+    .empire { margin: 0 0 64px; padding-top: 56px; border-top: 1px solid var(--border); }
+    .empire-header { display: flex; align-items: baseline; gap: 16px; margin-bottom: 6px; }
+    .empire-rank {
+      font-family: 'Playfair Display', serif;
+      font-size: 52px; font-weight: 700; color: var(--white-ghost);
+      line-height: 1; flex-shrink: 0; user-select: none;
+    }
+    .empire-name {
+      font-family: 'Playfair Display', serif;
+      font-size: clamp(22px, 2.8vw, 34px); font-weight: 700;
+      color: var(--white); line-height: 1.1;
+    }
+    .empire-dates {
+      font-size: 12px; letter-spacing: 0.1em; color: var(--white-faint);
+      margin-bottom: 20px; font-style: italic;
+    }
+    .empire-photo {
+      width: 100%; max-width: 680px;
+      aspect-ratio: 16/9; object-fit: cover;
+      margin-bottom: 10px;
+      filter: grayscale(30%) brightness(0.85);
+      display: block;
+    }
+    .photo-caption {
+      font-size: 11px; color: var(--white-faint);
+      margin-bottom: 28px; font-style: italic;
+    }
+    .empire p { font-size: 16px; color: var(--white-dim); line-height: 1.9; margin-bottom: 18px; max-width: 680px; }
+    .empire p strong { color: var(--white); font-weight: 500; }
+    .empire-tags { display: flex; flex-wrap: wrap; gap: 8px; margin-top: 24px; }
+    .empire-tag {
+      font-size: 10px; letter-spacing: 0.12em; text-transform: uppercase;
+      color: var(--white-faint); border: 1px solid var(--border-light); padding: 5px 10px;
+    }
+    .sources-block {
+      margin-top: 64px; padding-top: 48px; border-top: 1px solid var(--border);
+      max-width: 680px;
+    }
+    .sources-block h3 {
+      font-size: 11px; letter-spacing: 0.18em; text-transform: uppercase;
+      color: var(--white-faint); margin-bottom: 20px;
+    }
+    .sources-list { list-style: none; }
+    .sources-list li {
+      font-size: 13px; color: var(--white-dim); padding: 10px 0;
+      border-bottom: 1px solid var(--border);
+      display: flex; gap: 12px;
+    }
+    .sources-list li:last-child { border-bottom: none; }
+    .sources-list .src-label {
+      font-size: 10px; letter-spacing: 0.1em; text-transform: uppercase;
+      color: var(--white-faint); flex-shrink: 0; margin-top: 2px; min-width: 80px;
+    }
+    .sources-list a { color: var(--white-dim); text-decoration: none; border-bottom: 1px solid var(--border-light); }
+    .sources-list a:hover { color: var(--white); }
+    .article-sidebar { padding: 64px 28px; position: sticky; top: 60px; align-self: start; }
+    .sidebar-label {
+      font-size: 10px; letter-spacing: 0.18em; text-transform: uppercase;
+      color: var(--white-faint); margin-bottom: 16px; display: block;
+    }
+    .sidebar-list { list-style: none; margin-bottom: 48px; }
+    .sidebar-list li {
+      font-size: 13px; color: var(--white-dim); padding: 10px 0;
+      border-bottom: 1px solid var(--border);
+      display: flex; justify-content: space-between; align-items: baseline;
+    }
+    .sidebar-list li:last-child { border-bottom: none; }
+    .rank-num {
+      font-family: 'Playfair Display', serif; font-size: 15px;
+      color: var(--white-faint); flex-shrink: 0; margin-left: 8px;
+    }
+    .sidebar-stat { margin-bottom: 16px; }
+    .sidebar-stat-num {
+      font-family: 'Playfair Display', serif; font-size: 26px; font-weight: 700;
+      color: var(--white); line-height: 1; margin-bottom: 4px;
+    }
+    .sidebar-stat-label { font-size: 11px; color: var(--white-faint); line-height: 1.4; }
+    footer {
+      border-top: 1px solid var(--border); padding: 36px 52px;
+      display: flex; align-items: center; justify-content: space-between;
+    }
+    .footer-logo {
+      font-family: 'Playfair Display', serif; font-size: 13px; font-weight: 700;
+      letter-spacing: 0.2em; text-transform: uppercase; color: var(--white-dim); text-decoration: none;
+    }
+    .footer-copy { font-size: 11px; color: var(--white-faint); }
+    @media (max-width: 768px) {
+      nav { padding: 0 24px; }
+      .article-hero { padding: 100px 24px 52px; }
+      .article-wrap { grid-template-columns: 1fr; }
+      .article-body { padding: 48px 24px 64px; border-right: none; }
+      .article-sidebar { display: none; }
+      footer { flex-direction: column; gap: 12px; text-align: center; padding: 28px 24px; }
+    }
+  </style>
+</head>
+<body>
+
+  <nav>
+    <a href="index.html" class="nav-logo">Nordic Luxury Media</a>
+    <a href="index.html#insights" class="nav-back">← Insights</a>
+  </nav>
+
+  <div class="article-hero">
+    <span class="article-tag">Ranking · Global · Nordic Luxury Europe</span>
+    <h1 class="article-title">European Empires Ranked<br />by How They <em>Still Rule</em><br />the World</h1>
+    <p class="article-deck">Most empire rankings look at how big an empire was at its peak. We ranked them by what they actually left behind — language, law, borders and conflicts still making the news today.</p>
+    <div class="article-meta">
+      <span>Nordic Luxury Media</span>
+      <span>Insights & Rankings</span>
+      <span>10 empires · 2026</span>
+    </div>
+  </div>
+
+  <div class="article-wrap">
+    <div class="article-body">
+
+      <div class="intro-block">
+        <p>Most empire rankings are wrong from the start. They look at how big an empire was at its peak — how many square kilometres it covered, how many people it ruled, how many armies it had. If we do that the Mongol Empire wins and the conversation is over before it starts. That is not the right question.</p>
+        <p>The right question is what is still here today. Which empires built something so important to how the world works that you cannot remove it without causing real problems. Language, laws, borders, money and conflicts that are not really over.</p>
+        <p>That is what this ranking is about. Not how great an empire was in the past. What it left that still affects us in 2026. We looked at five things: how widely an empire's language is spoken today, how much its institutions still influence the world, what kind of economic legacy it left, how much its culture is still present and how much of a mark it left on the world map.</p>
+        <p>Some of the empires on this list might surprise you. The list starts at number ten and counts down to number one.</p>
+      </div>
+
+      <!-- 10 -->
+      <div class="empire">
+        <div class="empire-header">
+          <div class="empire-rank">10</div>
+          <div class="empire-name">The Danish Empire</div>
+        </div>
+        <div class="empire-dates">c. 1380 – 1953</div>
+        <img class="empire-photo" src="https://images.unsplash.com/photo-1513622470522-26c3c8a854bc?w=1200&q=80&fit=crop&crop=center" alt="Greenland coast" loading="lazy" />
+        <p class="photo-caption">Greenland — the most consequential remaining piece of Danish imperial legacy. Photo: Unsplash</p>
+        <p>Denmark is not usually on these lists and in terms of raw scale that is fair. The Danish empire was never as large as the Spanish or British empires. But if you look at the North Atlantic and the Caribbean you see a different story. Iceland, Greenland and the islands once called the Danish West Indies — now the US Virgin Islands, sold to America in 1917 — are what remains of a quiet but durable imperial presence.</p>
+        <p>What makes Denmark interesting in 2026 is Greenland. The conversation around Greenlandic sovereignty, independence and the island's strategic location amid Arctic geopolitics and rare mineral deposits has made Denmark's historical claim unexpectedly relevant again. The legacy of the empire is not global and it is not as deep as some others on this list. But it is still alive in a way that some much larger empires are not.</p>
+        <div class="empire-tags">
+          <span class="empire-tag">North Atlantic</span>
+          <span class="empire-tag">Greenland</span>
+          <span class="empire-tag">Caribbean</span>
+          <span class="empire-tag">Arctic geopolitics</span>
+        </div>
+      </div>
+
+      <!-- 09 -->
+      <div class="empire">
+        <div class="empire-header">
+          <div class="empire-rank">09</div>
+          <div class="empire-name">The Swedish Empire</div>
+        </div>
+        <div class="empire-dates">1611 – 1721</div>
+        <img class="empire-photo" src="https://images.unsplash.com/photo-1509356843151-3e7d96241e11?w=1200&q=80&fit=crop&crop=center" alt="Stockholm Sweden" loading="lazy" />
+        <p class="photo-caption">Stockholm — capital of a small empire that shaped how northern Europe governs itself. Photo: Unsplash</p>
+        <p>Sweden's time as a major power was the 17th century. Historians call this period Stormaktstiden — the era of great power. Sweden controlled large parts of the Baltic coastline, northern Germany and Finland and was a dominant military force in northern Europe for about a hundred years before being defeated by Russia at the Battle of Poltava in 1709.</p>
+        <p>The lasting legacy is less about territory and more about state formation. The administrative model Sweden developed during its imperial era — disciplined and built around strong central institutions — fed directly into the Nordic governance tradition that the world now looks at as a model of functional government.</p>
+        <p>The empire also left its mark on Finland. <strong>Swedish remains a co-official language in Finland today</strong>, spoken by roughly five percent of the population. For an empire of this scale and duration that is a durable footprint.</p>
+        <div class="empire-tags">
+          <span class="empire-tag">Baltic region</span>
+          <span class="empire-tag">Nordic governance</span>
+          <span class="empire-tag">Finland</span>
+          <span class="empire-tag">Stormaktstiden</span>
+        </div>
+      </div>
+
+      <!-- 08 -->
+      <div class="empire">
+        <div class="empire-header">
+          <div class="empire-rank">08</div>
+          <div class="empire-name">The Dutch Empire</div>
+        </div>
+        <div class="empire-dates">1588 – 1975</div>
+        <img class="empire-photo" src="https://images.unsplash.com/photo-1534351590666-13e3e96b5017?w=1200&q=80&fit=crop&crop=center" alt="Amsterdam canals" loading="lazy" />
+        <p class="photo-caption">Amsterdam — where the first stock exchange opened and modern capitalism was born. Photo: Unsplash</p>
+        <p>The Dutch Empire is more important than its size would suggest and the reason is simple: it did not just trade goods — it invented the infrastructure that global trade still runs on.</p>
+        <p>The VOC, the Dutch East India Company founded in 1602, was the first company to sell shares to the public. The Amsterdam Stock Exchange where those shares were traded is the direct ancestor of every stock exchange operating today. Joint-stock companies, bond markets, commodity futures — the financial instruments that move trillions of dollars every day were pioneered by Dutch merchants in the 17th century. <strong>Modern capitalism has a Dutch accent whether it knows it or not.</strong></p>
+        <p>Beyond finance: Afrikaans, a language descended from Dutch, is spoken by millions in South Africa. Indonesia carries Dutch legal and institutional frameworks from three centuries of colonial rule. New York was New Amsterdam before the English renamed it and the Hudson River was a Dutch trade route.</p>
+        <p>The Dutch empire ranks eighth rather than higher because its cultural and linguistic reach is narrower than the empires above it. The financial legacy is extraordinary. The rest is significant but limited in geographic scope.</p>
+        <div class="empire-tags">
+          <span class="empire-tag">Finance</span>
+          <span class="empire-tag">VOC</span>
+          <span class="empire-tag">Stock exchange</span>
+          <span class="empire-tag">Afrikaans</span>
+          <span class="empire-tag">Indonesia</span>
+        </div>
+      </div>
+
+      <!-- 07 -->
+      <div class="empire">
+        <div class="empire-header">
+          <div class="empire-rank">07</div>
+          <div class="empire-name">The Portuguese Empire</div>
+        </div>
+        <div class="empire-dates">1415 – 1999</div>
+        <img class="empire-photo" src="https://images.unsplash.com/photo-1555881400-74d7acaacd8b?w=1200&q=80&fit=crop&crop=center" alt="Lisbon Portugal rooftops" loading="lazy" />
+        <p class="photo-caption">Lisbon — the city that sent explorers south along Africa and opened the age of global trade. Photo: Unsplash</p>
+        <p>Portugal was the first European country to establish a truly global network of trade routes. It sailed south along the African coast, found new lands and defined global commerce for two centuries. Every European colonial empire that followed used the template Portugal built.</p>
+        <p>Portuguese is spoken by approximately <strong>279 million people worldwide</strong>. Brazil — larger than the continental United States — accounts for the majority of those speakers. Angola and Mozambique are growing fast and the language is expanding in Africa not contracting. Portuguese is one of the few major languages expected to have significantly more speakers in 2050 than today.</p>
+        <p>Beyond language: Macau was Portuguese territory until 1999. An empire that began in 1415 ended within living memory. Six centuries of continuous presence across four continents is a record no other empire on this list can match.</p>
+        <div class="empire-tags">
+          <span class="empire-tag">279M speakers</span>
+          <span class="empire-tag">Brazil</span>
+          <span class="empire-tag">Africa</span>
+          <span class="empire-tag">Maritime routes</span>
+          <span class="empire-tag">600 years</span>
+        </div>
+      </div>
+
+      <!-- 06 -->
+      <div class="empire">
+        <div class="empire-header">
+          <div class="empire-rank">06</div>
+          <div class="empire-name">The German Empire</div>
+        </div>
+        <div class="empire-dates">1871 – 1919</div>
+        <img class="empire-photo" src="https://images.unsplash.com/photo-1467269204594-9661b134dd2b?w=1200&q=80&fit=crop&crop=center" alt="Berlin Germany" loading="lazy" />
+        <p class="photo-caption">Berlin — capital of an empire whose collapse reshaped the entire world order. Photo: Unsplash</p>
+        <p>Germany's overseas colonial empire was brief — roughly 1884 to 1919 — and is often treated as a footnote compared to Britain or France. That is the wrong framing. The German Empire's significance is not primarily about its colonies. It is about what German power did to Europe and to the world.</p>
+        <p>The German Empire's industrialisation, ambitions and rivalry with Britain and France produced two world wars that killed tens of millions of people and redrew every border on Earth. <strong>The United Nations, NATO, the European Union, the state of Israel and the Cold War division of Europe are all direct consequences of German imperial power and its collapse.</strong> That is a geopolitical legacy of almost unrivalled scale even if it is largely a legacy of catastrophe.</p>
+        <p>On the colonial side: German rule in Namibia, Tanzania, Cameroon and Rwanda left marks in borders, ethnic tensions and historical memory that remain live issues today. The genocide of the Herero and Nama people in what is now Namibia — carried out by German colonial forces between 1904 and 1908 — is recognised by Germany as the first genocide of the 20th century with reparation negotiations still ongoing.</p>
+        <div class="empire-tags">
+          <span class="empire-tag">Two world wars</span>
+          <span class="empire-tag">Namibia</span>
+          <span class="empire-tag">EU origins</span>
+          <span class="empire-tag">Cold War</span>
+        </div>
+      </div>
+
+      <!-- 05 -->
+      <div class="empire">
+        <div class="empire-header">
+          <div class="empire-rank">05</div>
+          <div class="empire-name">The Russian Empire</div>
+        </div>
+        <div class="empire-dates">1721 – 1917</div>
+        <img class="empire-photo" src="https://images.unsplash.com/photo-1520106212299-d99c443e4568?w=1200&q=80&fit=crop&crop=center" alt="Moscow Russia" loading="lazy" />
+        <p class="photo-caption">Moscow — centre of an empire that formally ended in 1917 but never really stopped. Photo: Unsplash</p>
+        <p>The Russian Empire never really ended. It became the Soviet Union which became the Russian Federation which still controls roughly the same Eurasian territory and still operates with recognisably imperial logic — that the states on its borders belong within its sphere if not within its formal borders.</p>
+        <p>Russian is spoken across the former Soviet space from the Baltic states to Central Asia. The cultural output of the Russian imperial period is world-historical in scale: Tolstoy, Dostoevsky, Chekhov, Tchaikovsky, Mendeleev. The scientific and literary tradition represents one of the great civilisational achievements of the modern era.</p>
+        <p><strong>The legacy of the Russian Empire is the most geopolitically active of any empire on this list.</strong> The war in Ukraine is a direct consequence of imperial borders, imperial identity and imperial ambition that never fully dissolved. Russia's relationships with Georgia, Moldova, the Baltic states and Central Asia all run through the history of the Russian Empire. This is not just history — it is this morning's news.</p>
+        <div class="empire-tags">
+          <span class="empire-tag">Eurasia</span>
+          <span class="empire-tag">Russian language</span>
+          <span class="empire-tag">Active geopolitics</span>
+          <span class="empire-tag">Cultural legacy</span>
+        </div>
+      </div>
+
+      <div class="pull-quote">The most durable empires are not the ones that held the most land. They are the ones that changed what people believed was possible.</div>
+
+      <!-- 04 -->
+      <div class="empire">
+        <div class="empire-header">
+          <div class="empire-rank">04</div>
+          <div class="empire-name">The French Empire</div>
+        </div>
+        <div class="empire-dates">1534 – 1980</div>
+        <img class="empire-photo" src="https://images.unsplash.com/photo-1499856871958-5b9627545d1a?w=1200&q=80&fit=crop&crop=center" alt="Paris France" loading="lazy" />
+        <p class="photo-caption">Paris — the city that exported the idea that civilisation itself was French. Photo: Unsplash</p>
+        <p>France exported an idea as much as it exported power: that there is a universal civilisation and it is French. That idea gave France a cultural footprint that outlasted the empire by a considerable margin.</p>
+        <p>French is spoken by approximately <strong>396 million people worldwide</strong> making it the fourth most widely spoken language globally. Most French speakers today live in Africa. The number of French speakers is projected to reach 700 million by 2050 with 90 percent of them on the African continent. French is one of the few major languages growing faster than its colonial history would suggest.</p>
+        <p>The Napoleonic Code — the legal framework Napoleon imposed across French-controlled Europe — is the foundation of civil law in France, Belgium, Luxembourg, Quebec, Louisiana and dozens of former colonies. French is an official language of the United Nations, the European Union, NATO, the African Union and the International Court of Justice. That institutional presence is real and active not ceremonial.</p>
+        <div class="empire-tags">
+          <span class="empire-tag">396M speakers</span>
+          <span class="empire-tag">Napoleonic Code</span>
+          <span class="empire-tag">Africa</span>
+          <span class="empire-tag">UN official language</span>
+        </div>
+      </div>
+
+      <!-- 03 -->
+      <div class="empire">
+        <div class="empire-header">
+          <div class="empire-rank">03</div>
+          <div class="empire-name">The Holy Roman Empire</div>
+        </div>
+        <div class="empire-dates">800 – 1806</div>
+        <img class="empire-photo" src="https://images.unsplash.com/photo-1467269204594-9661b134dd2b?w=1200&q=80&fit=crop&crop=center" alt="Central Europe architecture" loading="lazy" />
+        <p class="photo-caption">Central Europe — the economic core of the old empire is the economic core of the EU today. Photo: Unsplash</p>
+        <p>Voltaire said the Holy Roman Empire was neither holy nor Roman nor an empire. He was right about all three and completely missed the point. The Holy Roman Empire was the political framework of Central Europe for a thousand years and its structural legacy is the European Union.</p>
+        <p>The way the Holy Roman Empire was organised — different groups working together under shared institutions without giving up their independence — is exactly the model the European Union operates on today. Historians of European integration cite this directly. It is not a metaphor.</p>
+        <p>Germany, Austria, Switzerland, the Czech Republic and northern Italy — the core territories of the old empire — are the economic heart of modern Europe. <strong>The legal traditions, the university system and the relationship between secular and religious authority that the empire developed over ten centuries are embedded in European culture</strong> in ways that are hard to see precisely because they are everywhere. Few empires shaped a continent's internal architecture so completely while leaving so little obvious trace.</p>
+        <div class="empire-tags">
+          <span class="empire-tag">Central Europe</span>
+          <span class="empire-tag">EU precursor</span>
+          <span class="empire-tag">1000 years</span>
+          <span class="empire-tag">Legal tradition</span>
+        </div>
+      </div>
+
+      <!-- 02 -->
+      <div class="empire">
+        <div class="empire-header">
+          <div class="empire-rank">02</div>
+          <div class="empire-name">The Spanish Empire</div>
+        </div>
+        <div class="empire-dates">1492 – 1976</div>
+        <img class="empire-photo" src="https://images.unsplash.com/photo-1543785734-4b6e564642f8?w=1200&q=80&fit=crop&crop=center" alt="Spain architecture" loading="lazy" />
+        <p class="photo-caption">Spain — an empire that left an entire hemisphere speaking the same language. Photo: Unsplash</p>
+        <p>According to the Instituto Cervantes 2025 report there are <strong>636 million Spanish speakers worldwide including 520 million native speakers</strong>. Spanish is the dominant language of an entire hemisphere — from Mexico to Tierra del Fuego Latin America speaks Spanish because of one empire. That single fact puts Spain in the top three of any serious legacy ranking.</p>
+        <p>But Spanish influence goes further than language. The Spanish Empire transplanted Catholicism across the Americas at a scale that permanently altered the world's religious demographics. The Catholic Church's presence across Latin America today is a direct product of Spanish imperial mission. Spanish civil law forms the basis of legal codes across twenty countries. The culture, literature, music and traditions of the Spanish-speaking world — one of the richest civilisational traditions on Earth — flow directly from the imperial period.</p>
+        <p>The Spanish Empire ranks second rather than first for one reason: its economic institutions were primarily extractive. It took silver and gold out of the Americas rather than building lasting financial systems in. The Dutch and British left behind markets and institutions that generated wealth after they left. Spain left behind language and faith. In the very long run language and faith may matter more — but for present-day economic legacy the extractive model scores lower.</p>
+        <div class="empire-tags">
+          <span class="empire-tag">636M speakers</span>
+          <span class="empire-tag">Latin America</span>
+          <span class="empire-tag">Catholicism</span>
+          <span class="empire-tag">20 nations</span>
+        </div>
+      </div>
+
+      <!-- 01 -->
+      <div class="empire">
+        <div class="empire-header">
+          <div class="empire-rank">01</div>
+          <div class="empire-name">The British Empire</div>
+        </div>
+        <div class="empire-dates">1583 – 1997</div>
+        <img class="empire-photo" src="https://images.unsplash.com/photo-1513635269975-59663e0ac1ad?w=1200&q=80&fit=crop&crop=center" alt="London England" loading="lazy" />
+        <p class="photo-caption">London — capital of an empire whose language, law and borders still define the world. Photo: Unsplash</p>
+        <p>The British Empire at its peak covered roughly a quarter of the Earth's land surface and governed a quarter of its population. The numbers are extraordinary. But the numbers are not the point. The point is what it left behind and the depth of that legacy is unlike any other empire in modern history.</p>
+        <p>There are approximately <strong>1.53 billion English speakers worldwide</strong> including around 390 million native speakers. English is the language of international aviation, maritime law, science, finance, diplomacy and the internet. It did not become the world's language because it is particularly easy or elegant. It became the world's language because Britain built a global empire and the United States then inherited and extended its reach. That is a compounding legacy — the language is growing not declining.</p>
+        <p>The British common law system — adversarial courts, legal precedent, jury trials, the presumption of innocence — governs the United States, Canada, Australia, India and dozens of other countries. Westminster parliamentary democracy is the template for governments across six continents. The Commonwealth connects 56 nations. The Premier League is the most watched sports competition on Earth. The BBC shaped the concept of public broadcasting globally. The King still formally serves as head of state in 15 countries.</p>
+        <p>India deserves a specific mention. British colonial rule was brutal and extractive in many respects. It was also through its administrative, legal and educational infrastructure a direct contributor to India's ability to function as the world's largest democracy after independence. That is a complicated legacy — not a simple positive — but it is one of genuine institutional depth.</p>
+        <p><strong>The borders Britain drew in Africa, South Asia and the Middle East are still the world's borders. The conflicts those borders produced — Israel-Palestine, Kashmir, the partition of the Indian subcontinent, the boundaries of Iraq — are still the world's conflicts.</strong> British imperial legacy is not history. It is the morning news.</p>
+        <div class="empire-tags">
+          <span class="empire-tag">1.53B English speakers</span>
+          <span class="empire-tag">Common law</span>
+          <span class="empire-tag">Commonwealth · 56 nations</span>
+          <span class="empire-tag">15 kingdoms</span>
+        </div>
+      </div>
+
+      <div style="margin-top: 64px; padding-top: 48px; border-top: 1px solid var(--border); max-width: 680px;">
+        <p>Rankings like this are arguments not verdicts. If you would rank them differently the comment sections on our channels exist for exactly that reason.</p>
+        <a href="index.html#insights" style="display:inline-block; margin-top:12px; padding: 13px 28px; border: 1px solid #2C2C2C; color: rgba(244,241,236,0.55); font-size: 11px; letter-spacing: 0.14em; text-transform: uppercase; text-decoration: none;">← Back to Insights</a>
+      </div>
+
+      <div class="sources-block">
+        <h3>Key sources</h3>
+        <ul class="sources-list">
+          <li>
+            <span class="src-label">English</span>
+            <span>Ethnologue (2025) — 1.53 billion total speakers, ~390 million native. <a href="https://www.ethnologue.com" target="_blank">ethnologue.com</a></span>
+          </li>
+          <li>
+            <span class="src-label">Spanish</span>
+            <span>Instituto Cervantes, El español en el mundo (2025) — 636 million total, 520 million native. <a href="https://www.cervantes.es" target="_blank">cervantes.es</a></span>
+          </li>
+          <li>
+            <span class="src-label">French</span>
+            <span>Organisation Internationale de la Francophonie (2026) — 396 million speakers, 65% in Africa. <a href="https://www.francophonie.org" target="_blank">francophonie.org</a></span>
+          </li>
+          <li>
+            <span class="src-label">Portuguese</span>
+            <span>Ethnologue and World Population Review (2024) — approximately 267–279 million speakers.</span>
+          </li>
+          <li>
+            <span class="src-label">Commonwealth</span>
+            <span>Commonwealth Secretariat — 56 member nations as of 2025. <a href="https://thecommonwealth.org" target="_blank">thecommonwealth.org</a></span>
+          </li>
+        </ul>
+      </div>
+
+    </div>
+
+    <div class="article-sidebar">
+      <span class="sidebar-label">The ranking</span>
+      <ul class="sidebar-list">
+        <li><span>British Empire</span><span class="rank-num">01</span></li>
+        <li><span>Spanish Empire</span><span class="rank-num">02</span></li>
+        <li><span>Holy Roman Empire</span><span class="rank-num">03</span></li>
+        <li><span>French Empire</span><span class="rank-num">04</span></li>
+        <li><span>Russian Empire</span><span class="rank-num">05</span></li>
+        <li><span>German Empire</span><span class="rank-num">06</span></li>
+        <li><span>Portuguese Empire</span><span class="rank-num">07</span></li>
+        <li><span>Dutch Empire</span><span class="rank-num">08</span></li>
+        <li><span>Swedish Empire</span><span class="rank-num">09</span></li>
+        <li><span>Danish Empire</span><span class="rank-num">10</span></li>
+      </ul>
+
+      <span class="sidebar-label">By the numbers</span>
+      <div class="sidebar-stat">
+        <div class="sidebar-stat-num">1.53B</div>
+        <div class="sidebar-stat-label">English speakers (Ethnologue 2025)</div>
+      </div>
+      <div class="sidebar-stat">
+        <div class="sidebar-stat-num">636M</div>
+        <div class="sidebar-stat-label">Spanish speakers (Instituto Cervantes 2025)</div>
+      </div>
+      <div class="sidebar-stat">
+        <div class="sidebar-stat-num">396M</div>
+        <div class="sidebar-stat-label">French speakers (OIF 2026)</div>
+      </div>
+      <div class="sidebar-stat">
+        <div class="sidebar-stat-num">279M</div>
+        <div class="sidebar-stat-label">Portuguese speakers (2024)</div>
+      </div>
+
+      <span class="sidebar-label" style="margin-top: 32px; display: block;">Criteria</span>
+      <ul class="sidebar-list">
+        <li><span>Linguistic reach</span></li>
+        <li><span>Institutional influence</span></li>
+        <li><span>Economic legacy</span></li>
+        <li><span>Cultural presence</span></li>
+        <li><span>Geopolitical footprint</span></li>
+      </ul>
+    </div>
+  </div>
+
+  <footer>
+    <a href="index.html" class="footer-logo">Nordic Luxury Media</a>
+    <div class="footer-copy">© 2026 Nordic Luxury Media · Helsinki, Finland</div>
+  </footer>
+
+</body>
+</html>
