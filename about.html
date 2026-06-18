@@ -1,0 +1,237 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>About Nordic Luxury Media</title>
+  <meta name="description" content="Nordic Luxury Media started in 2023 as Finland's first real estate content channel. It grew into something bigger." />
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,400;0,500;0,700;1,400;1,600&family=Inter:wght@300;400;500&display=swap" rel="stylesheet" />
+  <link rel="icon" type="image/x-icon" href="/favicon.ico" />
+  <link rel="icon" type="image/png" sizes="32x32" href="/favicon-32.png" />
+  <link rel="apple-touch-icon" sizes="180x180" href="/favicon-180.png" />
+  <style>
+    *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+    :root {
+      --black: #080808;
+      --surface: #111111;
+      --surface-2: #181818;
+      --border: #222222;
+      --border-light: #2C2C2C;
+      --white: #F0EBE3;
+      --white-dim: rgba(240,235,227,0.6);
+      --white-faint: rgba(240,235,227,0.22);
+      --white-ghost: rgba(240,235,227,0.06);
+    }
+    html { scroll-behavior: smooth; }
+    body { background: var(--black); color: var(--white); font-family: 'Inter', sans-serif; font-size: 17px; line-height: 1.8; -webkit-font-smoothing: antialiased; }
+    nav { position: fixed; top: 0; left: 0; right: 0; z-index: 100; display: flex; align-items: center; justify-content: space-between; padding: 0 52px; height: 60px; background: rgba(8,8,8,0.97); border-bottom: 1px solid var(--border); backdrop-filter: blur(12px); }
+    .nav-logo { font-family: 'Playfair Display', serif; font-size: 14px; font-weight: 700; letter-spacing: 0.2em; text-transform: uppercase; color: var(--white); text-decoration: none; }
+    .nav-links { display: flex; gap: 36px; list-style: none; }
+    .nav-links a { font-size: 11px; letter-spacing: 0.13em; text-transform: uppercase; color: var(--white-dim); text-decoration: none; transition: color 0.2s; }
+    .nav-links a:hover, .nav-links a.active { color: var(--white); }
+
+    /* HERO */
+    .about-hero { padding: 120px 52px 80px; border-bottom: 1px solid var(--border); display: grid; grid-template-columns: 1fr 1fr; gap: 80px; align-items: end; }
+    .hero-tag { font-size: 10px; letter-spacing: 0.2em; text-transform: uppercase; color: var(--white-faint); margin-bottom: 24px; display: block; }
+    .hero-title { font-family: 'Playfair Display', serif; font-size: clamp(48px, 7vw, 96px); font-weight: 700; line-height: 0.95; color: var(--white); letter-spacing: -0.02em; }
+    .hero-title em { font-style: italic; font-weight: 400; }
+    .hero-right-text { font-size: 19px; font-weight: 300; color: var(--white-dim); line-height: 1.8; }
+
+    /* STORY */
+    .story-wrap { display: grid; grid-template-columns: 1fr 320px; border-bottom: 1px solid var(--border); }
+    .story-body { padding: 72px 72px 80px 52px; border-right: 1px solid var(--border); }
+    .story-body p { font-size: 18px; color: var(--white-dim); line-height: 1.95; margin-bottom: 32px; max-width: 640px; }
+    .story-body p:last-child { margin-bottom: 0; }
+    .story-body strong { color: var(--white); font-weight: 500; }
+    .pull-quote { font-family: 'Playfair Display', serif; font-size: clamp(22px, 2.8vw, 30px); font-style: italic; font-weight: 400; color: var(--white); line-height: 1.45; border-left: 1px solid var(--border-light); padding: 8px 0 8px 32px; margin: 52px 0; max-width: 600px; }
+    .chapter-label { font-size: 10px; letter-spacing: 0.2em; text-transform: uppercase; color: var(--white-faint); margin-bottom: 20px; padding-top: 48px; border-top: 1px solid var(--border); display: block; margin-top: 48px; }
+
+    /* SIDEBAR */
+    .story-sidebar { padding: 72px 36px; }
+    .sidebar-label { font-size: 10px; letter-spacing: 0.18em; text-transform: uppercase; color: var(--white-faint); margin-bottom: 16px; display: block; }
+    .sidebar-stat { margin-bottom: 24px; }
+    .sidebar-stat-num { font-family: 'Playfair Display', serif; font-size: 32px; font-weight: 700; color: var(--white); line-height: 1; margin-bottom: 6px; }
+    .sidebar-stat-label { font-size: 12px; color: var(--white-faint); line-height: 1.5; }
+    .sidebar-divider { border: none; border-top: 1px solid var(--border); margin: 32px 0; }
+    .sidebar-list { list-style: none; }
+    .sidebar-list li { font-size: 13px; color: var(--white-dim); padding: 12px 0; border-bottom: 1px solid var(--border); display: flex; justify-content: space-between; align-items: baseline; }
+    .sidebar-list li:last-child { border-bottom: none; }
+    .sidebar-list span { font-family: 'Playfair Display', serif; font-size: 15px; color: var(--white-faint); }
+
+    /* TIMELINE */
+    .timeline { padding: 72px 52px; border-bottom: 1px solid var(--border); }
+    .timeline-label { font-size: 10px; letter-spacing: 0.2em; text-transform: uppercase; color: var(--white-faint); margin-bottom: 40px; display: block; }
+    .timeline-items { display: grid; grid-template-columns: repeat(4, 1fr); gap: 1px; background: var(--border); }
+    .timeline-item { background: var(--surface); padding: 32px 28px; }
+    .timeline-year { font-family: 'Playfair Display', serif; font-size: 32px; font-weight: 700; color: var(--white); margin-bottom: 12px; line-height: 1; }
+    .timeline-event { font-size: 14px; color: var(--white-dim); line-height: 1.7; }
+
+    /* MISSION */
+    .mission { padding: 80px 52px; border-bottom: 1px solid var(--border); text-align: center; }
+    .mission-title { font-family: 'Playfair Display', serif; font-size: clamp(32px, 5vw, 64px); font-weight: 700; color: var(--white); line-height: 1.05; margin-bottom: 28px; letter-spacing: -0.01em; }
+    .mission-title em { font-style: italic; font-weight: 400; }
+    .mission-text { font-size: 18px; color: var(--white-dim); line-height: 1.85; max-width: 640px; margin: 0 auto 40px; }
+    .btn-primary { display: inline-block; padding: 14px 32px; background: var(--white); color: var(--black); font-size: 11px; font-weight: 500; letter-spacing: 0.14em; text-transform: uppercase; text-decoration: none; transition: background 0.2s; }
+    .btn-primary:hover { background: #e0dbd3; }
+    .btn-ghost { display: inline-block; padding: 13px 32px; border: 1px solid var(--border-light); color: var(--white-dim); font-size: 11px; letter-spacing: 0.14em; text-transform: uppercase; text-decoration: none; transition: border-color 0.2s, color 0.2s; margin-left: 12px; }
+    .btn-ghost:hover { border-color: var(--white-dim); color: var(--white); }
+
+    footer { border-top: 1px solid var(--border); padding: 36px 52px; display: grid; grid-template-columns: 1fr auto 1fr; align-items: center; }
+    .footer-logo { font-family: 'Playfair Display', serif; font-size: 13px; font-weight: 700; letter-spacing: 0.2em; text-transform: uppercase; color: var(--white-dim); text-decoration: none; }
+    .footer-copy { font-size: 11px; color: var(--white-faint); text-align: center; }
+    .footer-links { display: flex; gap: 24px; list-style: none; justify-content: flex-end; }
+    .footer-links a { font-size: 10px; letter-spacing: 0.12em; text-transform: uppercase; color: var(--white-faint); text-decoration: none; transition: color 0.2s; }
+    .footer-links a:hover { color: var(--white-dim); }
+
+    @media (max-width: 768px) {
+      nav { padding: 0 24px; }
+      .nav-links { display: none; }
+      .about-hero { padding: 100px 24px 56px; grid-template-columns: 1fr; gap: 36px; }
+      .story-wrap { grid-template-columns: 1fr; }
+      .story-body { padding: 52px 24px 64px; border-right: none; }
+      .story-sidebar { display: none; }
+      .timeline { padding: 52px 24px; }
+      .timeline-items { grid-template-columns: 1fr 1fr; }
+      .mission { padding: 60px 24px; }
+      footer { grid-template-columns: 1fr; gap: 12px; text-align: center; padding: 28px 24px; }
+      .footer-links { justify-content: center; }
+    }
+  </style>
+</head>
+<body>
+
+  <nav>
+    <a href="index.html" class="nav-logo">Nordic Luxury Media</a>
+    <ul class="nav-links">
+      <li><a href="about.html" class="active">About</a></li>
+      <li><a href="advertise.html">Advertise</a></li>
+      <li><a href="channels.html">Channels</a></li>
+      <li><a href="insights.html">Insights</a></li>
+      <li><a href="index.html#contact">Contact</a></li>
+    </ul>
+  </nav>
+
+  <div class="about-hero">
+    <div>
+      <span class="hero-tag">Nordic Luxury Media · Est. 2023 · Helsinki</span>
+      <h1 class="hero-title">We started<br />in Finland.<br /><em>We are going<br />everywhere.</em></h1>
+    </div>
+    <div>
+      <p class="hero-right-text">Nordic Luxury Media began as a single TikTok channel covering Finnish real estate. Nobody had done it before. The audience found it immediately. What started as one channel is now a media brand with four active channels, millions of views, and a global audience that nobody predicted when this started in 2023.</p>
+    </div>
+  </div>
+
+  <div class="story-wrap">
+    <div class="story-body">
+
+      <span class="chapter-label" style="padding-top:0; border-top:none; margin-top:0;">How it started</span>
+
+      <p>In 2023 nobody in Finland was making real estate content for TikTok. Not in the way that actually works on the platform visual, fast, watchable. The format that had driven property discovery in the US and UK simply did not exist in Finnish. Nordic Luxury Media was the first to do it.</p>
+
+      <p>The account grew fast. <strong>It became the biggest real estate TikTok account in Finland</strong> not because of a big team or a marketing budget, but because it was first and because the content was genuinely good. Finnish buyers and renters found it, followed it, and kept coming back. The audience was real from day one.</p>
+
+      <div class="pull-quote">Finland was just the start. The audience was always going to be bigger than one country.</div>
+
+      <p>That first channel proved something important: there was a real audience in Finland for this kind of content, and that audience was underserved everywhere else too. Not just in real estate. In finance, in geopolitics, in the kind of factual analytical content that respects the intelligence of the person watching it.</p>
+
+      <span class="chapter-label">What it became</span>
+
+      <p>Three more channels followed. Nordic Luxury Global covers finance, markets and ranked lists for a global audience. Nordic Luxury Europe covers geopolitics, architecture and the forces shaping the continent. Nordic Luxury Living covers Finnish homes in Finnish the most local of the four, and the most personal.</p>
+
+      <p>Four channels, four distinct audiences, one editorial standard. <strong>Every claim sourced. Every figure verified. No filler.</strong> That commitment is what built 13,000 followers and 12 million views a year across a platform TikTok where most content is disposable.</p>
+
+      <p>Finland is where it started but it is not the ceiling. The Global and Europe channels reach audiences across dozens of countries. The content about European empires, about GDP rankings, about geopolitical shifts none of that is specifically Finnish. It is built for anyone who is curious about the world and tired of content that does not take them seriously.</p>
+
+      <span class="chapter-label">Where it is going</span>
+
+      <p>Nordic Luxury Media is expanding beyond TikTok. YouTube, Instagram, and Threads are all active. This website the insights section, the rankings, the analysis is part of building something that exists independently of any single platform. A media brand that is not at the mercy of an algorithm.</p>
+
+      <p>The goal is straightforward even if the execution is not: <strong>build the media company that the next generation actually deserves.</strong> One that educates without being boring, entertains without being empty, and treats its audience as intelligent people who want to understand the world they live in.</p>
+
+      <p>That is what Nordic Luxury Media is building. It is early. The numbers are growing. The content is getting better. And the audience the real one, the one that comes back is paying attention.</p>
+
+    </div>
+
+    <div class="story-sidebar">
+      <span class="sidebar-label">By the numbers</span>
+      <div class="sidebar-stat">
+        <div class="sidebar-stat-num">2023</div>
+        <div class="sidebar-stat-label">Founded in Helsinki, Finland</div>
+      </div>
+      <div class="sidebar-stat">
+        <div class="sidebar-stat-num">12M+</div>
+        <div class="sidebar-stat-label">Views per year across all channels</div>
+      </div>
+      <div class="sidebar-stat">
+        <div class="sidebar-stat-num">13k+</div>
+        <div class="sidebar-stat-label">Total followers</div>
+      </div>
+      <div class="sidebar-stat">
+        <div class="sidebar-stat-num">4</div>
+        <div class="sidebar-stat-label">Active TikTok channels</div>
+      </div>
+      <hr class="sidebar-divider" />
+      <span class="sidebar-label">Channels</span>
+      <ul class="sidebar-list">
+        <li><span style="color:var(--white); font-family:'Inter',sans-serif; font-size:13px;">Nordic Luxury</span><span>7.9k</span></li>
+        <li><span style="color:var(--white); font-family:'Inter',sans-serif; font-size:13px;">Nordic Luxury Global</span><span>2.5k</span></li>
+        <li><span style="color:var(--white); font-family:'Inter',sans-serif; font-size:13px;">Nordic Luxury Europe</span><span>1.8k</span></li>
+        <li><span style="color:var(--white); font-family:'Inter',sans-serif; font-size:13px;">Nordic Luxury Living</span><span>950</span></li>
+      </ul>
+      <hr class="sidebar-divider" />
+      <span class="sidebar-label">Platforms</span>
+      <ul class="sidebar-list">
+        <li><span style="color:var(--white); font-family:'Inter',sans-serif; font-size:13px;">TikTok</span><span>Primary</span></li>
+        <li><span style="color:var(--white); font-family:'Inter',sans-serif; font-size:13px;">YouTube</span><span>Active</span></li>
+        <li><span style="color:var(--white); font-family:'Inter',sans-serif; font-size:13px;">Instagram</span><span>Active</span></li>
+        <li><span style="color:var(--white); font-family:'Inter',sans-serif; font-size:13px;">Threads</span><span>Active</span></li>
+      </ul>
+    </div>
+  </div>
+
+  <!-- TIMELINE -->
+  <div class="timeline">
+    <span class="timeline-label">Timeline</span>
+    <div class="timeline-items">
+      <div class="timeline-item">
+        <div class="timeline-year">2023</div>
+        <div class="timeline-event">Nordic Luxury launches on TikTok. First Finnish real estate content channel of its kind. Grows to become the biggest in Finland.</div>
+      </div>
+      <div class="timeline-item">
+        <div class="timeline-year">2024</div>
+        <div class="timeline-event">The channel keeps growing. The audience builds. One account, one market, doing it properly before scaling anywhere.</div>
+      </div>
+      <div class="timeline-item">
+        <div class="timeline-year">2025</div>
+        <div class="timeline-event">Three new channels launch. Music promotion partnerships with Calvin Harris, PROSPA and KAJ. Platform expands to YouTube, Instagram and Threads. Finland is no longer the only market.</div>
+      </div>
+      <div class="timeline-item">
+        <div class="timeline-year">2026 →</div>
+        <div class="timeline-event">nordicluxurymedia.com launches. Insights and rankings go live. 12 million views a year and growing. The next chapter is just starting.</div>
+      </div>
+    </div>
+  </div>
+
+  <!-- MISSION -->
+  <div class="mission">
+    <h2 class="mission-title">Educate. Entertain.<br /><em>Make it matter.</em></h2>
+    <p class="mission-text">The goal has always been the same: content that respects the intelligence of the person watching it. Factual, well-made, worth the time. Nordic Luxury Media is building that at scale across platforms, across topics, across borders.</p>
+    <a href="insights.html" class="btn-primary">Read our insights</a>
+    <a href="advertise.html" class="btn-ghost">Partner with us</a>
+  </div>
+
+  <footer>
+    <a href="index.html" class="footer-logo">Nordic Luxury Media</a>
+    <div class="footer-copy">© 2026 Nordic Luxury Media · Helsinki, Finland</div>
+    <ul class="footer-links">
+      <li><a href="advertise.html">Advertise</a></li>
+      <li><a href="channels.html">Channels</a></li>
+      <li><a href="insights.html">Insights</a></li>
+      <li><a href="index.html#contact">Contact</a></li>
+    </ul>
+  </footer>
+
+</body>
+</html>

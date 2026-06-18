@@ -1,0 +1,26 @@
+{
+  "headers": [
+    {
+      "source": "/(.*)",
+      "headers": [
+        {
+          "key": "X-Robots-Tag",
+          "value": "index, follow"
+        }
+      ]
+    }
+  ],
+  "rewrites": [
+    { "source": "/favicon.ico", "destination": "/favicon.ico" },
+    { "source": "/favicon-32.png", "destination": "/favicon-32.png" },
+    { "source": "/favicon-180.png", "destination": "/favicon-180.png" },
+    { "source": "/favicon-192.png", "destination": "/favicon-192.png" },
+    { "source": "/about.html", "destination": "/about.html" },
+    { "source": "/advertise.html", "destination": "/advertise.html" },
+    { "source": "/channels.html", "destination": "/channels.html" },
+    { "source": "/insights.html", "destination": "/insights.html" },
+    { "source": "/empires.html", "destination": "/empires.html" },
+    { "source": "/gdp-europe-2026.html", "destination": "/gdp-europe-2026.html" },
+    { "source": "/(.*)", "destination": "/index.html" }
+  ]
+}

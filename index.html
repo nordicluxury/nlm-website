@@ -4,623 +4,404 @@
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
   <title>Nordic Luxury Media</title>
-  <meta name="description" content="Nordic Luxury Media — an independent media brand producing real estate, finance, geopolitics, and culture content across TikTok, YouTube, Instagram, and Threads." />
+  <meta name="description" content="Nordic Luxury Media — an independent media brand based in Helsinki. Real estate, finance, geopolitics and culture content reaching millions every year." />
   <link rel="preconnect" href="https://fonts.googleapis.com" />
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
-  <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,400;0,500;0,600;0,700;1,400;1,600&family=Inter:wght@300;400;500&family=IM+Fell+English:ital@0;1&display=swap" rel="stylesheet" />
+  <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,400;0,500;0,700;1,400;1,600&family=Inter:wght@300;400;500&display=swap" rel="stylesheet" />
+  <link rel="icon" type="image/x-icon" href="/favicon.ico" />
+  <link rel="icon" type="image/png" sizes="32x32" href="/favicon-32.png" />
+  <link rel="apple-touch-icon" sizes="180x180" href="/favicon-180.png" />
   <style>
     *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
-
     :root {
       --black: #080808;
-      --ink: #111111;
-      --surface: #161616;
-      --surface-2: #1C1C1C;
-      --border: #242424;
+      --surface: #111111;
+      --surface-2: #181818;
+      --border: #222222;
       --border-light: #2C2C2C;
-      --white: #F4F1EC;
-      --white-dim: rgba(244,241,236,0.5);
-      --white-faint: rgba(244,241,236,0.18);
-      --white-ghost: rgba(244,241,236,0.07);
-      --accent: #E8E0D0;
+      --white: #F0EBE3;
+      --white-dim: rgba(240,235,227,0.6);
+      --white-faint: rgba(240,235,227,0.22);
+      --white-ghost: rgba(240,235,227,0.06);
     }
-
     html { scroll-behavior: smooth; }
-
-    body {
-      background: var(--black);
-      color: var(--white);
-      font-family: 'Inter', sans-serif;
-      font-size: 16px;
-      line-height: 1.7;
-      -webkit-font-smoothing: antialiased;
-    }
+    body { background: var(--black); color: var(--white); font-family: 'Inter', sans-serif; font-size: 16px; line-height: 1.7; -webkit-font-smoothing: antialiased; }
 
     /* NAV */
     nav {
       position: fixed; top: 0; left: 0; right: 0; z-index: 100;
       display: flex; align-items: center; justify-content: space-between;
       padding: 0 52px; height: 60px;
-      border-bottom: 1px solid transparent;
-      transition: background 0.4s, border-color 0.4s;
-    }
-    nav.scrolled {
-      background: rgba(8,8,8,0.97);
-      border-color: var(--border);
+      background: rgba(8,8,8,0.97); border-bottom: 1px solid var(--border);
       backdrop-filter: blur(12px);
     }
-    .nav-logo {
-      font-family: 'Playfair Display', serif;
-      font-size: 14px; font-weight: 700;
-      letter-spacing: 0.2em; text-transform: uppercase;
-      color: var(--white); text-decoration: none;
-    }
-    .nav-links { display: flex; gap: 40px; list-style: none; }
-    .nav-links a {
-      font-size: 11px; font-weight: 400; letter-spacing: 0.13em; text-transform: uppercase;
-      color: var(--white-dim); text-decoration: none; transition: color 0.2s;
-    }
+    .nav-logo { font-family: 'Playfair Display', serif; font-size: 14px; font-weight: 700; letter-spacing: 0.2em; text-transform: uppercase; color: var(--white); text-decoration: none; }
+    .nav-links { display: flex; gap: 36px; list-style: none; }
+    .nav-links a { font-size: 11px; letter-spacing: 0.13em; text-transform: uppercase; color: var(--white-dim); text-decoration: none; transition: color 0.2s; }
     .nav-links a:hover { color: var(--white); }
 
-    /* HERO */
-    #hero {
-      min-height: 100vh;
-      display: grid;
-      grid-template-rows: 1fr auto;
-      padding-top: 60px;
+    /* MASTHEAD */
+    .masthead {
+      padding: 100px 52px 0;
       border-bottom: 1px solid var(--border);
     }
-    .hero-inner {
-      display: flex;
-      flex-direction: column;
-      justify-content: center;
-      padding: 80px 52px 60px;
-      border-bottom: 1px solid var(--border);
+    .masthead-top {
+      display: flex; align-items: center; justify-content: space-between;
+      padding-bottom: 20px; border-bottom: 1px solid var(--border);
+      margin-bottom: 0;
     }
-    .hero-dateline {
-      font-size: 11px; font-weight: 400; letter-spacing: 0.18em; text-transform: uppercase;
-      color: var(--white-dim); margin-bottom: 40px;
-      display: flex; align-items: center; gap: 20px;
+    .masthead-eyebrow { font-size: 10px; letter-spacing: 0.2em; text-transform: uppercase; color: var(--white-faint); }
+    .masthead-date { font-size: 10px; letter-spacing: 0.12em; text-transform: uppercase; color: var(--white-faint); }
+    .masthead-title {
+      text-align: center;
+      padding: 36px 0 32px;
+      border-bottom: 3px solid var(--white);
     }
-    .hero-dateline::before, .hero-dateline::after {
-      content: ''; flex: 1; height: 1px; background: var(--border);
-    }
-    h1 {
+    .masthead-title h1 {
       font-family: 'Playfair Display', serif;
-      font-size: clamp(56px, 8vw, 112px);
-      font-weight: 700; line-height: 0.95;
-      color: var(--white);
-      letter-spacing: -0.02em;
-      max-width: 900px;
-      margin-bottom: 48px;
+      font-size: clamp(56px, 10vw, 140px);
+      font-weight: 700; line-height: 0.92;
+      color: var(--white); letter-spacing: -0.02em;
     }
-    h1 em { font-style: italic; font-weight: 400; }
-    .hero-columns {
-      display: grid;
-      grid-template-columns: 1fr 1fr 1fr;
-      gap: 0;
-      border-top: 1px solid var(--border);
+    .masthead-word-small { display: block; }
+    .masthead-word-large { display: block; font-style: italic; font-weight: 400; }
+    .masthead-tagline {
+      font-size: 11px; letter-spacing: 0.22em; text-transform: uppercase;
+      color: var(--white-faint); margin-top: 18px; display: block;
     }
-    .hero-col {
-      padding: 32px 0;
-      border-right: 1px solid var(--border);
-      padding-right: 40px;
-      margin-right: 40px;
+    .masthead-nav {
+      display: flex; justify-content: center; gap: 0;
+      border-bottom: 1px solid var(--border);
+      padding: 0;
     }
-    .hero-col:first-child { padding-left: 0; }
-    .hero-col:last-child { border-right: none; margin-right: 0; padding-right: 0; }
-    .hero-col-label {
-      font-size: 10px; letter-spacing: 0.18em; text-transform: uppercase;
-      color: var(--white-faint); margin-bottom: 10px;
+    .masthead-nav a {
+      font-size: 11px; letter-spacing: 0.14em; text-transform: uppercase;
+      color: var(--white-dim); text-decoration: none; padding: 14px 28px;
+      border-right: 1px solid var(--border); transition: color 0.2s, background 0.2s;
     }
-    .hero-col-text { font-size: 15px; color: var(--white-dim); line-height: 1.65; }
-    .hero-col-text strong { color: var(--white); font-weight: 500; }
-    .hero-cta-row {
-      display: flex; align-items: center; gap: 20px; flex-wrap: wrap;
-      margin-top: 24px;
-    }
+    .masthead-nav a:first-child { border-left: 1px solid var(--border); }
+    .masthead-nav a:hover { color: var(--white); background: var(--white-ghost); }
 
-    .btn-primary {
-      display: inline-block; padding: 13px 28px;
-      background: var(--white); color: var(--black);
-      font-size: 11px; font-weight: 500; letter-spacing: 0.14em; text-transform: uppercase;
-      text-decoration: none; border: none; cursor: pointer;
-      transition: background 0.2s, color 0.2s;
+    /* HERO SPLIT */
+    .hero-split {
+      display: grid; grid-template-columns: 1fr 1fr;
+      border-bottom: 1px solid var(--border);
     }
-    .btn-primary:hover { background: var(--accent); }
-    .btn-ghost {
-      display: inline-block; padding: 12px 28px;
-      border: 1px solid var(--border-light); color: var(--white-dim);
-      font-size: 11px; font-weight: 400; letter-spacing: 0.14em; text-transform: uppercase;
-      text-decoration: none; transition: border-color 0.2s, color 0.2s;
+    .hero-statement {
+      padding: 64px 52px;
+      border-right: 1px solid var(--border);
+      display: flex; flex-direction: column; justify-content: space-between;
     }
+    .hero-statement-text {
+      font-family: 'Playfair Display', serif;
+      font-size: clamp(28px, 3.5vw, 44px);
+      font-weight: 700; line-height: 1.12;
+      color: var(--white); margin-bottom: 32px;
+    }
+    .hero-statement-text em { font-style: italic; font-weight: 400; }
+    .hero-statement-body { font-size: 16px; color: var(--white-dim); line-height: 1.85; margin-bottom: 36px; max-width: 480px; }
+    .hero-statement-foot { display: flex; gap: 16px; flex-wrap: wrap; }
+    .btn-primary { display: inline-block; padding: 13px 28px; background: var(--white); color: var(--black); font-size: 11px; font-weight: 500; letter-spacing: 0.14em; text-transform: uppercase; text-decoration: none; transition: background 0.2s; border: none; cursor: pointer; }
+    .btn-primary:hover { background: #e0dbd3; }
+    .btn-ghost { display: inline-block; padding: 12px 28px; border: 1px solid var(--border-light); color: var(--white-dim); font-size: 11px; letter-spacing: 0.14em; text-transform: uppercase; text-decoration: none; transition: border-color 0.2s, color 0.2s; }
     .btn-ghost:hover { border-color: var(--white-dim); color: var(--white); }
 
-    .stats-bar {
-      display: grid; grid-template-columns: repeat(4, 1fr);
-    }
-    .stat-item {
-      padding: 24px 52px; border-right: 1px solid var(--border);
-      display: flex; align-items: baseline; gap: 14px;
-    }
-    .stat-item:last-child { border-right: none; }
-    .stat-number {
-      font-family: 'Playfair Display', serif;
-      font-size: 32px; font-weight: 700; color: var(--white); line-height: 1;
-    }
-    .stat-label {
-      font-size: 11px; letter-spacing: 0.1em; text-transform: uppercase;
-      color: var(--white-dim);
-    }
+    /* HERO STATS */
+    .hero-stats { padding: 64px 52px; display: flex; flex-direction: column; justify-content: space-between; }
+    .hero-stats-grid { display: grid; grid-template-columns: 1fr 1fr; gap: 1px; background: var(--border); margin-bottom: 40px; }
+    .hero-stat { background: var(--surface); padding: 28px 24px; }
+    .hero-stat-num { font-family: 'Playfair Display', serif; font-size: 36px; font-weight: 700; color: var(--white); line-height: 1; margin-bottom: 8px; }
+    .hero-stat-label { font-size: 11px; letter-spacing: 0.1em; text-transform: uppercase; color: var(--white-faint); }
+    .platforms-row { display: flex; gap: 12px; flex-wrap: wrap; }
+    .platform-pill { font-size: 10px; letter-spacing: 0.14em; text-transform: uppercase; color: var(--white-faint); border: 1px solid var(--border-light); padding: 6px 12px; }
 
-    /* SECTIONS */
-    section { padding: 100px 52px; }
-    .section-tag {
-      font-size: 10px; letter-spacing: 0.2em; text-transform: uppercase;
-      color: var(--white-faint); margin-bottom: 20px; display: block;
-    }
-    h2 {
-      font-family: 'Playfair Display', serif;
-      font-size: clamp(34px, 4vw, 54px);
-      font-weight: 700; line-height: 1.08; color: var(--white);
-      margin-bottom: 20px;
-    }
-    h2 em { font-style: italic; font-weight: 400; }
-    .rule { width: 100%; height: 1px; background: var(--border); margin: 0; }
+    /* TICKER */
+    .ticker { border-bottom: 1px solid var(--border); padding: 12px 0; overflow: hidden; background: var(--surface); }
+    .ticker-inner { display: flex; gap: 0; white-space: nowrap; animation: ticker 30s linear infinite; }
+    .ticker-item { font-size: 11px; letter-spacing: 0.12em; text-transform: uppercase; color: var(--white-dim); padding: 0 40px; border-right: 1px solid var(--border); }
+    @keyframes ticker { from { transform: translateX(0); } to { transform: translateX(-50%); } }
 
-    /* ABOUT */
-    #about { border-top: 1px solid var(--border); }
-    .about-grid { display: grid; grid-template-columns: 5fr 4fr; gap: 80px; margin-top: 60px; align-items: start; }
-    .pull-quote {
-      font-family: 'Playfair Display', serif;
-      font-size: clamp(22px, 2.8vw, 32px);
-      font-style: italic;
-      font-weight: 400;
-      color: var(--white);
-      line-height: 1.45;
-      border-left: 1px solid var(--border-light);
-      padding-left: 28px;
-      margin: 36px 0;
-    }
-    .about-text p { font-size: 16px; color: var(--white-dim); line-height: 1.85; margin-bottom: 22px; }
-    .about-text p:last-child { margin-bottom: 0; }
-    .about-text strong { color: var(--white); font-weight: 500; }
-    .channel-table { width: 100%; border-collapse: collapse; }
-    .channel-table th {
-      font-size: 10px; letter-spacing: 0.15em; text-transform: uppercase;
-      color: var(--white-faint); font-weight: 400; text-align: left;
-      padding: 0 0 14px; border-bottom: 1px solid var(--border);
-    }
-    .channel-table th:last-child { text-align: right; }
-    .channel-table td {
-      padding: 16px 0; border-bottom: 1px solid var(--border);
-      vertical-align: top;
-    }
-    .channel-table tr:last-child td { border-bottom: none; }
-    .ch-name { font-size: 14px; font-weight: 500; color: var(--white); margin-bottom: 3px; }
-    .ch-focus { font-size: 12px; color: var(--white-dim); }
-    .ch-stat {
-      font-family: 'Playfair Display', serif;
-      font-size: 22px; font-weight: 700; color: var(--white);
-      text-align: right;
-    }
+    /* CONTENT SECTION */
+    .content-section { padding: 0 52px; }
+    .content-header { display: flex; align-items: center; justify-content: space-between; padding: 32px 0 0; border-top: 1px solid var(--border); margin-top: 0; }
+    .content-label { font-size: 10px; letter-spacing: 0.22em; text-transform: uppercase; color: var(--white-faint); }
+    .content-link { font-size: 11px; letter-spacing: 0.12em; text-transform: uppercase; color: var(--white-dim); text-decoration: none; transition: color 0.2s; }
+    .content-link:hover { color: var(--white); }
 
-    /* ADVERTISE */
-    #advertise { border-top: 1px solid var(--border); background: var(--surface); }
-    .advertise-lead { max-width: 620px; margin-bottom: 64px; }
-    .advertise-lead p { font-size: 17px; color: var(--white-dim); line-height: 1.8; }
-    .tabs { display: flex; gap: 0; border-bottom: 1px solid var(--border); margin-bottom: 48px; }
-    .tab-btn {
-      padding: 14px 0; margin-right: 36px;
-      font-size: 11px; font-weight: 500; letter-spacing: 0.12em; text-transform: uppercase;
-      color: var(--white-dim); background: none; border: none;
-      border-bottom: 1px solid transparent; margin-bottom: -1px;
-      cursor: pointer; transition: color 0.2s, border-color 0.2s;
-    }
-    .tab-btn.active { color: var(--white); border-bottom-color: var(--white); }
-    .tab-panel { display: none; }
-    .tab-panel.active { display: block; }
-    .formats-grid { display: grid; grid-template-columns: repeat(3, 1fr); gap: 1px; background: var(--border); margin-bottom: 1px; }
-    .format-card { background: var(--surface); padding: 36px 28px; transition: background 0.2s; }
-    .format-card:hover { background: var(--black); }
-    .format-num { font-size: 10px; letter-spacing: 0.18em; text-transform: uppercase; color: var(--white-faint); margin-bottom: 18px; }
-    .format-title { font-family: 'Playfair Display', serif; font-size: 22px; font-weight: 600; color: var(--white); margin-bottom: 14px; line-height: 1.2; }
-    .format-desc { font-size: 14px; color: var(--white-dim); line-height: 1.75; margin-bottom: 22px; }
-    .format-note { font-size: 11px; letter-spacing: 0.06em; color: var(--white-faint); }
-    .data-row {
-      display: grid; grid-template-columns: repeat(4, 1fr);
-      background: var(--border); gap: 1px;
-    }
-    .data-cell {
-      background: var(--surface); padding: 28px;
-    }
-    .data-num {
-      font-family: 'Playfair Display', serif;
-      font-size: 28px; font-weight: 700; color: var(--white);
-      margin-bottom: 6px; line-height: 1;
-    }
-    .data-label { font-size: 11px; color: var(--white-dim); line-height: 1.4; }
+    /* FEATURED ARTICLE */
+    .featured-grid { display: grid; grid-template-columns: 2fr 1fr; gap: 1px; background: var(--border); margin: 24px 0 1px; }
+    .featured-main { background: var(--surface); padding: 48px 44px; text-decoration: none; color: inherit; transition: background 0.2s; display: flex; flex-direction: column; justify-content: space-between; min-height: 320px; }
+    .featured-main:hover { background: var(--surface-2); }
+    .featured-side { display: flex; flex-direction: column; }
+    .featured-side-item { background: var(--surface); padding: 32px 28px; border-bottom: 1px solid var(--border); text-decoration: none; color: inherit; transition: background 0.2s; flex: 1; display: flex; flex-direction: column; justify-content: space-between; }
+    .featured-side-item:last-child { border-bottom: none; }
+    .featured-side-item:hover { background: var(--surface-2); }
+    .art-tag { font-size: 10px; letter-spacing: 0.18em; text-transform: uppercase; color: var(--white-faint); margin-bottom: 16px; display: block; }
+    .art-title-lg { font-family: 'Playfair Display', serif; font-size: clamp(24px, 3vw, 36px); font-weight: 700; color: var(--white); line-height: 1.12; margin-bottom: 16px; }
+    .art-title-lg em { font-style: italic; font-weight: 400; }
+    .art-title-sm { font-family: 'Playfair Display', serif; font-size: 19px; font-weight: 600; color: var(--white); line-height: 1.2; margin-bottom: 12px; }
+    .art-excerpt { font-size: 14px; color: var(--white-dim); line-height: 1.75; margin-bottom: 20px; }
+    .art-foot { font-size: 11px; color: var(--white-faint); display: flex; justify-content: space-between; align-items: center; }
 
-    /* INSIGHTS */
-    #insights { border-top: 1px solid var(--border); }
-    .insights-header {
-      display: flex; align-items: flex-end; justify-content: space-between;
-      margin-bottom: 48px; flex-wrap: wrap; gap: 24px;
-    }
-    .insights-grid {
-      display: grid; grid-template-columns: 2fr 1fr 1fr;
-      gap: 1px; background: var(--border);
-    }
-    .insight-card {
-      background: var(--surface); padding: 36px 32px;
-      display: flex; flex-direction: column; justify-content: space-between;
-      text-decoration: none; color: inherit; transition: background 0.2s;
-      min-height: 300px;
-    }
-    .insight-card:hover { background: var(--surface-2); }
-    .insight-tag {
-      font-size: 10px; letter-spacing: 0.16em; text-transform: uppercase;
-      color: var(--white-faint); margin-bottom: 20px; display: block;
-    }
-    .insight-title {
-      font-family: 'Playfair Display', serif;
-      font-size: 20px; font-weight: 600; color: var(--white);
-      line-height: 1.25; margin-bottom: 16px; flex: 1;
-    }
-    .insight-card.featured .insight-title { font-size: 26px; }
-    .insight-excerpt { font-size: 14px; color: var(--white-dim); line-height: 1.65; margin-bottom: 24px; }
-    .insight-foot {
-      font-size: 11px; color: var(--white-faint);
-      display: flex; align-items: center; justify-content: space-between;
-    }
+    /* ALL ARTICLES ROW */
+    .articles-row { display: grid; grid-template-columns: repeat(3, 1fr); gap: 1px; background: var(--border); margin-bottom: 64px; }
+    .article-card { background: var(--surface); padding: 32px 28px; text-decoration: none; color: inherit; transition: background 0.2s; display: flex; flex-direction: column; justify-content: space-between; min-height: 220px; }
+    .article-card:hover { background: var(--surface-2); }
+    .article-card.coming { opacity: 0.35; cursor: default; }
 
-    /* CONTACT */
-    #contact { border-top: 1px solid var(--border); }
-    .contact-grid { display: grid; grid-template-columns: 1fr 1fr; gap: 80px; margin-top: 60px; align-items: start; }
-    .contact-text p { font-size: 16px; color: var(--white-dim); line-height: 1.85; margin-bottom: 36px; }
-    .contact-details { display: flex; flex-direction: column; gap: 14px; }
-    .contact-line { display: flex; align-items: baseline; gap: 16px; font-size: 14px; }
-    .contact-line .label { font-size: 10px; letter-spacing: 0.14em; text-transform: uppercase; color: var(--white-faint); min-width: 64px; }
-    .contact-line a { color: var(--white-dim); text-decoration: none; transition: color 0.2s; }
-    .contact-line a:hover { color: var(--white); }
-    .contact-line span { color: var(--white-dim); }
-    .contact-form { display: flex; flex-direction: column; gap: 14px; }
-    .form-row { display: grid; grid-template-columns: 1fr 1fr; gap: 14px; }
-    .contact-form input, .contact-form textarea, .contact-form select {
-      width: 100%; background: var(--surface); border: 1px solid var(--border-light);
-      color: var(--white); font-family: 'Inter', sans-serif; font-size: 14px;
-      padding: 14px 16px; outline: none; transition: border-color 0.2s; -webkit-appearance: none;
+    /* CHANNELS STRIP */
+    .channels-strip { border-top: 1px solid var(--border); border-bottom: 1px solid var(--border); display: grid; grid-template-columns: repeat(4, 1fr); gap: 1px; background: var(--border); margin: 0 52px 64px; }
+    .channel-item { background: var(--surface); padding: 28px 24px; }
+    .channel-name { font-family: 'Playfair Display', serif; font-size: 18px; font-weight: 700; color: var(--white); margin-bottom: 6px; }
+    .channel-focus { font-size: 12px; color: var(--white-dim); margin-bottom: 12px; }
+    .channel-followers { font-size: 11px; letter-spacing: 0.1em; text-transform: uppercase; color: var(--white-faint); }
+
+    /* ADVERTISE STRIP */
+    .advertise-strip {
+      margin: 0 52px 0;
+      padding: 48px 44px;
+      border: 1px solid var(--border-light);
+      display: grid; grid-template-columns: 1fr auto;
+      gap: 48px; align-items: center;
+      margin-bottom: 0;
     }
-    .contact-form input::placeholder, .contact-form textarea::placeholder { color: var(--white-faint); }
-    .contact-form input:focus, .contact-form textarea:focus, .contact-form select:focus { border-color: var(--white-dim); }
-    .contact-form textarea { resize: vertical; min-height: 120px; }
-    .contact-form select { color: var(--white-dim); }
-    .contact-form select option { background: var(--surface); }
+    .adstrip-title { font-family: 'Playfair Display', serif; font-size: 28px; font-weight: 700; color: var(--white); margin-bottom: 12px; line-height: 1.15; }
+    .adstrip-title em { font-style: italic; font-weight: 400; }
+    .adstrip-desc { font-size: 15px; color: var(--white-dim); line-height: 1.75; max-width: 560px; }
+    .adstrip-actions { display: flex; flex-direction: column; gap: 12px; align-items: flex-end; white-space: nowrap; }
 
     /* FOOTER */
-    footer {
-      border-top: 1px solid var(--border); padding: 36px 52px;
-      display: grid; grid-template-columns: 1fr auto 1fr; align-items: center;
-    }
-    .footer-copy { font-size: 11px; color: var(--white-faint); }
-    .footer-logo {
-      font-family: 'Playfair Display', serif; font-size: 13px; font-weight: 700;
-      letter-spacing: 0.2em; text-transform: uppercase; color: var(--white-dim);
-      text-align: center;
-    }
-    .footer-links {
-      display: flex; gap: 24px; list-style: none; justify-content: flex-end;
-    }
-    .footer-links a {
-      font-size: 10px; letter-spacing: 0.12em; text-transform: uppercase;
-      color: var(--white-faint); text-decoration: none; transition: color 0.2s;
-    }
+    footer { border-top: 1px solid var(--border); padding: 40px 52px; display: grid; grid-template-columns: 1fr auto 1fr; align-items: center; margin-top: 64px; }
+    .footer-logo { font-family: 'Playfair Display', serif; font-size: 13px; font-weight: 700; letter-spacing: 0.2em; text-transform: uppercase; color: var(--white-dim); text-decoration: none; }
+    .footer-copy { font-size: 11px; color: var(--white-faint); text-align: center; }
+    .footer-links { display: flex; gap: 24px; list-style: none; justify-content: flex-end; }
+    .footer-links a { font-size: 10px; letter-spacing: 0.12em; text-transform: uppercase; color: var(--white-faint); text-decoration: none; transition: color 0.2s; }
     .footer-links a:hover { color: var(--white-dim); }
 
-    /* MOBILE */
     @media (max-width: 768px) {
       nav { padding: 0 24px; }
       .nav-links { display: none; }
-      .hero-inner { padding: 60px 24px 40px; }
-      .hero-columns { grid-template-columns: 1fr; }
-      .hero-col { border-right: none; margin-right: 0; padding-right: 0; border-bottom: 1px solid var(--border); }
-      .hero-col:last-child { border-bottom: none; }
-      .stats-bar { grid-template-columns: 1fr 1fr; }
-      .stat-item { padding: 20px 24px; }
-      section { padding: 72px 24px; }
-      .about-grid { grid-template-columns: 1fr; gap: 48px; }
-      .formats-grid { grid-template-columns: 1fr; }
-      .data-row { grid-template-columns: 1fr 1fr; }
-      .insights-grid { grid-template-columns: 1fr; }
-      .contact-grid { grid-template-columns: 1fr; gap: 48px; }
-      .form-row { grid-template-columns: 1fr; }
-      footer { grid-template-columns: 1fr; gap: 12px; text-align: center; }
+      .masthead { padding: 80px 24px 0; }
+      .masthead-title h1 { font-size: clamp(44px, 14vw, 80px); }
+      .masthead-nav { overflow-x: auto; justify-content: flex-start; }
+      .masthead-nav a { padding: 12px 20px; white-space: nowrap; }
+      .hero-split { grid-template-columns: 1fr; }
+      .hero-statement { padding: 44px 24px; border-right: none; border-bottom: 1px solid var(--border); }
+      .hero-stats { padding: 44px 24px; }
+      .content-section { padding: 0 24px; }
+      .featured-grid { grid-template-columns: 1fr; }
+      .articles-row { grid-template-columns: 1fr; }
+      .channels-strip { grid-template-columns: 1fr 1fr; margin: 0 24px 48px; }
+      .advertise-strip { margin: 0 24px; grid-template-columns: 1fr; gap: 28px; padding: 36px 28px; }
+      .adstrip-actions { align-items: flex-start; }
+      footer { grid-template-columns: 1fr; gap: 12px; text-align: center; padding: 32px 24px; }
       .footer-links { justify-content: center; }
     }
-    @media (prefers-reduced-motion: reduce) { * { transition: none !important; } }
   </style>
-  <link rel="icon" type="image/x-icon" href="/favicon.ico" />
-  <link rel="icon" type="image/png" sizes="32x32" href="/favicon-32.png" />
-  <link rel="apple-touch-icon" sizes="180x180" href="/favicon-180.png" />
-  <link rel="icon" type="image/png" sizes="192x192" href="/favicon-192.png" />
 </head>
 <body>
 
-  <nav id="navbar">
-    <a href="#hero" class="nav-logo">Nordic Luxury Media</a>
+  <nav>
+    <a href="index.html" class="nav-logo">Nordic Luxury Media</a>
     <ul class="nav-links">
-      <li><a href="#about">About</a></li>
+      <li><a href="about.html">About</a></li>
       <li><a href="advertise.html">Advertise</a></li>
+      <li><a href="channels.html">Channels</a></li>
       <li><a href="insights.html">Insights</a></li>
       <li><a href="#contact">Contact</a></li>
     </ul>
   </nav>
 
-  <section id="hero">
-    <div class="hero-inner">
-      <div class="hero-dateline">The Next Generation of Media · Helsinki, Finland</div>
-      <h1>Knowledge.<br /><em>Entertainment.</em><br />The future.</h1>
-      <div class="hero-columns">
-        <div class="hero-col">
-          <div class="hero-col-label">What we are building</div>
-          <div class="hero-col-text">A media brand for the next generation — factual, entertaining, and built for people who want to understand the world, not just scroll through it.</div>
-        </div>
-        <div class="hero-col">
-          <div class="hero-col-label">Our platform</div>
-          <div class="hero-col-text"><strong>TikTok is our primary engine</strong> — 12 million views a year on its own. We also publish on YouTube, Instagram, and Threads.</div>
-        </div>
-        <div class="hero-col">
-          <div class="hero-col-label">Who we reach</div>
-          <div class="hero-col-text">18 to 44 year olds who want real analysis — on property, markets, geopolitics, and culture. A loyal audience that comes back because the content is worth it.</div>
-          <div class="hero-cta-row">
-            <a href="#advertise" class="btn-primary">Partner with us</a>
-            <a href="#insights" class="btn-ghost">Read our insights</a>
-          </div>
-        </div>
-      </div>
+  <!-- MASTHEAD -->
+  <div class="masthead">
+    <div class="masthead-top">
+      <span class="masthead-eyebrow">Independent Media · Helsinki, Finland</span>
+      <span class="masthead-date" id="masthead-date"></span>
     </div>
-    <div class="stats-bar">
-      <div class="stat-item">
-        <div class="stat-number">12M+</div>
-        <div class="stat-label">Views per year</div>
-      </div>
-      <div class="stat-item">
-        <div class="stat-number">13k+</div>
-        <div class="stat-label">Followers across channels</div>
-      </div>
-      <div class="stat-item">
-        <div class="stat-number">4</div>
-        <div class="stat-label">Active channels</div>
-      </div>
-      <div class="stat-item">
-        <div class="stat-number">18–44</div>
-        <div class="stat-label">Core audience age</div>
-      </div>
+    <div class="masthead-title">
+      <h1>Nordic<br /><em>Luxury</em><br />Media</h1>
+      <span class="masthead-tagline">Knowledge · Entertainment · The Future</span>
     </div>
-  </section>
+    <nav class="masthead-nav">
+      <a href="insights.html">Insights</a>
+      <a href="insights.html">Rankings</a>
+      <a href="insights.html">Finance</a>
+      <a href="insights.html">Geopolitics</a>
+      <a href="insights.html">Real estate</a>
+      <a href="advertise.html">Advertise</a>
+      <a href="about.html">About</a>
+    </nav>
+  </div>
 
-  <section id="about">
-    <span class="section-tag">About Nordic Luxury Media</span>
-    <h2>Independent media,<br /><em>Nordic roots,</em><br />global audience.</h2>
-    <div class="about-grid">
-      <div class="about-text">
-        <p>Nordic Luxury Media is an independent media brand based in Helsinki. We produce content across real estate, finance, geopolitics, architecture, and culture — distributed on TikTok, YouTube, Instagram, and Threads.</p>
-        <p class="pull-quote">We are building the media company that the next generation actually deserves to read.</p>
-        <p>Real estate is our home vertical. Our property channels cover the Finnish market in depth — from Helsinki apartments to regional homes — and have built a following of buyers, renters, and anyone genuinely interested in where and how people live in Finland.</p>
-        <p>Beyond real estate, our Global and Europe channels cover markets, rankings, and geopolitical analysis for an audience that spans continents. <strong>TikTok alone drives over 12 million views per year.</strong> We are building this for the long term — more channels, more verticals, one editorial standard that does not cut corners.</p>
-        <a href="#advertise" class="btn-ghost" style="display:inline-block; margin-top: 8px;">See how to partner with us</a>
-      </div>
+  <!-- TICKER -->
+  <div class="ticker">
+    <div class="ticker-inner">
+      <span class="ticker-item">12M+ views per year</span>
+      <span class="ticker-item">Four active TikTok channels</span>
+      <span class="ticker-item">Finland's first real estate content channel</span>
+      <span class="ticker-item">Real estate · Finance · Geopolitics · Culture</span>
+      <span class="ticker-item">TikTok · YouTube · Instagram · Threads</span>
+      <span class="ticker-item">Helsinki, Finland</span>
+      <span class="ticker-item">Independent media</span>
+      <span class="ticker-item">12M+ views per year</span>
+      <span class="ticker-item">Four active TikTok channels</span>
+      <span class="ticker-item">Finland's first real estate content channel</span>
+      <span class="ticker-item">Real estate · Finance · Geopolitics · Culture</span>
+      <span class="ticker-item">TikTok · YouTube · Instagram · Threads</span>
+      <span class="ticker-item">Helsinki, Finland</span>
+      <span class="ticker-item">Independent media</span>
+    </div>
+  </div>
+
+  <!-- HERO SPLIT -->
+  <div class="hero-split">
+    <div class="hero-statement">
       <div>
-        <table class="channel-table">
-          <thead>
-            <tr>
-              <th>Channel</th>
-              <th style="text-align:right">Followers</th>
-            </tr>
-          </thead>
-          <tbody>
-            <tr>
-              <td>
-                <div class="ch-name">Nordic Luxury</div>
-                <div class="ch-focus">Finnish real estate · TikTok</div>
-              </td>
-              <td><div class="ch-stat">7.9k</div></td>
-            </tr>
-            <tr>
-              <td>
-                <div class="ch-name">Nordic Luxury Global</div>
-                <div class="ch-focus">Finance, markets, ranked lists</div>
-              </td>
-              <td><div class="ch-stat">2.5k</div></td>
-            </tr>
-            <tr>
-              <td>
-                <div class="ch-name">Nordic Luxury Europe</div>
-                <div class="ch-focus">Geopolitics, architecture, finance</div>
-              </td>
-              <td><div class="ch-stat">1.8k</div></td>
-            </tr>
-            <tr>
-              <td>
-                <div class="ch-name">Nordic Luxury Living</div>
-                <div class="ch-focus">Finnish homes · Finnish language</div>
-              </td>
-              <td><div class="ch-stat">950</div></td>
-            </tr>
-          </tbody>
-        </table>
+        <h2 class="hero-statement-text">Built to educate.<br />Built to entertain.<br /><em>Built to last.</em></h2>
+        <p class="hero-statement-body">Nordic Luxury Media started in Finland as the first of its kind — real estate content nobody had made before. It grew into something bigger. Four channels, multiple platforms, millions of views, and an audience that keeps coming back because the content is worth it. This is the beginning of something much larger.</p>
+        <div class="hero-statement-foot">
+          <a href="insights.html" class="btn-primary">Read our insights</a>
+          <a href="about.html" class="btn-ghost">Our story</a>
+        </div>
       </div>
     </div>
-  </section>
+    <div class="hero-stats">
+      <div class="hero-stats-grid">
+        <div class="hero-stat">
+          <div class="hero-stat-num">12M+</div>
+          <div class="hero-stat-label">Views per year</div>
+        </div>
+        <div class="hero-stat">
+          <div class="hero-stat-num">13k+</div>
+          <div class="hero-stat-label">Total followers</div>
+        </div>
+        <div class="hero-stat">
+          <div class="hero-stat-num">2023</div>
+          <div class="hero-stat-label">Founded in Helsinki</div>
+        </div>
+        <div class="hero-stat">
+          <div class="hero-stat-num">4</div>
+          <div class="hero-stat-label">Active channels</div>
+        </div>
+      </div>
+      <div class="platforms-row">
+        <span class="platform-pill">TikTok</span>
+        <span class="platform-pill">YouTube</span>
+        <span class="platform-pill">Instagram</span>
+        <span class="platform-pill">Threads</span>
+      </div>
+    </div>
+  </div>
 
-  <section id="advertise">
-    <span class="section-tag">Advertise</span>
-    <h2>Reach people who<br /><em>actually care</em><br />about what you sell.</h2>
-    <div class="advertise-lead">
-      <p>Our audience is loyal and niche — property buyers, architecture enthusiasts, investors, and culture-curious 18 to 44 year olds. We work with two types of partners. Choose the one that fits.</p>
+  <!-- LATEST INSIGHTS -->
+  <div class="content-section">
+    <div class="content-header">
+      <span class="content-label">Latest insights and rankings</span>
+      <a href="insights.html" class="content-link">View all →</a>
     </div>
 
-    <div class="tabs">
-      <button class="tab-btn active" onclick="switchTab('realestate', this)">Real estate and agencies</button>
-      <button class="tab-btn" onclick="switchTab('brands', this)">Brands, music and lifestyle</button>
-    </div>
-
-    <div id="tab-realestate" class="tab-panel active">
-      <div class="formats-grid">
-        <div class="format-card">
-          <div class="format-num">01</div>
-          <div class="format-title">Listing Feature</div>
-          <div class="format-desc">Your property featured in our content — standard slideshow format, the way listings actually appear on our channels. Reaches a Finnish audience already looking at property content every day.</div>
-          <div class="format-note">Market: Finland · Channels: Nordic Luxury, Nordic Luxury Living</div>
-        </div>
-        <div class="format-card">
-          <div class="format-num">02</div>
-          <div class="format-title">Agency Partnership</div>
-          <div class="format-desc">Recurring placement across multiple posts. Your agency name becomes familiar to an audience of Finnish buyers, renters, and property followers. Not a one-off — a presence.</div>
-          <div class="format-note">Best for agencies with an active listing pipeline</div>
-        </div>
-        <div class="format-card">
-          <div class="format-num">03</div>
-          <div class="format-title">Furniture & Interiors</div>
-          <div class="format-desc">Our real estate audience is deeply interested in how spaces look and feel. Furniture brands, interior designers, and home goods companies fit naturally into our content environment.</div>
-          <div class="format-note">Loyal audience with high interest in architecture and design</div>
-        </div>
-      </div>
-      <div class="data-row">
-        <div class="data-cell">
-          <div class="data-num">Finland</div>
-          <div class="data-label">Primary real estate market</div>
-        </div>
-        <div class="data-cell">
-          <div class="data-num">18–44</div>
-          <div class="data-label">Core audience age range</div>
-        </div>
-        <div class="data-cell">
-          <div class="data-num">Loyal</div>
-          <div class="data-label">Returning viewers, not passive scrollers</div>
-        </div>
-        <div class="data-cell">
-          <div class="data-num">2</div>
-          <div class="data-label">Dedicated real estate channels</div>
-        </div>
-      </div>
-    </div>
-
-    <div id="tab-brands" class="tab-panel">
-      <div style="max-width: 620px; margin-bottom: 40px; padding: 28px 32px; border: 1px solid var(--border-light);">
-        <div style="font-size: 10px; letter-spacing: 0.18em; text-transform: uppercase; color: var(--white-faint); margin-bottom: 14px;">Track record</div>
-        <p style="font-size: 15px; color: var(--white-dim); line-height: 1.75;">We have worked with artists including <strong style="color: var(--white);">PROSPA, KAJ and Calvin Harris</strong>, helping generate hundreds of thousands of views per release. Big names follow our content. Music promotion is one of the most active parts of what we do and we have the audience reach to prove it.</p>
-      </div>
-      <div class="formats-grid">
-        <div class="format-card">
-          <div class="format-num">01</div>
-          <div class="format-title">Music Promotion</div>
-          <div class="format-desc">Artist or track promotion across TikTok, Instagram, YouTube and Threads. We integrate your music into content that already pulls millions of views a year. Not a banner ad — your sound in front of a real audience that listens.</div>
-          <div class="format-note">Cross-platform · Global reach · Proven track record</div>
-        </div>
-        <div class="format-card">
-          <div class="format-num">02</div>
-          <div class="format-title">Release Campaign</div>
-          <div class="format-desc">Multi-post promotion built around a single or album release. We time content around your drop, sustain visibility across platforms and reach an audience that is already engaged with the kind of content your music fits into.</div>
-          <div class="format-note">Best for: new releases, album launches, growing artists</div>
-        </div>
-        <div class="format-card">
-          <div class="format-num">03</div>
-          <div class="format-title">Brand Placement</div>
-          <div class="format-desc">For non-music brands — your product or service placed within content on our finance, geopolitics or global channels. Contextual not disruptive. The audience is smart enough to tell the difference.</div>
-          <div class="format-note">Channels: Global, Europe · Audience: finance-literate, globally curious</div>
-        </div>
-      </div>
-      <div class="data-row">
-        <div class="data-cell">
-          <div class="data-num">12M+</div>
-          <div class="data-label">Annual views across platform</div>
-        </div>
-        <div class="data-cell">
-          <div class="data-num">Global</div>
-          <div class="data-label">Audience reach</div>
-        </div>
-        <div class="data-cell">
-          <div class="data-num">PROSPA</div>
-          <div class="data-label">KAJ · Calvin Harris · and more</div>
-        </div>
-        <div class="data-cell">
-          <div class="data-num">TT · YT · IG</div>
-          <div class="data-label">TikTok, YouTube, Instagram, Threads</div>
-        </div>
-      </div>
-    </div>
-  </section>
-
-  <section id="insights">
-    <div class="insights-header">
-      <div>
-        <span class="section-tag">Insights and Rankings</span>
-        <h2>Worth sitting<br />down to <em>read.</em></h2>
-      </div>
-      <a href="#contact" class="btn-ghost">Suggest a topic</a>
-    </div>
-    <div class="insights-grid">
-      <a href="gdp-europe-2026.html" class="insight-card featured">
+    <div class="featured-grid">
+      <a href="gdp-europe-2026.html" class="featured-main">
         <div>
-          <span class="insight-tag">Finance · Europe · IMF 2026</span>
-          <div class="insight-title">Europe's 10 Largest Economies in 2026</div>
-          <div class="insight-excerpt">Germany leads at $5.45 trillion. Spain is the fastest growing large economy on the continent. Poland just broke into the top ten for the first time. All figures from IMF April 2026.</div>
+          <span class="art-tag">Finance · Europe · IMF 2026</span>
+          <div class="art-title-lg">Europe's 10 Largest<br /><em>Economies in 2026</em></div>
+          <p class="art-excerpt">Germany leads at $5.45 trillion. Spain is the fastest growing large economy on the continent. Poland just broke into the top ten for the first time in history. All figures from IMF April 2026.</p>
         </div>
-        <div class="insight-foot">
-          <span>Nordic Luxury Media · Read now</span>
+        <div class="art-foot">
+          <span>Nordic Luxury Media</span>
           <span>→</span>
         </div>
       </a>
-      <a href="empires.html" class="insight-card">
-        <div>
-          <span class="insight-tag">Ranking · Global</span>
-          <div class="insight-title">European Empires Ranked by How They Still Rule the World</div>
-        </div>
-        <div class="insight-foot">
-          <span>Read now</span>
-          <span>→</span>
-        </div>
-      </a>
-      <div class="insight-card" style="opacity:0.5; cursor:default;">
-        <div>
-          <span class="insight-tag">Real estate · Finland</span>
-          <div class="insight-title">Best Cities to Buy Property in Finland Right Now</div>
-        </div>
-        <div class="insight-foot">
-          <span>Coming soon</span>
+      <div class="featured-side">
+        <a href="empires.html" class="featured-side-item">
+          <div>
+            <span class="art-tag">Ranking · Global</span>
+            <div class="art-title-sm">European Empires Ranked by How They Still Rule the World</div>
+            <p class="art-excerpt" style="font-size:13px;">Not by peak size. By what survived — language, law and borders still in the news today.</p>
+          </div>
+          <div class="art-foot"><span>Nordic Luxury Europe</span><span>→</span></div>
+        </a>
+        <div class="featured-side-item" style="opacity:0.4; cursor:default;">
+          <div>
+            <span class="art-tag">Real estate · Finland</span>
+            <div class="art-title-sm">Best Cities to Buy Property in Finland Right Now</div>
+          </div>
+          <div class="art-foot"><span>Coming soon</span></div>
         </div>
       </div>
     </div>
-  </section>
+  </div>
 
-  <section id="contact">
-    <span class="section-tag">Contact</span>
-    <h2>Serious inquiries<br /><em>only.</em></h2>
-    <div class="contact-grid">
-      <div class="contact-text">
-        <p>We work with a limited number of partners at any time — Finnish agencies, music artists, lifestyle brands, and companies whose audience overlaps with ours. If that sounds like you, reach out. We respond within 24 hours.</p>
-        <div class="contact-details">
-          <div class="contact-line">
-            <span class="label">Email</span>
-            <a href="mailto:contact@nordicluxurymedia.com">contact@nordicluxurymedia.com</a>
+  <!-- CHANNELS -->
+  <div class="content-section">
+    <div class="content-header" style="margin-bottom: 24px;">
+      <span class="content-label">Our channels</span>
+      <a href="about.html" class="content-link">About NLM →</a>
+    </div>
+  </div>
+  <div class="channels-strip">
+    <div class="channel-item">
+      <div class="channel-name">Nordic Luxury</div>
+      <div class="channel-focus">Finnish real estate · TikTok</div>
+      <div class="channel-followers">7.9k followers</div>
+    </div>
+    <div class="channel-item">
+      <div class="channel-name">Nordic Luxury Global</div>
+      <div class="channel-focus">Finance, markets, ranked lists</div>
+      <div class="channel-followers">2.5k followers</div>
+    </div>
+    <div class="channel-item">
+      <div class="channel-name">Nordic Luxury Europe</div>
+      <div class="channel-focus">Geopolitics, architecture, finance</div>
+      <div class="channel-followers">1.8k followers</div>
+    </div>
+    <div class="channel-item">
+      <div class="channel-name">Nordic Luxury Living</div>
+      <div class="channel-focus">Finnish homes · Finnish language</div>
+      <div class="channel-followers">950 followers</div>
+    </div>
+  </div>
+
+  <!-- ADVERTISE STRIP -->
+  <div class="advertise-strip">
+    <div>
+      <div class="adstrip-title">Reach the audience<br />that <em>acts.</em></div>
+      <p class="adstrip-desc">Real estate agencies, music artists, lifestyle brands — we work with a limited number of partners at any time. Our audience is loyal, niche and engaged. If your brand fits, reach out.</p>
+    </div>
+    <div class="adstrip-actions">
+      <a href="advertise.html" class="btn-primary">See partnerships</a>
+      <a href="#contact" class="btn-ghost">Contact us</a>
+    </div>
+  </div>
+
+  <!-- CONTACT -->
+  <div id="contact" style="padding: 80px 52px 0; border-top: 1px solid var(--border); margin-top: 64px;">
+    <div style="display: grid; grid-template-columns: 1fr 1fr; gap: 80px; align-items: start;">
+      <div>
+        <span style="font-size:10px; letter-spacing:0.2em; text-transform:uppercase; color:var(--white-faint); margin-bottom:20px; display:block;">Contact</span>
+        <h2 style="font-family:'Playfair Display',serif; font-size:clamp(28px,3.5vw,48px); font-weight:700; color:var(--white); line-height:1.1; margin-bottom:20px;">Let's talk<br /><em style="font-style:italic; font-weight:400;">partnership.</em></h2>
+        <p style="font-size:16px; color:var(--white-dim); line-height:1.85; margin-bottom:32px;">Whether you are a Finnish real estate agency, a music artist, or a brand with a story worth telling — we respond to every serious inquiry within 24 hours.</p>
+        <div style="display:flex; flex-direction:column; gap:14px;">
+          <div style="display:flex; gap:16px; font-size:14px;">
+            <span style="font-size:10px; letter-spacing:0.14em; text-transform:uppercase; color:var(--white-faint); min-width:64px; margin-top:2px;">Email</span>
+            <a href="mailto:contact@nordicluxurymedia.com" style="color:var(--white-dim); text-decoration:none;">contact@nordicluxurymedia.com</a>
           </div>
-          <div class="contact-line">
-            <span class="label">Based</span>
-            <span>Helsinki, Finland</span>
+          <div style="display:flex; gap:16px; font-size:14px;">
+            <span style="font-size:10px; letter-spacing:0.14em; text-transform:uppercase; color:var(--white-faint); min-width:64px; margin-top:2px;">Based</span>
+            <span style="color:var(--white-dim);">Helsinki, Finland</span>
           </div>
-          <div class="contact-line">
-            <span class="label">Response</span>
-            <span>Within 24 hours</span>
+          <div style="display:flex; gap:16px; font-size:14px;">
+            <span style="font-size:10px; letter-spacing:0.14em; text-transform:uppercase; color:var(--white-faint); min-width:64px; margin-top:2px;">Response</span>
+            <span style="color:var(--white-dim);">Within 24 hours</span>
           </div>
         </div>
       </div>
-      <form class="contact-form" action="https://formspree.io/f/xpqeoqna" method="POST">
-        <div class="form-row">
-          <input type="text" name="name" placeholder="Name" required />
-          <input type="email" name="email" placeholder="Email" required />
+      <form action="https://formspree.io/f/xpqeoqna" method="POST" style="display:flex; flex-direction:column; gap:14px;">
+        <div style="display:grid; grid-template-columns:1fr 1fr; gap:14px;">
+          <input type="text" name="name" placeholder="Name" required style="background:var(--surface); border:1px solid var(--border-light); color:var(--white); font-family:'Inter',sans-serif; font-size:14px; padding:14px 16px; outline:none; width:100%;" />
+          <input type="email" name="email" placeholder="Email" required style="background:var(--surface); border:1px solid var(--border-light); color:var(--white); font-family:'Inter',sans-serif; font-size:14px; padding:14px 16px; outline:none; width:100%;" />
         </div>
-        <select name="inquiry">
+        <select name="inquiry" style="background:var(--surface); border:1px solid var(--border-light); color:var(--white-dim); font-family:'Inter',sans-serif; font-size:14px; padding:14px 16px; outline:none; -webkit-appearance:none;">
           <option value="" disabled selected>What is this about?</option>
           <optgroup label="Real estate">
             <option>Listing feature</option>
@@ -634,44 +415,30 @@
           </optgroup>
           <option>Something else</option>
         </select>
-        <textarea name="message" placeholder="Tell us what you're working on."></textarea>
-        <button type="submit" class="btn-primary" style="width: fit-content;">Send inquiry</button>
+        <textarea name="message" placeholder="Tell us what you are working on." style="background:var(--surface); border:1px solid var(--border-light); color:var(--white); font-family:'Inter',sans-serif; font-size:14px; padding:14px 16px; outline:none; resize:vertical; min-height:120px; width:100%;"></textarea>
+        <button type="submit" class="btn-primary" style="width:fit-content;">Send inquiry</button>
       </form>
     </div>
-  </section>
+  </div>
 
   <footer>
-    <div class="footer-copy">© 2025 Nordic Luxury Media</div>
-    <div class="footer-logo">Nordic Luxury Media</div>
+    <a href="index.html" class="footer-logo">Nordic Luxury Media</a>
+    <div class="footer-copy">© 2026 Nordic Luxury Media · Helsinki, Finland</div>
     <ul class="footer-links">
-      <li><a href="#about">About</a></li>
+      <li><a href="about.html">About</a></li>
       <li><a href="advertise.html">Advertise</a></li>
+      <li><a href="channels.html">Channels</a></li>
       <li><a href="insights.html">Insights</a></li>
       <li><a href="#contact">Contact</a></li>
     </ul>
   </footer>
 
   <script>
-    const navbar = document.getElementById('navbar');
-    window.addEventListener('scroll', () => {
-      navbar.classList.toggle('scrolled', window.scrollY > 40);
-    }, { passive: true });
-
-    function switchTab(id, btn) {
-      document.querySelectorAll('.tab-panel').forEach(p => p.classList.remove('active'));
-      document.querySelectorAll('.tab-btn').forEach(b => b.classList.remove('active'));
-      document.getElementById('tab-' + id).classList.add('active');
-      btn.classList.add('active');
-    }
-
-    function handleSubmit(e) {
-      e.preventDefault();
-      const btn = e.target.querySelector('button[type="submit"]');
-      btn.textContent = 'Sent. We will be in touch.';
-      btn.style.background = '#1a1a1a';
-      btn.style.color = 'rgba(244,241,236,0.5)';
-      btn.disabled = true;
-    }
+    const nav = document.getElementById('navbar');
+    const d = new Date();
+    const days = ['Sunday','Monday','Tuesday','Wednesday','Thursday','Friday','Saturday'];
+    const months = ['January','February','March','April','May','June','July','August','September','October','November','December'];
+    document.getElementById('masthead-date').textContent = days[d.getDay()] + ', ' + months[d.getMonth()] + ' ' + d.getDate() + ', ' + d.getFullYear();
   </script>
 </body>
 </html>
