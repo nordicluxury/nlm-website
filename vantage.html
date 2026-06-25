@@ -1,0 +1,357 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>The Vantage — Nordic Luxury Media</title>
+  <meta name="description" content="The Vantage is the editorial publication of Nordic Luxury Media. Rankings, analysis and investigations on finance, geopolitics, business and culture." />
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,400;0,500;0,700;1,400;1,600&family=Inter:wght@300;400;500&display=swap" rel="stylesheet" />
+  <style>
+    *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+    :root {
+      --black: #080808;
+      --surface: #111111;
+      --surface-2: #181818;
+      --border: #222222;
+      --border-light: #2C2C2C;
+      --white: #F0EBE3;
+      --white-dim: rgba(240,235,227,0.6);
+      --white-faint: rgba(240,235,227,0.22);
+      --white-ghost: rgba(240,235,227,0.06);
+      --red: #4A7FC1;
+      --red-dim: rgba(74,127,193,0.15);
+      --red-faint: rgba(74,127,193,0.08);
+    }
+    html { scroll-behavior: smooth; }
+    body { background: var(--black); color: var(--white); font-family: 'Inter', sans-serif; font-size: 16px; line-height: 1.7; -webkit-font-smoothing: antialiased; }
+
+    nav {
+      position: fixed; top: 0; left: 0; right: 0; z-index: 100;
+      display: flex; align-items: center; justify-content: space-between;
+      padding: 0 52px; height: 60px;
+      background: rgba(8,8,8,0.97); border-bottom: 1px solid var(--border);
+      backdrop-filter: blur(12px);
+    }
+    .nav-logo { font-family: 'Playfair Display', serif; font-size: 14px; font-weight: 700; letter-spacing: 0.2em; text-transform: uppercase; color: var(--white); text-decoration: none; }
+    .nav-links { display: flex; gap: 36px; list-style: none; }
+    .nav-links a { font-size: 11px; letter-spacing: 0.13em; text-transform: uppercase; color: var(--white-dim); text-decoration: none; transition: color 0.2s; }
+    .nav-links a:hover { color: var(--white); }
+    .nav-links a.vantage { color: var(--red); }
+    .nav-links a.vantage:hover { color: #e02233; }
+
+    /* MASTHEAD */
+    .vantage-masthead {
+      padding: 100px 52px 0;
+      border-bottom: 1px solid var(--border);
+    }
+    .masthead-top {
+      display: flex; align-items: center; justify-content: space-between;
+      padding-bottom: 20px; border-bottom: 1px solid var(--border);
+    }
+    .masthead-parent { font-size: 10px; letter-spacing: 0.2em; text-transform: uppercase; color: var(--white-faint); }
+    .masthead-parent span { color: var(--red); }
+    .masthead-date { font-size: 10px; letter-spacing: 0.12em; text-transform: uppercase; color: var(--white-faint); }
+    .masthead-title {
+      text-align: center;
+      padding: 40px 0 36px;
+      border-bottom: 1px solid var(--border);
+      position: relative;
+    }
+    .masthead-title::before {
+      content: '';
+      position: absolute;
+      top: 0; left: 0; right: 0;
+      height: 3px;
+      background: var(--red);
+    }
+    .masthead-title h1 {
+      font-family: 'Playfair Display', serif;
+      font-size: clamp(56px, 10vw, 144px);
+      font-weight: 700; line-height: 0.92;
+      color: var(--white); letter-spacing: -0.02em;
+    }
+    .masthead-title h1 em { font-style: italic; font-weight: 400; color: var(--red); }
+    .masthead-tagline { font-size: 11px; letter-spacing: 0.22em; text-transform: uppercase; color: var(--white-faint); margin-top: 20px; display: block; }
+    .masthead-nav {
+      display: flex; justify-content: center;
+      border-bottom: 1px solid var(--border);
+    }
+    .masthead-nav a {
+      font-size: 11px; letter-spacing: 0.14em; text-transform: uppercase;
+      color: var(--white-dim); text-decoration: none; padding: 14px 28px;
+      border-right: 1px solid var(--border); transition: color 0.2s, background 0.2s;
+    }
+    .masthead-nav a:first-child { border-left: 1px solid var(--border); }
+    .masthead-nav a:hover { color: var(--white); background: var(--white-ghost); }
+
+    /* FEATURED */
+    .featured-grid { display: grid; grid-template-columns: 2fr 1fr; border-bottom: 1px solid var(--border); }
+    .featured-main {
+      padding: 56px 52px; border-right: 1px solid var(--border);
+      text-decoration: none; color: inherit; transition: background 0.2s;
+      display: flex; flex-direction: column; justify-content: space-between; min-height: 360px;
+    }
+    .featured-main:hover { background: var(--white-ghost); }
+    .featured-side { display: flex; flex-direction: column; }
+    .featured-side-item {
+      padding: 32px 32px; border-bottom: 1px solid var(--border);
+      text-decoration: none; color: inherit; transition: background 0.2s;
+      flex: 1; display: flex; flex-direction: column; justify-content: space-between;
+    }
+    .featured-side-item:last-child { border-bottom: none; }
+    .featured-side-item:hover { background: var(--white-ghost); }
+    .art-tag {
+      font-size: 10px; letter-spacing: 0.18em; text-transform: uppercase;
+      color: var(--red); margin-bottom: 16px; display: block;
+    }
+    .art-title-lg {
+      font-family: 'Playfair Display', serif;
+      font-size: clamp(24px, 3vw, 40px); font-weight: 700;
+      color: var(--white); line-height: 1.1; margin-bottom: 16px;
+    }
+    .art-title-lg em { font-style: italic; font-weight: 400; }
+    .art-title-sm {
+      font-family: 'Playfair Display', serif;
+      font-size: 19px; font-weight: 600;
+      color: var(--white); line-height: 1.2; margin-bottom: 10px;
+    }
+    .art-excerpt { font-size: 14px; color: var(--white-dim); line-height: 1.75; margin-bottom: 20px; }
+    .art-foot { font-size: 11px; color: var(--white-faint); display: flex; justify-content: space-between; }
+
+    /* ALL ARTICLES */
+    .articles-section { padding: 0 52px 80px; }
+    .section-heading {
+      font-size: 10px; letter-spacing: 0.22em; text-transform: uppercase;
+      color: var(--white-faint); padding: 32px 0 20px;
+      border-bottom: 1px solid var(--border);
+      display: flex; align-items: center; gap: 12px;
+    }
+    .section-heading::after { content: ''; flex: 1; height: 1px; background: var(--border); }
+    .article-row {
+      display: grid; grid-template-columns: 80px 1fr auto;
+      border-bottom: 1px solid var(--border);
+      text-decoration: none; color: inherit; transition: background 0.2s;
+    }
+    .article-row:hover { background: var(--white-ghost); }
+    .article-row-num {
+      font-family: 'Playfair Display', serif; font-size: 28px; font-weight: 700;
+      color: var(--white-ghost); padding: 28px 0; display: flex; align-items: center;
+    }
+    .article-row-body { padding: 28px 24px; }
+    .article-row-tag {
+      font-size: 10px; letter-spacing: 0.16em; text-transform: uppercase;
+      color: var(--red); margin-bottom: 8px; display: block;
+    }
+    .article-row-title {
+      font-family: 'Playfair Display', serif; font-size: 20px; font-weight: 600;
+      color: var(--white); line-height: 1.25; margin-bottom: 8px;
+    }
+    .article-row-excerpt { font-size: 13px; color: var(--white-dim); line-height: 1.7; }
+    .article-row-arrow { padding: 28px 0 28px 24px; display: flex; align-items: center; font-size: 20px; color: var(--red); }
+    .coming-row { display: grid; grid-template-columns: 80px 1fr; border-bottom: 1px solid var(--border); opacity: 0.3; }
+    .coming-body { padding: 28px 24px; }
+    .coming-tag { font-size: 10px; letter-spacing: 0.16em; text-transform: uppercase; color: var(--red); margin-bottom: 8px; display: block; }
+    .coming-title { font-family: 'Playfair Display', serif; font-size: 20px; font-weight: 600; color: var(--white); line-height: 1.25; }
+    .coming-label { font-size: 10px; letter-spacing: 0.1em; text-transform: uppercase; color: var(--white-faint); margin-top: 8px; display: block; }
+
+    /* ABOUT STRIP */
+    .about-strip {
+      margin: 0 52px 80px;
+      padding: 48px 44px;
+      border: 1px solid var(--border-light);
+      border-top: 3px solid var(--red);
+      display: grid; grid-template-columns: 1fr auto;
+      gap: 48px; align-items: center;
+    }
+    .about-strip-title { font-family: 'Playfair Display', serif; font-size: 26px; font-weight: 700; color: var(--white); margin-bottom: 12px; }
+    .about-strip-title em { font-style: italic; font-weight: 400; }
+    .about-strip-desc { font-size: 15px; color: var(--white-dim); line-height: 1.75; max-width: 560px; }
+    .btn-red { display: inline-block; padding: 13px 28px; background: var(--red); color: var(--white); font-size: 11px; font-weight: 500; letter-spacing: 0.14em; text-transform: uppercase; text-decoration: none; transition: background 0.2s; white-space: nowrap; }
+    .btn-red:hover { background: #3A6BA8; }
+
+    footer { border-top: 1px solid var(--border); padding: 36px 52px; display: grid; grid-template-columns: 1fr auto 1fr; align-items: center; }
+    .footer-logo { font-family: 'Playfair Display', serif; font-size: 13px; font-weight: 700; letter-spacing: 0.2em; text-transform: uppercase; color: var(--white-dim); text-decoration: none; }
+    .footer-vantage { font-family: 'Playfair Display', serif; font-size: 13px; font-weight: 700; letter-spacing: 0.2em; text-transform: uppercase; color: var(--red); text-align: center; }
+    .footer-copy { font-size: 11px; color: var(--white-faint); text-align: right; }
+
+    @media (max-width: 768px) {
+      nav { padding: 0 24px; }
+      .nav-links { display: none; }
+      .vantage-masthead { padding: 80px 24px 0; }
+      .masthead-title h1 { font-size: clamp(48px, 14vw, 80px); }
+      .masthead-nav { overflow-x: auto; justify-content: flex-start; }
+      .masthead-nav a { padding: 12px 20px; white-space: nowrap; }
+      .featured-grid { grid-template-columns: 1fr; }
+      .featured-main { padding: 40px 24px; border-right: none; }
+      .featured-side { border-top: 1px solid var(--border); }
+      .articles-section { padding: 0 24px 64px; }
+      .about-strip { margin: 0 24px 64px; grid-template-columns: 1fr; gap: 24px; padding: 36px 28px; }
+      footer { grid-template-columns: 1fr; gap: 12px; text-align: center; padding: 28px 24px; }
+      .footer-copy { text-align: center; }
+    }
+  </style>
+</head>
+<body>
+
+  <nav>
+    <a href="index.html" class="nav-logo">Nordic Luxury Media</a>
+    <ul class="nav-links">
+      <li><a href="index.html">Home</a></li>
+      <li><a href="about.html">About</a></li>
+      <li><a href="advertise.html">Advertise</a></li>
+      <li><a href="channels.html">Channels</a></li>
+      <li><a href="vantage.html" class="vantage">The Vantage</a></li>
+    </ul>
+  </nav>
+
+  <div class="vantage-masthead">
+    <div class="masthead-top">
+      <span class="masthead-parent">A publication of <span>Nordic Luxury Media</span></span>
+      <span class="masthead-date" id="masthead-date"></span>
+    </div>
+    <div class="masthead-title">
+      <h1>The <em>Vantage</em></h1>
+      <span class="masthead-tagline">Rankings · Analysis · Investigation · Finance · Geopolitics · Business</span>
+    </div>
+    <nav class="masthead-nav">
+      <a href="vantage.html">All</a>
+      <a href="vantage.html">Finance</a>
+      <a href="vantage.html">Geopolitics</a>
+      <a href="vantage.html">Business</a>
+      <a href="vantage.html">Rankings</a>
+      <a href="vantage.html">Investigation</a>
+    </nav>
+  </div>
+
+  <!-- FEATURED -->
+  <div class="featured-grid">
+    <a href="european-companies-2026.html" class="featured-main">
+      <div>
+        <span class="art-tag">Ranking · Finance · Business · 2026</span>
+        <div class="art-title-lg">Top 10 Most Powerful<br /><em>European Companies in 2026</em></div>
+        <p class="art-excerpt">Not a market cap ranking. ASML makes the only machines that build advanced chips. EDF powers France with nuclear energy. Shell runs the world's energy. Here are the companies that quietly run everything.</p>
+      </div>
+      <div class="art-foot"><span>The Vantage by Nordic Luxury Media</span><span>→</span></div>
+    </a>
+    <div class="featured-side">
+      <a href="european-cities-2026.html" class="featured-side-item">
+        <div>
+          <span class="art-tag">Ranking · Finance · Politics</span>
+          <div class="art-title-sm">Top 10 Most Powerful European Cities in 2026</div>
+          <p class="art-excerpt">London and Paris lead a tier of their own. Brussels hosts the EU and NATO.</p>
+        </div>
+        <div class="art-foot"><span>The Vantage</span><span>→</span></div>
+      </a>
+      <a href="gdp-europe-2026.html" class="featured-side-item">
+        <div>
+          <span class="art-tag">Finance · Europe · IMF 2026</span>
+          <div class="art-title-sm">Europe's 10 Largest Economies in 2026</div>
+          <p class="art-excerpt">Germany at $5.45T. Poland in the top ten for the first time.</p>
+        </div>
+        <div class="art-foot"><span>The Vantage</span><span>→</span></div>
+      </a>
+    </div>
+  </div>
+
+  <!-- ALL ARTICLES -->
+  <div class="articles-section">
+    <div class="section-heading">All published</div>
+
+    <a href="european-companies-2026.html" class="article-row">
+      <div class="article-row-num">01</div>
+      <div class="article-row-body">
+        <span class="article-row-tag">Ranking · Finance · Business</span>
+        <div class="article-row-title">Top 10 Most Powerful European Companies in 2026</div>
+        <div class="article-row-excerpt">Not a market cap ranking. Power means what the world cannot function without. ASML, Shell, Nestlé, HSBC, SAP, Airbus, BAE, Novo Nordisk, EDF, Volkswagen.</div>
+      </div>
+      <div class="article-row-arrow">→</div>
+    </a>
+
+    <a href="european-cities-2026.html" class="article-row">
+      <div class="article-row-num">02</div>
+      <div class="article-row-body">
+        <span class="article-row-tag">Ranking · Finance · Politics</span>
+        <div class="article-row-title">Top 10 Most Powerful European Cities in 2026</div>
+        <div class="article-row-excerpt">London and Paris lead a tier of their own. Frankfurt holds the ECB. Brussels hosts the EU and NATO. These are the cities that hold Europe's power right now.</div>
+      </div>
+      <div class="article-row-arrow">→</div>
+    </a>
+
+    <a href="european-cities-power.html" class="article-row">
+      <div class="article-row-num">03</div>
+      <div class="article-row-body">
+        <span class="article-row-tag">Ranking · History</span>
+        <div class="article-row-title">Top 5 European Cities That Used to Be the Most Powerful in the World</div>
+        <div class="article-row-excerpt">Rome governed 21% of the world's population. Amsterdam invented the stock exchange. Lisbon opened the global spice trade.</div>
+      </div>
+      <div class="article-row-arrow">→</div>
+    </a>
+
+    <a href="empires.html" class="article-row">
+      <div class="article-row-num">04</div>
+      <div class="article-row-body">
+        <span class="article-row-tag">Ranking · Global · Geopolitics</span>
+        <div class="article-row-title">European Empires Ranked by How They Still Rule the World</div>
+        <div class="article-row-excerpt">Not by peak size. By what survived — language, institutions, borders and conflicts that are still happening right now.</div>
+      </div>
+      <div class="article-row-arrow">→</div>
+    </a>
+
+    <a href="gdp-europe-2026.html" class="article-row">
+      <div class="article-row-num">05</div>
+      <div class="article-row-body">
+        <span class="article-row-tag">Finance · Europe · IMF 2026</span>
+        <div class="article-row-title">Europe's 10 Largest Economies in 2026</div>
+        <div class="article-row-excerpt">Germany at $5.45T. Poland in the top ten for the first time. Ireland's suspicious per capita number explained.</div>
+      </div>
+      <div class="article-row-arrow">→</div>
+    </a>
+
+    <div class="section-heading">Coming soon</div>
+
+    <div class="coming-row">
+      <div class="article-row-num">06</div>
+      <div class="coming-body">
+        <span class="coming-tag">Real estate · Finland</span>
+        <div class="coming-title">Best Cities to Buy Property in Finland Right Now</div>
+        <span class="coming-label">Coming soon</span>
+      </div>
+    </div>
+
+    <div class="coming-row">
+      <div class="article-row-num">07</div>
+      <div class="coming-body">
+        <span class="coming-tag">Ranking · History</span>
+        <div class="coming-title">Most Powerful European Families in History</div>
+        <span class="coming-label">Coming soon</span>
+      </div>
+    </div>
+
+  </div>
+
+  <!-- ABOUT STRIP -->
+  <div class="about-strip">
+    <div>
+      <div class="about-strip-title">What is <em>The Vantage?</em></div>
+      <p class="about-strip-desc">The Vantage is the editorial publication of Nordic Luxury Media. Rankings, analysis and investigations on finance, geopolitics, business and culture. Every number sourced. Every claim checked. Published for people who want to understand the world they live in.</p>
+    </div>
+    <a href="about.html" class="btn-red">About NLM →</a>
+  </div>
+
+  <footer>
+    <a href="index.html" class="footer-logo">Nordic Luxury Media</a>
+    <div class="footer-vantage">The Vantage</div>
+    <div class="footer-copy">© 2026 Nordic Luxury Media</div>
+  </footer>
+
+  <script>
+    const d = new Date();
+    const days = ['Sunday','Monday','Tuesday','Wednesday','Thursday','Friday','Saturday'];
+    const months = ['January','February','March','April','May','June','July','August','September','October','November','December'];
+    document.getElementById('masthead-date').textContent = days[d.getDay()] + ', ' + months[d.getMonth()] + ' ' + d.getDate() + ', ' + d.getFullYear();
+  </script>
+
+</body>
+</html>
