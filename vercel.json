@@ -20,6 +20,7 @@
     { "source": "/european-cities-2026", "destination": "/european-cities-2026.html" },
     { "source": "/european-cities-power", "destination": "/european-cities-power.html" },
     { "source": "/european-companies-2026", "destination": "/european-companies-2026.html" },
-    { "source": "/banking-investigation", "destination": "/banking-investigation.html" }
+    { "source": "/banking-investigation", "destination": "/banking-investigation.html" },
+    { "source": "/european-families-2026", "destination": "/european-families-2026.html" }
   ]
 }
