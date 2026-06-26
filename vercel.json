@@ -9,5 +9,17 @@
         }
       ]
     }
+  ],
+  "rewrites": [
+    { "source": "/vantage", "destination": "/vantage.html" },
+    { "source": "/about", "destination": "/about.html" },
+    { "source": "/advertise", "destination": "/advertise.html" },
+    { "source": "/channels", "destination": "/channels.html" },
+    { "source": "/empires", "destination": "/empires.html" },
+    { "source": "/gdp-europe-2026", "destination": "/gdp-europe-2026.html" },
+    { "source": "/european-cities-2026", "destination": "/european-cities-2026.html" },
+    { "source": "/european-cities-power", "destination": "/european-cities-power.html" },
+    { "source": "/european-companies-2026", "destination": "/european-companies-2026.html" },
+    { "source": "/banking-investigation", "destination": "/banking-investigation.html" }
   ]
 }
