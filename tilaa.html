@@ -94,8 +94,6 @@
     .form-input::placeholder { color: var(--white-faint); }
     textarea.form-input { resize: vertical; min-height: 90px; }
     .form-row { display: grid; grid-template-columns: 1fr 1fr; gap: 14px; }
-    .card-wrap { background: var(--surface); border: 1px solid var(--border-light); padding: 15px 16px; transition: border-color 0.2s; }
-    .card-wrap.focused { border-color: var(--blue); }
     .card-error { font-size: 13px; color: #e05c5c; min-height: 20px; margin-top: 8px; }
     .pay-btn { width: 100%; padding: 18px; background: var(--white); color: var(--black); font-family: 'Inter', sans-serif; font-size: 13px; font-weight: 600; letter-spacing: 0.14em; text-transform: uppercase; border: none; cursor: pointer; transition: background 0.2s; margin-top: 8px; }
     .pay-btn:hover { background: #e0dbd3; }
@@ -164,7 +162,15 @@
   <button class="lang-btn" onclick="setLang('fi')">Suomeksi</button>
 </div>
 
-<!-- HERO -->
+<!-- TEMP BANNER -->
+  <div id="banner-en" style="background:#4A7FC1; color:#F0EBE3; text-align:center; padding:14px 24px; font-family:'Inter',sans-serif; font-size:13px; letter-spacing:0.03em;">
+    <strong>Online payment launching soon.</strong> To order now email <a href="mailto:contact@nordicluxurymedia.com" style="color:#F0EBE3; font-weight:600; text-decoration:underline;">contact@nordicluxurymedia.com</a> and we will send payment details directly.
+  </div>
+  <div id="banner-fi" style="display:none; background:#4A7FC1; color:#F0EBE3; text-align:center; padding:14px 24px; font-family:'Inter',sans-serif; font-size:13px; letter-spacing:0.03em;">
+    <strong>Verkkomaksu tulossa pian.</strong> Tilaa nyt sähköpostitse: <a href="mailto:contact@nordicluxurymedia.com" style="color:#F0EBE3; font-weight:600; text-decoration:underline;">contact@nordicluxurymedia.com</a> — lähetämme maksutiedot suoraan.
+  </div>
+
+  <!-- HERO -->
 <div class="hero">
   <span class="hero-tag" data-en="Property Marketing · Nordic Luxury Media" data-fi="Kiinteistömarkkinointi · Nordic Luxury Media">Property Marketing · Nordic Luxury Media</span>
   <h1 class="hero-title" data-en="Your listing.<br /><em>250,000 Finnish<br />eyes on it.</em>" data-fi="250 000 suomalaista.<br /><em>Kuukausittain.</em>">Your listing.<br /><em>250,000 Finnish<br />eyes on it.</em></h1>
@@ -284,14 +290,15 @@
   </div>
 
   <div class="form-group" style="margin-top:28px;">
-    <label class="form-label" data-en="Card details" data-fi="Korttitiedot">Card details</label>
-    <div class="card-wrap" id="card-wrap"><div id="card-element"></div></div>
+    <label class="form-label" data-en="Payment" data-fi="Maksu">Payment</label>
+    <div id="payment-element"></div>
     <div class="card-error" id="card-error"></div>
   </div>
 
-  <button class="pay-btn" id="pay-btn" onclick="handlePayment()">
-    <span data-en="Pay and submit listing →" data-fi="Maksa ja lähetä kohde →">Pay and submit listing →</span>
-  </button>
+  <a href="mailto:contact@nordicluxurymedia.com?subject=Listing order" class="pay-btn" style="display:block; text-align:center; text-decoration:none;">
+    <span data-en="Email us to order →" data-fi="Tilaa sähköpostitse →">Email us to order →</span>
+  </a>
+  <p style="font-size:12px; color:rgba(240,235,227,0.35); text-align:center; margin-top:10px;" data-en="Online payment launching soon. We will confirm your order and send payment details within 24 hours." data-fi="Verkkomaksu tulossa pian. Vahvistamme tilauksesi ja lähetämme maksutiedot 24 tunnin sisällä.">Online payment launching soon. We will confirm your order and send payment details within 24 hours.</p>
   <div class="secure-note">
     <svg width="11" height="13" viewBox="0 0 12 14" fill="none"><path d="M6 0L0 2.5V6.5C0 10.1 2.6 13.5 6 14C9.4 13.5 12 10.1 12 6.5V2.5L6 0Z" fill="rgba(240,235,227,0.25)"/></svg>
     <span data-en="Secured by Stripe · Your card details never touch our servers" data-fi="Suojattu Stripellä · Korttitietosi eivät koskaan tallennu palvelimillemme">Secured by Stripe · Your card details never touch our servers</span>
@@ -363,20 +370,11 @@
 <script>
   const STRIPE_KEY = 'pk_test_51TowsZD3NpaczWDDp6pyLAVHzSN0iEJZyYWQpdpEyCUgPqAmZ0kyc3kmhB0TH9HLq3h4aqr0SWDJxp0CFmhXw3GF00gI786l6t';
   const stripe = Stripe(STRIPE_KEY);
-  const elements = stripe.elements();
-  const card = elements.create('card', {
-    style: {
-      base: { color: '#F0EBE3', fontFamily: 'Inter, sans-serif', fontSize: '15px', '::placeholder': { color: 'rgba(240,235,227,0.35)' } },
-      invalid: { color: '#e05c5c' }
-    }
-  });
-  card.mount('#card-element');
-  card.on('focus', () => document.getElementById('card-wrap').classList.add('focused'));
-  card.on('blur', () => document.getElementById('card-wrap').classList.remove('focused'));
-  card.on('change', e => { document.getElementById('card-error').textContent = e.error ? e.error.message : ''; });
 
   let lang = 'en';
   let selectedPkg = null;
+  let stripeElements = null;
+  let paymentElement = null;
 
   function setLang(l) {
     lang = l;
@@ -387,6 +385,9 @@
       if (txt) el.innerHTML = txt;
     });
     if (selectedPkg) updateSummary();
+    // Toggle banners
+    document.getElementById('banner-en').style.display = l === 'en' ? 'block' : 'none';
+    document.getElementById('banner-fi').style.display = l === 'fi' ? 'block' : 'none';
   }
 
   function updateSummary() {
@@ -398,37 +399,85 @@
     document.getElementById('order-price').textContent = '€' + (price / 100).toFixed(0) + (lang === 'fi' ? ' + ALV' : ' + VAT');
   }
 
-  function selectPackage(el) {
+  async function selectPackage(el) {
     document.querySelectorAll('.package-card').forEach(c => c.classList.remove('selected'));
     el.classList.add('selected');
     selectedPkg = { price: parseInt(el.dataset.price), id: el.dataset.package };
     updateSummary();
+
     const form = document.getElementById('form-wrap');
     form.classList.add('visible');
+
+    // Mount Payment Element with Apple Pay, Google Pay, card, bank
+    if (!paymentElement) {
+      stripeElements = stripe.elements({
+        mode: 'payment',
+        amount: selectedPkg.price,
+        currency: 'eur',
+        appearance: {
+          theme: 'night',
+          variables: {
+            colorPrimary: '#4A7FC1',
+            colorBackground: '#111111',
+            colorText: '#F0EBE3',
+            colorDanger: '#e05c5c',
+            fontFamily: 'Inter, sans-serif',
+            borderRadius: '0px',
+            colorTextPlaceholder: 'rgba(240,235,227,0.35)',
+          },
+          rules: {
+            '.Input': { border: '1px solid #2C2C2C', padding: '12px 14px' },
+            '.Input:focus': { border: '1px solid #4A7FC1', boxShadow: 'none' },
+            '.Tab': { border: '1px solid #2C2C2C', background: '#111111' },
+            '.Tab:hover': { border: '1px solid #4A7FC1' },
+            '.Tab--selected': { border: '1px solid #4A7FC1', background: '#0F1F3D' },
+          }
+        }
+      });
+      paymentElement = stripeElements.create('payment', {
+        layout: { type: 'tabs', defaultCollapsed: false },
+        wallets: { applePay: 'auto', googlePay: 'auto' }
+      });
+      paymentElement.mount('#payment-element');
+    } else {
+      // Update amount if package changed
+      stripeElements.update({ amount: selectedPkg.price });
+    }
+
     setTimeout(() => form.scrollIntoView({ behavior: 'smooth', block: 'start' }), 100);
   }
 
   async function handlePayment() {
-    if (!selectedPkg) return;
+    if (!selectedPkg || !stripeElements) return;
+
     const url = document.getElementById('listing-url').value.trim();
     const name = document.getElementById('customer-name').value.trim();
     const email = document.getElementById('customer-email').value.trim();
+
     if (!url || !name || !email) {
       alert(lang === 'fi' ? 'Täytä kaikki pakolliset kentät.' : 'Please fill in all required fields.');
       return;
     }
+
     const btn = document.getElementById('pay-btn');
     btn.disabled = true;
     btn.innerHTML = lang === 'fi' ? 'Käsitellään...' : 'Processing...';
     document.getElementById('card-error').textContent = '';
-    const { paymentMethod, error } = await stripe.createPaymentMethod({ type: 'card', card, billing_details: { name, email } });
-    if (error) {
-      document.getElementById('card-error').textContent = error.message;
+
+    // Validate payment element
+    const { error: submitError } = await stripeElements.submit();
+    if (submitError) {
+      document.getElementById('card-error').textContent = submitError.message;
       btn.disabled = false;
       btn.innerHTML = lang === 'fi' ? 'Maksa ja lähetä kohde →' : 'Pay and submit listing →';
       return;
     }
-    console.log('PM:', paymentMethod.id, '| Package:', selectedPkg.id, '| Amount:', selectedPkg.price);
+
+    // In test mode - show success
+    // In production: send to backend to create PaymentIntent, then confirmPayment
+    console.log('Ready to charge:', selectedPkg.price, 'eur cents | Package:', selectedPkg.id);
+    console.log('Customer:', name, email, '| Listing:', url);
+
     document.querySelector('.packages-section').style.display = 'none';
     document.getElementById('form-wrap').style.display = 'none';
     document.querySelector('.how').style.display = 'none';
