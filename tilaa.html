@@ -295,10 +295,10 @@
     <div class="card-error" id="card-error"></div>
   </div>
 
-  <a href="mailto:contact@nordicluxurymedia.com?subject=Listing order" class="pay-btn" style="display:block; text-align:center; text-decoration:none;">
-    <span data-en="Email us to order →" data-fi="Tilaa sähköpostitse →">Email us to order →</span>
-  </a>
-  <p style="font-size:12px; color:rgba(240,235,227,0.35); text-align:center; margin-top:10px;" data-en="Online payment launching soon. We will confirm your order and send payment details within 24 hours." data-fi="Verkkomaksu tulossa pian. Vahvistamme tilauksesi ja lähetämme maksutiedot 24 tunnin sisällä.">Online payment launching soon. We will confirm your order and send payment details within 24 hours.</p>
+  <button class="pay-btn" id="pay-btn" onclick="handleSubmit()">
+    <span id="pay-btn-text" data-en="Send order →" data-fi="Lähetä tilaus →">Send order →</span>
+  </button>
+  <p style="font-size:12px; color:rgba(240,235,227,0.35); text-align:center; margin-top:10px;" data-en="We will confirm your order and send payment details within 24 hours." data-fi="Vahvistamme tilauksesi ja lähetämme maksutiedot 24 tunnin sisällä.">We will confirm your order and send payment details within 24 hours.</p>
   <div class="secure-note">
     <svg width="11" height="13" viewBox="0 0 12 14" fill="none"><path d="M6 0L0 2.5V6.5C0 10.1 2.6 13.5 6 14C9.4 13.5 12 10.1 12 6.5V2.5L6 0Z" fill="rgba(240,235,227,0.25)"/></svg>
     <span data-en="Secured by Stripe · Your card details never touch our servers" data-fi="Suojattu Stripellä · Korttitietosi eivät koskaan tallennu palvelimillemme">Secured by Stripe · Your card details never touch our servers</span>
@@ -447,37 +447,58 @@
     setTimeout(() => form.scrollIntoView({ behavior: 'smooth', block: 'start' }), 100);
   }
 
-  async function handlePayment() {
-    if (!selectedPkg || !stripeElements) return;
+  async function handleSubmit() {
+    if (!selectedPkg) return;
 
-    const url = document.getElementById('listing-url').value.trim();
+    const listingUrl = document.getElementById('listing-url').value.trim();
     const name = document.getElementById('customer-name').value.trim();
     const email = document.getElementById('customer-email').value.trim();
+    const company = document.getElementById('customer-company').value.trim();
+    const notes = document.getElementById('customer-notes').value.trim();
 
-    if (!url || !name || !email) {
+    if (!listingUrl || !name || !email) {
       alert(lang === 'fi' ? 'Täytä kaikki pakolliset kentät.' : 'Please fill in all required fields.');
       return;
     }
 
     const btn = document.getElementById('pay-btn');
     btn.disabled = true;
-    btn.innerHTML = lang === 'fi' ? 'Käsitellään...' : 'Processing...';
-    document.getElementById('card-error').textContent = '';
+    document.getElementById('pay-btn-text').textContent = lang === 'fi' ? 'Lähetetään...' : 'Sending...';
 
-    // Validate payment element
-    const { error: submitError } = await stripeElements.submit();
-    if (submitError) {
-      document.getElementById('card-error').textContent = submitError.message;
-      btn.disabled = false;
-      btn.innerHTML = lang === 'fi' ? 'Maksa ja lähetä kohde →' : 'Pay and submit listing →';
-      return;
+    const packageName = document.querySelector('.package-card.selected').getAttribute('data-name-en');
+    const packagePrice = '€' + (selectedPkg.price / 100).toFixed(0);
+
+    try {
+      const res = await fetch('https://formspree.io/f/xlgyayql', {
+        method: 'POST',
+        headers: { 'Content-Type': 'application/json', 'Accept': 'application/json' },
+        body: JSON.stringify({
+          package: packageName + ' — ' + packagePrice,
+          listing_url: listingUrl,
+          name: name,
+          email: email,
+          company: company || '—',
+          notes: notes || '—',
+          language: lang.toUpperCase(),
+          _subject: 'New listing order — ' + packageName + ' ' + packagePrice + ' — ' + name
+        })
+      });
+
+      if (res.ok) {
+        showSuccess();
+      } else {
+        // Fallback to email if Formspree fails
+        window.location.href = 'mailto:contact@nordicluxurymedia.com?subject=Listing order — ' + packageName + '&body=Name: ' + name + '%0AEmail: ' + email + '%0APackage: ' + packageName + ' ' + packagePrice + '%0AListing: ' + listingUrl;
+        showSuccess();
+      }
+    } catch(e) {
+      // Network error fallback
+      window.location.href = 'mailto:contact@nordicluxurymedia.com?subject=Listing order&body=Name: ' + name + '%0AEmail: ' + email + '%0APackage: ' + packageName + ' ' + packagePrice + '%0AListing: ' + listingUrl;
+      showSuccess();
     }
+  }
 
-    // In test mode - show success
-    // In production: send to backend to create PaymentIntent, then confirmPayment
-    console.log('Ready to charge:', selectedPkg.price, 'eur cents | Package:', selectedPkg.id);
-    console.log('Customer:', name, email, '| Listing:', url);
-
+  function showSuccess() {
     document.querySelector('.packages-section').style.display = 'none';
     document.getElementById('form-wrap').style.display = 'none';
     document.querySelector('.how').style.display = 'none';
@@ -486,6 +507,11 @@
     s.classList.add('visible');
     setLang(lang);
     window.scrollTo({ top: 0, behavior: 'smooth' });
+  }
+
+  async function handlePayment() {
+    // Future: wire Stripe here when live keys ready
+    handleSubmit();
   }
 </script>
 
