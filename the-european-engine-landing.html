@@ -1,0 +1,408 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>The European Engine: 30 Companies Running the World | The Vantage</title>
+<meta name="description" content="Thirty European companies across ten sectors that the world quietly cannot function without, and why. A free report from The Vantage, the editorial platform of Nordic Luxury Media.">
+
+<!-- Open Graph -->
+<meta property="og:title" content="The European Engine: 30 Companies Running the World">
+<meta property="og:description" content="A free report from The Vantage identifying thirty European companies the world quietly depends on, and what happens if any one of them disappears.">
+<meta property="og:type" content="website">
+<!-- TODO: point this at a hosted 1200x630 cover image before sharing on LinkedIn -->
+<meta property="og:image" content="/vantage/og-european-engine.jpg">
+
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Source+Serif+4:ital,wght@0,400;0,600;0,700;1,500&family=Inter:wght@400;500;600&display=swap" rel="stylesheet">
+
+<style>
+  :root {
+    --ink: #14213D;
+    --steel: #4A7FC1;
+    --fog: #F3F6FB;
+    --hairline: #E3E3E3;
+    --graphite: #46494f;
+    --paper: #FFFFFF;
+  }
+  * { box-sizing: border-box; }
+  html { scroll-behavior: smooth; }
+  body {
+    margin: 0;
+    background: var(--paper);
+    color: var(--graphite);
+    font-family: 'Inter', Arial, sans-serif;
+    font-size: 16px;
+    line-height: 1.65;
+    -webkit-font-smoothing: antialiased;
+  }
+  .wrap { max-width: 720px; margin: 0 auto; padding: 0 24px; }
+
+  /* ---------- NAV ---------- */
+  nav.top {
+    border-bottom: 1px solid var(--hairline);
+    padding: 22px 0;
+  }
+  nav.top .wrap { display: flex; align-items: center; justify-content: space-between; }
+  .wordmark {
+    font-family: 'Source Serif 4', Georgia, serif;
+    font-size: 15px;
+    letter-spacing: 4px;
+    text-transform: uppercase;
+    color: var(--ink);
+    text-decoration: none;
+  }
+  .nav-back {
+    font-size: 13px;
+    color: var(--graphite);
+    text-decoration: none;
+    border-bottom: 1px solid var(--hairline);
+  }
+  .nav-back:hover { border-color: var(--steel); color: var(--steel); }
+
+  /* ---------- HERO ---------- */
+  .hero {
+    position: relative;
+    padding: 72px 0 40px;
+    overflow: hidden;
+  }
+  .ghost-30 {
+    position: absolute;
+    top: -10px;
+    right: 24px;
+    font-family: 'Source Serif 4', serif;
+    font-weight: 700;
+    font-size: clamp(90px, 20vw, 200px);
+    color: var(--fog);
+    line-height: 1;
+    z-index: 0;
+    user-select: none;
+  }
+  .hero-inner { position: relative; z-index: 1; }
+  .eyebrow {
+    font-size: 12px;
+    letter-spacing: 2px;
+    text-transform: uppercase;
+    color: var(--steel);
+    font-weight: 600;
+    margin-bottom: 18px;
+  }
+  h1.title {
+    font-family: 'Source Serif 4', Georgia, serif;
+    font-weight: 700;
+    font-size: clamp(36px, 6vw, 54px);
+    line-height: 1.08;
+    color: var(--ink);
+    margin: 0 0 10px 0;
+  }
+  .subtitle {
+    font-family: 'Source Serif 4', Georgia, serif;
+    font-style: italic;
+    font-weight: 500;
+    font-size: clamp(19px, 3vw, 24px);
+    color: var(--steel);
+    margin: 0 0 28px 0;
+  }
+  .dek {
+    font-size: 18px;
+    line-height: 1.65;
+    color: var(--graphite);
+    max-width: 60ch;
+    margin: 0;
+  }
+
+  /* ---------- STAT TEASER ---------- */
+  .stat-strip {
+    display: flex;
+    gap: 20px;
+    padding: 44px 0 8px;
+    flex-wrap: wrap;
+  }
+  .stat-card {
+    flex: 1 1 160px;
+    border-top: 2px solid var(--steel);
+    padding-top: 14px;
+    opacity: 0;
+    transform: translateY(10px);
+    transition: opacity 0.6s ease, transform 0.6s ease;
+  }
+  .stat-card.in { opacity: 1; transform: translateY(0); }
+  .stat-card:nth-child(1) { transition-delay: 0s; }
+  .stat-card:nth-child(2) { transition-delay: 0.12s; }
+  .stat-card:nth-child(3) { transition-delay: 0.24s; }
+  .stat-num {
+    font-family: 'Source Serif 4', Georgia, serif;
+    font-weight: 700;
+    font-size: 30px;
+    color: var(--ink);
+    line-height: 1;
+    margin-bottom: 8px;
+  }
+  .stat-label {
+    font-size: 10.5px;
+    letter-spacing: 1px;
+    text-transform: uppercase;
+    color: var(--steel);
+    font-weight: 600;
+    margin-bottom: 6px;
+  }
+  .stat-desc { font-size: 13.5px; color: var(--graphite); line-height: 1.5; }
+
+  /* ---------- SECTIONS ---------- */
+  section.block { padding: 56px 0; border-top: 1px solid var(--hairline); }
+  h2.block-title {
+    font-family: 'Source Serif 4', Georgia, serif;
+    font-weight: 700;
+    font-size: 26px;
+    color: var(--ink);
+    margin: 0 0 16px 0;
+  }
+  .lede { font-size: 17px; color: var(--graphite); max-width: 62ch; margin: 0 0 32px 0; }
+
+  .sector-grid {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 10px 32px;
+  }
+  .sector-row {
+    display: flex;
+    align-items: baseline;
+    gap: 10px;
+    padding: 9px 0;
+    border-bottom: 1px solid var(--hairline);
+    font-size: 15px;
+    color: var(--ink);
+  }
+  .sector-row .num {
+    font-family: 'Source Serif 4', Georgia, serif;
+    font-weight: 700;
+    color: var(--steel);
+    font-size: 13px;
+    width: 20px;
+  }
+
+  /* ---------- FORM ---------- */
+  .capture {
+    background: var(--fog);
+    border-left: 3px solid var(--steel);
+    padding: 40px 32px;
+    margin-top: 4px;
+  }
+  .capture h2.block-title { margin-bottom: 6px; }
+  .capture .lede { margin-bottom: 26px; }
+  form#reportForm {
+    display: flex;
+    gap: 10px;
+    flex-wrap: wrap;
+  }
+  input[type="email"] {
+    flex: 1 1 240px;
+    padding: 13px 14px;
+    font-size: 15px;
+    font-family: 'Inter', sans-serif;
+    border: 1px solid #c9d2e0;
+    border-radius: 2px;
+    background: #fff;
+    color: var(--ink);
+  }
+  input[type="email"]:focus {
+    outline: none;
+    border-color: var(--steel);
+    box-shadow: 0 0 0 3px rgba(74,127,193,0.18);
+  }
+  button.cta {
+    background: var(--ink);
+    color: #fff;
+    border: none;
+    padding: 13px 26px;
+    font-size: 14.5px;
+    font-weight: 600;
+    letter-spacing: 0.3px;
+    border-radius: 2px;
+    cursor: pointer;
+    transition: background 0.2s ease;
+    font-family: 'Inter', sans-serif;
+  }
+  button.cta:hover { background: var(--steel); }
+  button.cta:focus-visible { outline: 3px solid var(--steel); outline-offset: 2px; }
+  .fine-print { font-size: 12px; color: #888; margin-top: 12px; }
+
+  .form-state { display: none; }
+  .form-state.active { display: block; }
+  #successState {
+    padding: 8px 0 0;
+  }
+  #successState .stat-num { font-size: 22px; }
+  .download-btn {
+    display: inline-block;
+    background: var(--ink);
+    color: #fff !important;
+    text-decoration: none;
+    padding: 13px 26px;
+    font-size: 14.5px;
+    font-weight: 600;
+    border-radius: 2px;
+    margin-top: 14px;
+  }
+  .download-btn:hover { background: var(--steel); }
+  #errorState { color: #a33; font-size: 14px; }
+
+  /* ---------- FOOTER ---------- */
+  footer {
+    border-top: 1px solid var(--hairline);
+    padding: 32px 0 60px;
+    text-align: center;
+    font-size: 12.5px;
+    color: #888;
+  }
+  footer a { color: #888; }
+  footer strong { color: var(--ink); }
+
+  @media (max-width: 560px) {
+    .sector-grid { grid-template-columns: 1fr; }
+    .stat-strip { gap: 24px 16px; }
+    .capture { padding: 30px 20px; }
+  }
+
+  @media (prefers-reduced-motion: reduce) {
+    .stat-card { transition: none; opacity: 1; transform: none; }
+    html { scroll-behavior: auto; }
+  }
+</style>
+</head>
+<body>
+
+<nav class="top">
+  <div class="wrap">
+    <a class="wordmark" href="/vantage">The Vantage</a>
+    <a class="nav-back" href="/">nordicluxurymedia.com</a>
+  </div>
+</nav>
+
+<div class="hero">
+  <div class="ghost-30">30</div>
+  <div class="wrap hero-inner">
+    <div class="eyebrow">Free Report &middot; The Vantage</div>
+    <h1 class="title">The European Engine</h1>
+    <div class="subtitle">30 Companies Running the World</div>
+    <p class="dek">Ask most people which companies run the world and they'll name Google, Amazon, or a handful of Gulf state oil producers. Few would name Yara, SWIFT, or DSV. This report identifies thirty European companies across ten sectors that daily global life quietly cannot function without, and explains exactly why, sector by sector, company by company.</p>
+
+    <div class="stat-strip" id="statStrip">
+      <div class="stat-card">
+        <div class="stat-num">100%</div>
+        <div class="stat-label">Technology</div>
+        <div class="stat-desc">Share of the world's EUV lithography machines built by a single Dutch company, ASML.</div>
+      </div>
+      <div class="stat-card">
+        <div class="stat-num">&euro;135BN</div>
+        <div class="stat-label">Defence</div>
+        <div class="stat-desc">Rheinmetall's projected order backlog by the end of 2026 alone.</div>
+      </div>
+      <div class="stat-card">
+        <div class="stat-num">11,000+</div>
+        <div class="stat-label">Finance</div>
+        <div class="stat-desc">Banks connected through SWIFT, the network with no real substitute.</div>
+      </div>
+    </div>
+  </div>
+</div>
+
+<section class="block">
+  <div class="wrap">
+    <h2 class="block-title">What's Inside</h2>
+    <p class="lede">Ten sectors, thirty companies, one argument: Europe's political weight is shrinking, but its operational grip on the machinery the rest of the world quietly runs on has not shrunk nearly as much. Each company is assessed on three criteria, survival dependency, operational dependency, and replaceability, not size or brand recognition.</p>
+    <div class="sector-grid">
+      <div class="sector-row"><span class="num">01</span>Food</div>
+      <div class="sector-row"><span class="num">02</span>Medicine</div>
+      <div class="sector-row"><span class="num">03</span>Technology</div>
+      <div class="sector-row"><span class="num">04</span>Energy</div>
+      <div class="sector-row"><span class="num">05</span>Finance</div>
+      <div class="sector-row"><span class="num">06</span>Logistics &amp; Shipping</div>
+      <div class="sector-row"><span class="num">07</span>Defence &amp; Security</div>
+      <div class="sector-row"><span class="num">08</span>Aerospace</div>
+      <div class="sector-row"><span class="num">09</span>Automotive</div>
+      <div class="sector-row"><span class="num">10</span>Retail</div>
+    </div>
+  </div>
+</section>
+
+<section class="block">
+  <div class="wrap">
+    <div class="capture">
+      <h2 class="block-title">Get the Full Report</h2>
+      <p class="lede" style="margin-bottom:22px;">Free. Sixteen pages. Delivered instantly, no account required.</p>
+
+      <div class="form-state active" id="formState">
+        <form id="reportForm">
+          <input type="email" id="emailInput" name="email" placeholder="you@company.com" required aria-label="Email address">
+          <button type="submit" class="cta" id="submitBtn">Get the Full Report</button>
+        </form>
+        <div class="fine-print">Your email is used only to send occasional Vantage reports. No spam, unsubscribe anytime.</div>
+      </div>
+
+      <div class="form-state" id="successState">
+        <div class="stat-num">Thanks &mdash; here's your report.</div>
+        <a class="download-btn" id="downloadLink" href="/vantage/reports/the-european-engine.pdf" download>Download the PDF</a>
+      </div>
+
+      <div class="form-state" id="errorState">
+        Something went wrong sending that. Please try again in a moment.
+      </div>
+    </div>
+  </div>
+</section>
+
+<footer>
+  This report was produced by <strong>The Vantage</strong>, the editorial platform of Nordic Luxury Media.<br>
+  <a href="/">nordicluxurymedia.com</a>
+</footer>
+
+<script>
+  // ===== CONFIG: set these two before publishing =====
+  const FORMSPREE_ENDPOINT = "https://formspree.io/f/YOUR_FORM_ID"; // reuse tilaa.html's ID or create a new form at formspree.io
+  const PDF_PATH = "/vantage/reports/the-european-engine.pdf"; // upload the PDF to this path (or edit to match)
+  // =====================================================
+
+  document.getElementById('downloadLink').href = PDF_PATH;
+
+  // Stat card reveal on load
+  window.addEventListener('DOMContentLoaded', () => {
+    document.querySelectorAll('#statStrip .stat-card').forEach(el => el.classList.add('in'));
+  });
+
+  // Form submission
+  const form = document.getElementById('reportForm');
+  const formState = document.getElementById('formState');
+  const successState = document.getElementById('successState');
+  const errorState = document.getElementById('errorState');
+  const submitBtn = document.getElementById('submitBtn');
+
+  form.addEventListener('submit', async (e) => {
+    e.preventDefault();
+    submitBtn.disabled = true;
+    submitBtn.textContent = 'Sending...';
+    errorState.classList.remove('active');
+
+    try {
+      const res = await fetch(FORMSPREE_ENDPOINT, {
+        method: 'POST',
+        headers: { 'Accept': 'application/json' },
+        body: new FormData(form)
+      });
+      if (res.ok) {
+        formState.classList.remove('active');
+        successState.classList.add('active');
+      } else {
+        throw new Error('Form submission failed');
+      }
+    } catch (err) {
+      errorState.classList.add('active');
+      submitBtn.disabled = false;
+      submitBtn.textContent = 'Get the Full Report';
+    }
+  });
+</script>
+
+</body>
+</html>
