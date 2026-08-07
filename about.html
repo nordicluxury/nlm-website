@@ -86,6 +86,7 @@
 
     @media (max-width: 768px) {
       nav { padding: 0 24px; }
+      .hamburger { display: flex; }
       .nav-links { display: none; }
       .about-hero { padding: 100px 24px 56px; grid-template-columns: 1fr; gap: 36px; }
       .story-wrap { grid-template-columns: 1fr; }
@@ -97,6 +98,15 @@
       footer { grid-template-columns: 1fr; gap: 12px; text-align: center; padding: 28px 24px; }
       .footer-links { justify-content: center; }
     }
+
+    /* MOBILE NAV */
+    .hamburger { display: none; flex-direction: column; gap: 5px; cursor: pointer; padding: 4px; background: none; border: none; }
+    .hamburger span { display: block; width: 22px; height: 1.5px; background: var(--white); transition: all 0.3s; }
+    .mobile-menu { display: none; position: fixed; top: 60px; left: 0; right: 0; background: rgba(8,8,8,0.98); border-bottom: 1px solid var(--border); z-index: 99; padding: 24px; flex-direction: column; gap: 0; backdrop-filter: blur(12px); }
+    .mobile-menu.open { display: flex; }
+    .mobile-menu a { font-size: 13px; letter-spacing: 0.12em; text-transform: uppercase; color: var(--white-dim); text-decoration: none; padding: 14px 0; border-bottom: 1px solid var(--border); transition: color 0.2s; }
+    .mobile-menu a:last-child { border-bottom: none; }
+    .mobile-menu a:hover { color: var(--white); }
   </style>
   <link rel="sitemap" type="application/xml" href="/sitemap.xml" />
 </head>
@@ -110,7 +120,18 @@
       <li><a href="/channels">Channels</a></li>
       <li><a href="/vantage" style="color:#4A7FC1;">The Vantage</a></li>
       <li><a href="/#contact">Contact</a></li>
-    </ul>
+      <button class="hamburger" id="hamburger" onclick="toggleMenu()" aria-label="Menu">
+    <span></span><span></span><span></span>
+  </button>
+  <div class="mobile-menu" id="mobile-menu">
+    <a href="/">Home</a>
+    <a href="/vantage" style="color:#4A7FC1;">The Vantage</a>
+    <a href="/channels">Channels</a>
+    <a href="/advertise">Advertise</a>
+    <a href="/about">About</a>
+    <a href="/tilaa">List your property</a>
+    <a href="/#contact">Contact</a>
+  </div>
   </nav>
 
   <div class="about-hero">

@@ -179,6 +179,7 @@
 
     @media (max-width: 768px) {
       nav { padding: 0 24px; }
+      .hamburger { display: flex; }
       .nav-links { display: none; }
       .masthead { padding: 80px 24px 0; }
       .masthead-title h1 { font-size: clamp(44px, 14vw, 80px); }
@@ -195,7 +196,18 @@
       .adstrip-actions { align-items: flex-start; }
       footer { grid-template-columns: 1fr; gap: 12px; text-align: center; padding: 32px 24px; }
       .footer-links { justify-content: center; }
+      #contact { padding: 52px 24px 0 !important; }
+      #contact > div { grid-template-columns: 1fr !important; gap: 40px !important; }
     }
+
+    /* MOBILE NAV */
+    .hamburger { display: none; flex-direction: column; gap: 5px; cursor: pointer; padding: 4px; background: none; border: none; }
+    .hamburger span { display: block; width: 22px; height: 1.5px; background: var(--white); transition: all 0.3s; }
+    .mobile-menu { display: none; position: fixed; top: 60px; left: 0; right: 0; background: rgba(8,8,8,0.98); border-bottom: 1px solid var(--border); z-index: 99; padding: 24px; flex-direction: column; gap: 0; backdrop-filter: blur(12px); }
+    .mobile-menu.open { display: flex; }
+    .mobile-menu a { font-size: 13px; letter-spacing: 0.12em; text-transform: uppercase; color: var(--white-dim); text-decoration: none; padding: 14px 0; border-bottom: 1px solid var(--border); transition: color 0.2s; }
+    .mobile-menu a:last-child { border-bottom: none; }
+    .mobile-menu a:hover { color: var(--white); }
   </style>
   <link rel="sitemap" type="application/xml" href="/sitemap.xml" />
   <script type="application/ld+json">
@@ -228,7 +240,18 @@
       <li><a href="/channels">Channels</a></li>
       <li><a href="/vantage" style="color:#4A7FC1;">The Vantage</a></li>
       <li><a href="#contact">Contact</a></li>
-    </ul>
+      <button class="hamburger" id="hamburger" onclick="toggleMenu()" aria-label="Menu">
+    <span></span><span></span><span></span>
+  </button>
+  <div class="mobile-menu" id="mobile-menu">
+    <a href="/">Home</a>
+    <a href="/vantage" style="color:#4A7FC1;">The Vantage</a>
+    <a href="/channels">Channels</a>
+    <a href="/advertise">Advertise</a>
+    <a href="/about">About</a>
+    <a href="/tilaa">List your property</a>
+    <a href="/#contact">Contact</a>
+  </div>
   </nav>
 
   <!-- MASTHEAD -->
