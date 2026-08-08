@@ -23,7 +23,9 @@
     { "source": "/banking-investigation", "destination": "/banking-investigation.html" },
     { "source": "/european-families-2026", "destination": "/european-families-2026.html" },
     { "source": "/european-power-index", "destination": "/european-power-index.html" },
+    { "source": "/asml", "destination": "/asml.html" },
     { "source": "/european-power-index", "destination": "/european-power-index.html" },
+    { "source": "/asml", "destination": "/asml.html" },
     { "source": "/tilaa", "destination": "/tilaa.html" }
   ]
 }
