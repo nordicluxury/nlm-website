@@ -1,0 +1,381 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Every European Country Ranked by Global Influence 2026 — Free Report — The Vantage</title>
+  <meta name="description" content="The Vantage ranks all 46 European countries by current, exercised global influence. Free PDF report. 19 pages. Eight criteria. Download now." />
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,400;0,700;1,400;1,600&family=Inter:wght@300;400;500;600&display=swap" rel="stylesheet" />
+  <script type="application/ld+json">
+  {
+    "@context": "https://schema.org",
+    "@type": "Report",
+    "name": "Every European Country Ranked by Global Influence 2026",
+    "description": "The Vantage ranks all 46 European countries and micro-states by current, exercised global influence across eight weighted criteria.",
+    "url": "https://nordicluxurymedia.com/european-influence-report",
+    "datePublished": "2026-08-21",
+    "isAccessibleForFree": true,
+    "publisher": {
+      "@type": "Organization",
+      "name": "The Vantage by Nordic Luxury Media",
+      "url": "https://nordicluxurymedia.com"
+    }
+  }
+  </script>
+  <style>
+    *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+    :root {
+      --black: #080808;
+      --surface: #111111;
+      --surface-2: #181818;
+      --border: #222222;
+      --border-light: #2C2C2C;
+      --white: #F0EBE3;
+      --white-dim: rgba(240,235,227,0.78);
+      --white-faint: rgba(240,235,227,0.35);
+      --blue: #4A7FC1;
+      --blue-dark: #0F1F3D;
+    }
+    html { scroll-behavior: smooth; }
+    body { background: var(--black); color: var(--white); font-family: 'Inter', sans-serif; font-size: 16px; line-height: 1.7; -webkit-font-smoothing: antialiased; }
+
+    nav { position: fixed; top: 0; left: 0; right: 0; z-index: 100; display: flex; align-items: center; justify-content: space-between; padding: 0 52px; height: 60px; background: rgba(8,8,8,0.97); border-bottom: 1px solid var(--border); backdrop-filter: blur(12px); }
+    .nav-logo { font-family: 'Playfair Display', serif; font-size: 14px; font-weight: 700; letter-spacing: 0.2em; text-transform: uppercase; color: var(--white); text-decoration: none; }
+    .nav-back { font-size: 11px; letter-spacing: 0.13em; text-transform: uppercase; color: var(--blue); text-decoration: none; }
+    .hamburger { display: none; flex-direction: column; gap: 5px; cursor: pointer; padding: 4px; background: none; border: none; }
+    .hamburger span { display: block; width: 22px; height: 1.5px; background: var(--white); }
+    .mobile-menu { display: none; position: fixed; top: 60px; left: 0; right: 0; background: rgba(8,8,8,0.98); border-bottom: 1px solid var(--border); z-index: 99; padding: 24px; flex-direction: column; backdrop-filter: blur(12px); }
+    .mobile-menu.open { display: flex; }
+    .mobile-menu a { font-size: 13px; letter-spacing: 0.12em; text-transform: uppercase; color: var(--white-dim); text-decoration: none; padding: 14px 0; border-bottom: 1px solid var(--border); }
+
+    /* HERO */
+    .hero { padding: 100px 52px 0; display: grid; grid-template-columns: 1fr 400px; gap: 80px; align-items: start; border-bottom: 1px solid var(--border); }
+    .hero-left { padding-bottom: 72px; }
+    .hero-tag { font-size: 10px; letter-spacing: 0.22em; text-transform: uppercase; color: var(--blue); margin-bottom: 24px; display: flex; align-items: center; gap: 12px; }
+    .hero-tag::before { content: ''; display: block; width: 32px; height: 1px; background: var(--blue); }
+    .free-badge { background: var(--blue); color: var(--white); font-size: 10px; letter-spacing: 0.16em; text-transform: uppercase; padding: 4px 12px; margin-left: 8px; }
+    .hero-title { font-family: 'Playfair Display', serif; font-size: clamp(36px, 5vw, 72px); font-weight: 700; line-height: 1.0; color: var(--white); letter-spacing: -0.01em; margin-bottom: 12px; }
+    .hero-title em { font-style: italic; font-weight: 400; color: var(--blue); }
+    .hero-subtitle { font-family: 'Playfair Display', serif; font-size: clamp(16px, 2vw, 22px); font-weight: 400; font-style: italic; color: var(--white-faint); margin-bottom: 32px; }
+    .hero-desc { font-size: 17px; color: var(--white-dim); line-height: 1.9; max-width: 520px; margin-bottom: 36px; }
+    .hero-meta { display: flex; gap: 32px; flex-wrap: wrap; }
+    .hero-meta-item { }
+    .hero-meta-num { font-family: 'Playfair Display', serif; font-size: 28px; font-weight: 700; color: var(--white); line-height: 1; margin-bottom: 4px; }
+    .hero-meta-label { font-size: 10px; letter-spacing: 0.12em; text-transform: uppercase; color: var(--white-faint); }
+
+    /* DOWNLOAD CARD */
+    .download-card { position: sticky; top: 80px; border: 1px solid var(--border-light); border-top: 3px solid var(--blue); background: var(--surface); padding: 36px 32px; margin-top: 100px; }
+    .download-card-label { font-size: 10px; letter-spacing: 0.2em; text-transform: uppercase; color: var(--blue); margin-bottom: 16px; }
+    .download-card-title { font-family: 'Playfair Display', serif; font-size: 20px; font-weight: 700; color: var(--white); margin-bottom: 8px; line-height: 1.2; }
+    .download-card-sub { font-size: 13px; color: var(--white-faint); margin-bottom: 24px; line-height: 1.6; }
+    .download-free-label { display: flex; align-items: center; justify-content: space-between; margin-bottom: 20px; padding-bottom: 20px; border-bottom: 1px solid var(--border); }
+    .download-price { font-family: 'Playfair Display', serif; font-size: 36px; font-weight: 700; color: var(--white); }
+    .download-price-label { font-size: 11px; color: var(--white-faint); text-align: right; }
+    .form-group { margin-bottom: 14px; }
+    .form-label { font-size: 10px; letter-spacing: 0.14em; text-transform: uppercase; color: var(--white-faint); margin-bottom: 6px; display: block; }
+    .form-input { width: 100%; background: var(--surface-2); border: 1px solid var(--border-light); color: var(--white); font-family: 'Inter', sans-serif; font-size: 14px; padding: 12px 14px; outline: none; transition: border-color 0.2s; }
+    .form-input:focus { border-color: var(--blue); }
+    .form-input::placeholder { color: var(--white-faint); }
+    .download-btn { width: 100%; padding: 16px; background: var(--white); color: var(--black); font-family: 'Inter', sans-serif; font-size: 12px; font-weight: 600; letter-spacing: 0.14em; text-transform: uppercase; border: none; cursor: pointer; transition: background 0.2s; margin-top: 6px; }
+    .download-btn:hover { background: #e0dbd3; }
+    .download-btn:disabled { opacity: 0.5; cursor: not-allowed; }
+    .download-note { font-size: 11px; color: var(--white-faint); margin-top: 12px; text-align: center; line-height: 1.5; }
+
+    /* SUCCESS */
+    .download-success { display: none; text-align: center; padding: 8px 0; }
+    .download-success.visible { display: block; }
+    .success-icon { font-size: 32px; margin-bottom: 12px; }
+    .success-title { font-family: 'Playfair Display', serif; font-size: 20px; font-weight: 700; color: var(--white); margin-bottom: 10px; }
+    .success-desc { font-size: 13px; color: var(--white-dim); line-height: 1.7; margin-bottom: 20px; }
+    .direct-download-btn { display: block; width: 100%; padding: 16px; background: var(--blue); color: var(--white); font-family: 'Inter', sans-serif; font-size: 12px; font-weight: 600; letter-spacing: 0.14em; text-transform: uppercase; text-decoration: none; text-align: center; transition: opacity 0.2s; }
+    .direct-download-btn:hover { opacity: 0.85; }
+
+    /* PREVIEW */
+    .preview-section { padding: 72px 52px; border-bottom: 1px solid var(--border); }
+    .section-label { font-size: 10px; letter-spacing: 0.22em; text-transform: uppercase; color: var(--blue); margin-bottom: 36px; display: block; }
+    .preview-grid { display: grid; grid-template-columns: 1fr 1fr; gap: 1px; background: var(--border); margin-bottom: 48px; }
+    .preview-block { background: var(--surface); padding: 32px; }
+    .preview-block-title { font-family: 'Playfair Display', serif; font-size: 18px; font-weight: 700; color: var(--white); margin-bottom: 14px; }
+    .preview-block-text { font-size: 14px; color: var(--white-dim); line-height: 1.85; }
+    .preview-block-text p { margin-bottom: 12px; }
+    .preview-block-text p:last-child { margin-bottom: 0; }
+
+    /* RANKING PREVIEW */
+    .ranking-preview { padding: 0 52px 72px; border-bottom: 1px solid var(--border); }
+    .ranking-table { width: 100%; max-width: 720px; border-collapse: collapse; }
+    .ranking-table th { font-size: 10px; letter-spacing: 0.16em; text-transform: uppercase; color: var(--white-faint); padding: 10px 16px; text-align: left; border-bottom: 2px solid var(--border-light); }
+    .ranking-table th:last-child { text-align: right; }
+    .ranking-table td { font-size: 13px; color: var(--white-dim); padding: 12px 16px; border-bottom: 1px solid var(--border); }
+    .ranking-table td:first-child { font-family: 'Playfair Display', serif; font-size: 16px; font-weight: 700; color: var(--white-faint); width: 48px; }
+    .ranking-table td:last-child { text-align: right; color: var(--blue); font-weight: 500; }
+    .ranking-table tr:hover td { background: var(--surface); }
+    .country-cell { display: flex; align-items: center; gap: 10px; }
+    .country-flag-sm { font-size: 18px; }
+    .country-name-td { color: var(--white); font-weight: 500; }
+
+    /* CRITERIA */
+    .criteria-section { padding: 72px 52px; border-bottom: 1px solid var(--border); }
+    .criteria-grid { display: grid; grid-template-columns: repeat(4, 1fr); gap: 1px; background: var(--border); margin-top: 36px; }
+    .criteria-item { background: var(--surface); padding: 24px; }
+    .criteria-num { font-family: 'Playfair Display', serif; font-size: 24px; color: var(--blue); opacity: 0.5; margin-bottom: 10px; }
+    .criteria-name { font-size: 13px; font-weight: 500; color: var(--white); margin-bottom: 6px; }
+    .criteria-desc { font-size: 12px; color: var(--white-faint); line-height: 1.6; }
+
+    /* CTA BOTTOM */
+    .cta-bottom { padding: 72px 52px; text-align: center; }
+    .cta-title { font-family: 'Playfair Display', serif; font-size: clamp(28px, 4vw, 52px); font-weight: 700; color: var(--white); margin-bottom: 16px; line-height: 1.1; }
+    .cta-title em { font-style: italic; font-weight: 400; }
+    .cta-desc { font-size: 16px; color: var(--white-dim); max-width: 480px; margin: 0 auto 36px; line-height: 1.85; }
+    .cta-btn { display: inline-block; padding: 16px 40px; background: var(--white); color: var(--black); font-size: 12px; font-weight: 600; letter-spacing: 0.14em; text-transform: uppercase; text-decoration: none; cursor: pointer; border: none; font-family: 'Inter', sans-serif; transition: background 0.2s; }
+    .cta-btn:hover { background: #e0dbd3; }
+
+    footer { border-top: 1px solid var(--border); padding: 32px 52px; display: flex; justify-content: space-between; align-items: center; }
+    .footer-logo { font-family: 'Playfair Display', serif; font-size: 13px; font-weight: 700; letter-spacing: 0.2em; text-transform: uppercase; color: var(--white-dim); text-decoration: none; }
+    .footer-copy { font-size: 11px; color: var(--white-faint); }
+
+    @media (max-width: 900px) {
+      nav { padding: 0 24px; }
+      .hamburger { display: flex; }
+      .hero { grid-template-columns: 1fr; padding: 90px 24px 0; gap: 40px; }
+      .download-card { position: static; margin-top: 0; margin-bottom: 48px; }
+      .preview-section { padding: 48px 24px; }
+      .preview-grid { grid-template-columns: 1fr; }
+      .ranking-preview { padding: 0 24px 48px; }
+      .criteria-section { padding: 48px 24px; }
+      .criteria-grid { grid-template-columns: 1fr 1fr; }
+      .cta-bottom { padding: 52px 24px; }
+      footer { padding: 24px; flex-direction: column; gap: 10px; text-align: center; }
+    }
+  </style>
+</head>
+<body>
+
+<nav>
+  <a href="/" class="nav-logo">Nordic Luxury Media</a>
+  <a href="/vantage" class="nav-back">← The Vantage</a>
+  <button class="hamburger" id="hamburger" onclick="toggleMenu()">
+    <span></span><span></span><span></span>
+  </button>
+</nav>
+<div class="mobile-menu" id="mobile-menu">
+  <a href="/">Home</a>
+  <a href="/vantage" style="color:#4A7FC1;">The Vantage</a>
+  <a href="/advertise">Advertise</a>
+  <a href="/about">About</a>
+</div>
+
+<!-- HERO -->
+<div class="hero">
+  <div class="hero-left">
+    <div class="hero-tag">The Vantage Intelligence Report · August 2026 <span class="free-badge">Free</span></div>
+    <h1 class="hero-title">Every European<br />Country Ranked by<br /><em>Global Influence</em></h1>
+    <div class="hero-subtitle">46 countries. 8 criteria. One transparent method.</div>
+    <p class="hero-desc">GDP is one input. It is not the output. The Vantage scored all 46 European countries and micro-states on eight criteria of current, exercised influence. The UK leads. Belgium outranks Sweden, Norway and Denmark. Vatican City outranks Poland. This report shows the full ranking and explains every position.</p>
+    <div class="hero-meta">
+      <div class="hero-meta-item">
+        <div class="hero-meta-num">46</div>
+        <div class="hero-meta-label">Countries ranked</div>
+      </div>
+      <div class="hero-meta-item">
+        <div class="hero-meta-num">8</div>
+        <div class="hero-meta-label">Weighted criteria</div>
+      </div>
+      <div class="hero-meta-item">
+        <div class="hero-meta-num">19</div>
+        <div class="hero-meta-label">Pages of analysis</div>
+      </div>
+      <div class="hero-meta-item">
+        <div class="hero-meta-num">Free</div>
+        <div class="hero-meta-label">No cost, no paywall</div>
+      </div>
+    </div>
+  </div>
+
+  <!-- DOWNLOAD CARD -->
+  <div class="download-card" id="download-card">
+    <div class="download-card-label">Get the report</div>
+    <div class="download-card-title">Every European Country Ranked by Global Influence 2026</div>
+    <div class="download-card-sub">The Vantage · Nordic Luxury Media · August 2026 · 19 pages · PDF</div>
+    <div class="download-free-label">
+      <div class="download-price">Free</div>
+      <div class="download-price-label">No cost<br />No paywall</div>
+    </div>
+
+    <div id="download-form">
+      <div class="form-group">
+        <label class="form-label">Your name</label>
+        <input type="text" id="dl-name" class="form-input" placeholder="Your name" />
+      </div>
+      <div class="form-group">
+        <label class="form-label">Email address</label>
+        <input type="email" id="dl-email" class="form-input" placeholder="your@email.com" />
+      </div>
+      <button class="download-btn" id="dl-btn" onclick="handleDownload()">Download the report →</button>
+      <p class="download-note">Free to download. We may notify you when future Vantage reports are published.</p>
+    </div>
+
+    <div class="download-success" id="download-success">
+      <div class="success-icon">✓</div>
+      <div class="success-title">Ready to download.</div>
+      <p class="success-desc">Click below to download the full 19-page PDF report. It is free, no strings attached.</p>
+      <a href="/NLM_Every_European_Country_Ranked_by_Global_Influence_2026.pdf" download class="direct-download-btn">Download PDF →</a>
+    </div>
+  </div>
+</div>
+
+<!-- PREVIEW -->
+<div class="preview-section">
+  <span class="section-label">From the report</span>
+  <div class="preview-grid">
+    <div class="preview-block">
+      <div class="preview-block-title">Headline Finding</div>
+      <div class="preview-block-text">
+        <p>The United Kingdom ranks first, ahead of France and Germany. Its GDP is Europe's third-largest. Its lead rests on a combination no other European state currently holds: a permanent UN Security Council seat, an independent nuclear deterrent, and one of the world's two truly global financial centres.</p>
+        <p>This was the closest call in the ranking. France has the more complete EU-integrated institutional position and a broader military footprint through its overseas territories. A different analyst could reasonably swap the top two.</p>
+      </div>
+    </div>
+    <div class="preview-block">
+      <div class="preview-block-title">Biggest Surprise</div>
+      <div class="preview-block-text">
+        <p>Belgium ranks 9th, ahead of Sweden, Norway and Denmark. Its economy and military are smaller than all three. It ranks above them because Brussels hosts both the EU's main institutions and NATO's headquarters, and that single form of leverage outweighs a weaker score everywhere else.</p>
+        <p>Below roughly rank 35, the gaps between neighbouring entries narrow to the point where small methodology choices could reorder several positions. The report states plainly where judgment calls were made.</p>
+      </div>
+    </div>
+  </div>
+</div>
+
+<!-- RANKING PREVIEW -->
+<div class="ranking-preview">
+  <span class="section-label">The top 15 — full ranking in the report</span>
+  <table class="ranking-table">
+    <thead>
+      <tr>
+        <th>#</th>
+        <th>Country</th>
+        <th>GDP 2026</th>
+        <th>NLM Score</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr><td>1</td><td><div class="country-cell"><span class="country-flag-sm">🇬🇧</span><span class="country-name-td">United Kingdom</span></div></td><td>$4.26T</td><td>86.0</td></tr>
+      <tr><td>2</td><td><div class="country-cell"><span class="country-flag-sm">🇫🇷</span><span class="country-name-td">France</span></div></td><td>$3.60T</td><td>82.2</td></tr>
+      <tr><td>3</td><td><div class="country-cell"><span class="country-flag-sm">🇩🇪</span><span class="country-name-td">Germany</span></div></td><td>$5.45T</td><td>78.5</td></tr>
+      <tr><td>4</td><td><div class="country-cell"><span class="country-flag-sm">🇷🇺</span><span class="country-name-td">Russia</span></div></td><td>$2.66T</td><td>75.0</td></tr>
+      <tr><td>5</td><td><div class="country-cell"><span class="country-flag-sm">🇮🇹</span><span class="country-name-td">Italy</span></div></td><td>$2.74T</td><td>71.7</td></tr>
+      <tr><td>6</td><td><div class="country-cell"><span class="country-flag-sm">🇪🇸</span><span class="country-name-td">Spain</span></div></td><td>$2.09T</td><td>68.5</td></tr>
+      <tr><td>7</td><td><div class="country-cell"><span class="country-flag-sm">🇨🇭</span><span class="country-name-td">Switzerland</span></div></td><td>$1.15T</td><td>65.5</td></tr>
+      <tr><td>8</td><td><div class="country-cell"><span class="country-flag-sm">🇳🇱</span><span class="country-name-td">Netherlands</span></div></td><td>$1.45T</td><td>62.5</td></tr>
+      <tr><td>9</td><td><div class="country-cell"><span class="country-flag-sm">🇧🇪</span><span class="country-name-td">Belgium</span></div></td><td>$776.7B</td><td>59.8</td></tr>
+      <tr><td>10</td><td><div class="country-cell"><span class="country-flag-sm">🇸🇪</span><span class="country-name-td">Sweden</span></div></td><td>$760.5B</td><td>57.1</td></tr>
+      <tr><td>11</td><td><div class="country-cell"><span class="country-flag-sm">🇳🇴</span><span class="country-name-td">Norway</span></div></td><td>$599.4B</td><td>54.6</td></tr>
+      <tr><td>12</td><td><div class="country-cell"><span class="country-flag-sm">🇩🇰</span><span class="country-name-td">Denmark</span></div></td><td>$503.8B</td><td>52.1</td></tr>
+      <tr><td>13</td><td><div class="country-cell"><span class="country-flag-sm">🇦🇹</span><span class="country-name-td">Austria</span></div></td><td>$623.7B</td><td>49.8</td></tr>
+      <tr><td>14</td><td><div class="country-cell"><span class="country-flag-sm">🇮🇪</span><span class="country-name-td">Ireland</span></div></td><td>$779.4B</td><td>47.6</td></tr>
+      <tr><td>15</td><td><div class="country-cell"><span class="country-flag-sm">🇻🇦</span><span class="country-name-td">Vatican City</span></div></td><td>$25M</td><td>45.5</td></tr>
+    </tbody>
+  </table>
+  <p style="font-size:12px; color:var(--white-faint); margin-top:16px; font-style:italic;">Full ranking of all 46 entities including profiles, methodology and honesty appendix in the PDF.</p>
+</div>
+
+<!-- CRITERIA -->
+<div class="criteria-section">
+  <span class="section-label">The eight criteria</span>
+  <div class="criteria-grid">
+    <div class="criteria-item">
+      <div class="criteria-num">01</div>
+      <div class="criteria-name">Economic Weight and Capital Control</div>
+      <div class="criteria-desc">GDP, financial centre status and capital moved through the country.</div>
+    </div>
+    <div class="criteria-item">
+      <div class="criteria-num">02</div>
+      <div class="criteria-name">Political and Institutional Power</div>
+      <div class="criteria-desc">Whether decisions made here bind people elsewhere.</div>
+    </div>
+    <div class="criteria-item">
+      <div class="criteria-num">03</div>
+      <div class="criteria-name">Cultural Export</div>
+      <div class="criteria-desc">Fashion, art, music, cuisine and ideas voluntarily adopted elsewhere.</div>
+    </div>
+    <div class="criteria-item">
+      <div class="criteria-num">04</div>
+      <div class="criteria-name">Media and Information Reach</div>
+      <div class="criteria-desc">Whether the country sets the global news agenda or shapes opinion abroad.</div>
+    </div>
+    <div class="criteria-item">
+      <div class="criteria-num">05</div>
+      <div class="criteria-name">Talent and Capital Gravity</div>
+      <div class="criteria-desc">Whether ambitious, wealthy or skilled people relocate here specifically for the access.</div>
+    </div>
+    <div class="criteria-item">
+      <div class="criteria-num">06</div>
+      <div class="criteria-name">Connectivity and Infrastructure</div>
+      <div class="criteria-desc">Physical and digital trade and transport routes running through the country.</div>
+    </div>
+    <div class="criteria-item">
+      <div class="criteria-num">07</div>
+      <div class="criteria-name">Diplomatic and Network Centrality</div>
+      <div class="criteria-desc">Embassies, alliances, treaties and summits based here.</div>
+    </div>
+    <div class="criteria-item">
+      <div class="criteria-num">08</div>
+      <div class="criteria-name">Durability of Influence</div>
+      <div class="criteria-desc">Whether the influence has held for decades or is a recent and possibly fragile spike.</div>
+    </div>
+  </div>
+</div>
+
+<!-- CTA BOTTOM -->
+<div class="cta-bottom">
+  <h2 class="cta-title">46 countries.<br /><em>One report. Free.</em></h2>
+  <p class="cta-desc">The full ranking, country profiles, methodology, GDP vs. influence chart, European map, and honesty appendix. 19 pages. No cost.</p>
+  <button class="cta-btn" onclick="document.getElementById('download-card').scrollIntoView({behavior:'smooth'})">Get the report →</button>
+</div>
+
+<footer>
+  <a href="/" class="footer-logo">Nordic Luxury Media</a>
+  <div class="footer-copy">© 2026 The Vantage by Nordic Luxury Media</div>
+</footer>
+
+<script>
+  async function handleDownload() {
+    const name = document.getElementById('dl-name').value.trim();
+    const email = document.getElementById('dl-email').value.trim();
+    if (!email) { alert('Please enter your email address.'); return; }
+
+    const btn = document.getElementById('dl-btn');
+    btn.disabled = true;
+    btn.textContent = 'Loading...';
+
+    try {
+      await fetch('https://formspree.io/f/xlgyayql', {
+        method: 'POST',
+        headers: { 'Content-Type': 'application/json', 'Accept': 'application/json' },
+        body: JSON.stringify({
+          _subject: 'Free report download — European Influence Index 2026 — ' + (name || email),
+          report: 'Every European Country Ranked by Global Influence 2026',
+          name: name || '—',
+          email: email
+        })
+      });
+    } catch(e) {}
+
+    document.getElementById('download-form').style.display = 'none';
+    document.getElementById('download-success').classList.add('visible');
+  }
+
+  function toggleMenu() {
+    document.getElementById('mobile-menu').classList.toggle('open');
+  }
+  document.addEventListener('click', function(e) {
+    const menu = document.getElementById('mobile-menu');
+    const btn = document.getElementById('hamburger');
+    if (menu && !menu.contains(e.target) && btn && !btn.contains(e.target)) {
+      menu.classList.remove('open');
+    }
+  });
+</script>
+
+</body>
+</html>

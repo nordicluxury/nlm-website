@@ -90,4 +90,16 @@
     <changefreq>monthly</changefreq>
     <priority>0.95</priority>
   </url>
+  <url>
+    <loc>https://nordicluxurymedia.com/european-influence-index-2026</loc>
+    <lastmod>2026-08-21</lastmod>
+    <changefreq>yearly</changefreq>
+    <priority>0.95</priority>
+  </url>
+  <url>
+    <loc>https://nordicluxurymedia.com/european-influence-report</loc>
+    <lastmod>2026-08-21</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.95</priority>
+  </url>
 </urlset>
