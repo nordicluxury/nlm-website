@@ -101,6 +101,7 @@
       flex: 1; display: flex; flex-direction: column; justify-content: space-between;
     }
     .featured-side-item:last-child { border-bottom: none; }
+    .featured-side { display: flex; flex-direction: column; }
     .featured-side-item:hover { background: var(--white-ghost); }
     .art-tag {
       font-size: 10px; letter-spacing: 0.18em; text-transform: uppercase;
@@ -267,74 +268,125 @@
       <div>
         <span class="art-tag">Intelligence Report · PDF · August 2026</span>
         <div class="art-title-lg">The European<br /><em>Power Index</em></div>
-        <p class="art-excerpt">50 companies that control the world. Not a market cap ranking — ranked by irreplaceability, systemic dependency and control of essentials. The first Vantage Intelligence Report. €4.95 personal · €29.95 media licence.</p>
+        <p class="art-excerpt">50 companies that control the world. Ranked by irreplaceability, not market cap. The first Vantage Intelligence Report — from €4.95.</p>
       </div>
       <div class="art-foot"><span style="color:var(--blue);">Get the report — from €4.95</span><span>→</span></div>
     </a>
     <div class="featured-side">
       <a href="/asml" class="featured-side-item" style="border-left:3px solid var(--blue);">
         <div>
-          <span class="art-tag" style="color:#4A7FC1;">Deep Analysis · Technology · August 2026</span>
+          <span class="art-tag" style="color:#4A7FC1;">Deep Analysis · August 2026</span>
           <div class="art-title-sm">ASML: The Most Powerful European Company</div>
-          <p class="art-excerpt">The Dutch monopoly that controls the world's most advanced chipmaking. Every number sourced from ASML's own filings.</p>
+          <p class="art-excerpt" style="font-size:13px;">The Dutch monopoly. €32.7B revenue. No competitor on earth.</p>
         </div>
         <div class="art-foot"><span style="color:#4A7FC1;">The Vantage</span><span>→</span></div>
+      </a>
+      <a href="/european-influence-index-2026" class="featured-side-item">
+        <div>
+          <span class="art-tag">Ranking · Geopolitics · August 2026</span>
+          <div class="art-title-sm">Top 10 Most Influential Countries in Europe 2026</div>
+          <p class="art-excerpt" style="font-size:13px;">UK leads. Belgium outranks Sweden. Vatican City outranks Poland.</p>
+        </div>
+        <div class="art-foot"><span>The Vantage</span><span>→</span></div>
       </a>
       <a href="/european-families-2026" class="featured-side-item">
         <div>
           <span class="art-tag">Ranking · Power · History</span>
           <div class="art-title-sm">Top 10 Most Powerful Families in Europe 2026</div>
-          <p class="art-excerpt">The House of Windsor. The Wallenbergs. The Rothschilds.</p>
         </div>
         <div class="art-foot"><span>The Vantage</span><span>→</span></div>
       </a>
     </div>
   </div>
 
-  <!-- ALL ARTICLES -->
-  <div class="articles-section">
-    <div class="section-heading">All published</div>
+  <!-- INTELLIGENCE REPORTS -->
+  <div style="padding: 56px 52px; border-top: 1px solid var(--border); border-bottom: 1px solid var(--border);">
+    <div style="display:flex; justify-content:space-between; align-items:baseline; margin-bottom:32px;">
+      <span style="font-size:10px; letter-spacing:0.22em; text-transform:uppercase; color:var(--blue);">Intelligence Reports</span>
+      <span style="font-size:12px; color:var(--white-faint);">Long-form research from The Vantage</span>
+    </div>
+    <div style="display:grid; grid-template-columns:1fr 1fr; gap:1px; background:var(--border);">
+      <a href="/european-power-index" style="background:var(--surface); padding:32px; text-decoration:none; display:block; transition:background 0.2s;" onmouseover="this.style.background='var(--surface-2)'" onmouseout="this.style.background='var(--surface)'">
+        <div style="font-size:10px; letter-spacing:0.16em; text-transform:uppercase; color:var(--blue); margin-bottom:12px; display:flex; align-items:center; gap:10px;">PDF Report <span style="background:var(--blue); color:var(--white); padding:2px 8px; font-size:9px;">PAID</span></div>
+        <div style="font-family:'Playfair Display',serif; font-size:20px; font-weight:700; color:var(--white); margin-bottom:8px; line-height:1.2;">The European Power Index</div>
+        <div style="font-size:13px; color:var(--white-faint); margin-bottom:20px;">50 Companies That Control The World</div>
+        <div style="font-size:12px; color:var(--white-faint); margin-bottom:16px;">August 2026 · 17 pages</div>
+        <div style="display:flex; justify-content:space-between; align-items:center; padding-top:16px; border-top:1px solid var(--border);">
+          <span style="font-size:11px; letter-spacing:0.1em; text-transform:uppercase; color:var(--blue);">From €4.95 →</span>
+          <span style="font-size:12px; color:var(--white-faint);">€29.95 media licence</span>
+        </div>
+      </a>
+      <a href="/european-influence-report" style="background:var(--surface); padding:32px; text-decoration:none; display:block; transition:background 0.2s;" onmouseover="this.style.background='var(--surface-2)'" onmouseout="this.style.background='var(--surface)'">
+        <div style="font-size:10px; letter-spacing:0.16em; text-transform:uppercase; color:var(--blue); margin-bottom:12px; display:flex; align-items:center; gap:10px;">PDF Report <span style="background:#1a5c1a; color:#90ee90; padding:2px 8px; font-size:9px;">FREE</span></div>
+        <div style="font-family:'Playfair Display',serif; font-size:20px; font-weight:700; color:var(--white); margin-bottom:8px; line-height:1.2;">Every European Country Ranked by Global Influence</div>
+        <div style="font-size:13px; color:var(--white-faint); margin-bottom:20px;">46 Countries · 8 Criteria · 2026 Edition</div>
+        <div style="font-size:12px; color:var(--white-faint); margin-bottom:16px;">August 2026 · 19 pages</div>
+        <div style="display:flex; justify-content:space-between; align-items:center; padding-top:16px; border-top:1px solid var(--border);">
+          <span style="font-size:11px; letter-spacing:0.1em; text-transform:uppercase; color:var(--blue);">Download free →</span>
+          <span style="font-size:12px; color:var(--white-faint);">No paywall</span>
+        </div>
+      </a>
+    </div>
+  </div>
+
+  <!-- ARTICLE LIST -->
+  <div class="content-list" style="padding-bottom:64px;">
+    <div style="display:flex; justify-content:space-between; align-items:center; padding:28px 52px 0; margin-bottom:0;">
+      <span style="font-size:10px; letter-spacing:0.22em; text-transform:uppercase; color:var(--blue);">Analysis · Rankings · Investigations</span>
+      <span style="font-size:11px; color:var(--white-faint);">8 articles published</span>
+    </div>
 
     <a href="/asml" class="article-row" style="border-left:3px solid #4A7FC1;">
       <div class="article-row-num" style="color:#4A7FC1;">01</div>
       <div class="article-row-body">
-        <span class="article-row-tag">Deep Analysis · Technology · Power · August 2026</span>
+        <div style="display:flex; gap:16px; margin-bottom:6px; flex-wrap:wrap;">
+          <span style="font-size:10px; color:var(--blue); letter-spacing:0.12em; text-transform:uppercase;">Deep Analysis</span>
+          <span style="font-size:10px; color:var(--white-faint);">August 2026</span>
+          <span style="font-size:10px; color:var(--white-faint);">15 min read</span>
+          <span style="font-size:10px; color:var(--white-faint);">EN · DE · FI</span>
+        </div>
         <div class="article-row-title">ASML: The Most Powerful European Company</div>
         <div class="article-row-excerpt">A single company in Veldhoven holds a complete monopoly over the machines needed to manufacture the world's most advanced microchips. €32.7 billion revenue. €38.8 billion backlog. No competitor.</div>
       </div>
       <div class="article-row-arrow">→</div>
     </a>
-    <a href="/european-influence-report" class="article-row" style="border-left:3px solid var(--blue);">
-      <div class="article-row-num" style="color:var(--blue);">↓</div>
-      <div class="article-row-body">
-        <span class="article-row-tag">Free Report · Geopolitics · August 2026</span>
-        <div class="article-row-title">Every European Country Ranked by Global Influence — Free PDF</div>
-        <div class="article-row-excerpt">46 countries. 8 criteria. The UK leads. Belgium outranks Sweden. Vatican City outranks Poland. Download free.</div>
-      </div>
-      <div class="article-row-arrow">→</div>
-    </a>
+
     <a href="/european-influence-index-2026" class="article-row">
       <div class="article-row-num">02</div>
       <div class="article-row-body">
-        <span class="article-row-tag">Ranking · Geopolitics · 2026</span>
+        <div style="display:flex; gap:16px; margin-bottom:6px; flex-wrap:wrap;">
+          <span style="font-size:10px; color:var(--blue); letter-spacing:0.12em; text-transform:uppercase;">Ranking · Geopolitics</span>
+          <span style="font-size:10px; color:var(--white-faint);">August 2026</span>
+          <span style="font-size:10px; color:var(--white-faint);">12 min read</span>
+        </div>
         <div class="article-row-title">Top 10 Most Influential Countries in Europe 2026</div>
-        <div class="article-row-excerpt">46 countries. 8 criteria. The UK leads. Belgium outranks Sweden. Vatican City outranks Poland. GDP is one input. Not the output.</div>
+        <div class="article-row-excerpt">46 countries. 8 criteria. The UK leads. Belgium outranks Sweden, Norway and Denmark. Vatican City outranks Poland. GDP is one input — not the output.</div>
       </div>
       <div class="article-row-arrow">→</div>
     </a>
+
     <a href="/european-families-2026" class="article-row">
       <div class="article-row-num">03</div>
       <div class="article-row-body">
-        <span class="article-row-tag">Ranking · Power · History</span>
+        <div style="display:flex; gap:16px; margin-bottom:6px; flex-wrap:wrap;">
+          <span style="font-size:10px; color:var(--blue); letter-spacing:0.12em; text-transform:uppercase;">Ranking · Power · History</span>
+          <span style="font-size:10px; color:var(--white-faint);">August 2026</span>
+          <span style="font-size:10px; color:var(--white-faint);">10 min read</span>
+        </div>
         <div class="article-row-title">Top 10 Most Powerful Families in Europe 2026</div>
         <div class="article-row-excerpt">The House of Windsor. The Wallenbergs. The Arnaults. The Rothschilds. The families that hold constitutional authority, intelligence access, industrial empires and 700 years of dynastic power.</div>
       </div>
       <div class="article-row-arrow">→</div>
     </a>
+
     <a href="/european-companies-2026" class="article-row">
-      <div class="article-row-num">03</div>
+      <div class="article-row-num">04</div>
       <div class="article-row-body">
-        <span class="article-row-tag">Ranking · Power · History</span>
+        <div style="display:flex; gap:16px; margin-bottom:6px; flex-wrap:wrap;">
+          <span style="font-size:10px; color:var(--blue); letter-spacing:0.12em; text-transform:uppercase;">Ranking · Finance · Business</span>
+          <span style="font-size:10px; color:var(--white-faint);">2026</span>
+          <span style="font-size:10px; color:var(--white-faint);">11 min read</span>
+        </div>
         <div class="article-row-title">Top 10 Most Powerful European Companies in 2026</div>
         <div class="article-row-excerpt">Not a market cap ranking. Power means what the world cannot function without. ASML, Shell, Nestlé, HSBC, SAP, Airbus, BAE, Novo Nordisk, EDF, Volkswagen.</div>
       </div>
@@ -344,7 +396,11 @@
     <a href="/european-cities-2026" class="article-row">
       <div class="article-row-num">05</div>
       <div class="article-row-body">
-        <span class="article-row-tag">Ranking · Finance · Politics</span>
+        <div style="display:flex; gap:16px; margin-bottom:6px; flex-wrap:wrap;">
+          <span style="font-size:10px; color:var(--blue); letter-spacing:0.12em; text-transform:uppercase;">Ranking · Finance · Politics</span>
+          <span style="font-size:10px; color:var(--white-faint);">2026</span>
+          <span style="font-size:10px; color:var(--white-faint);">10 min read</span>
+        </div>
         <div class="article-row-title">Top 10 Most Powerful European Cities in 2026</div>
         <div class="article-row-excerpt">London and Paris lead a tier of their own. Frankfurt holds the ECB. Brussels hosts the EU and NATO. These are the cities that hold Europe's power right now.</div>
       </div>
@@ -354,7 +410,11 @@
     <a href="/european-cities-power" class="article-row">
       <div class="article-row-num">06</div>
       <div class="article-row-body">
-        <span class="article-row-tag">Ranking · History</span>
+        <div style="display:flex; gap:16px; margin-bottom:6px; flex-wrap:wrap;">
+          <span style="font-size:10px; color:var(--blue); letter-spacing:0.12em; text-transform:uppercase;">Ranking · History</span>
+          <span style="font-size:10px; color:var(--white-faint);">2026</span>
+          <span style="font-size:10px; color:var(--white-faint);">7 min read</span>
+        </div>
         <div class="article-row-title">Top 5 European Cities That Used to Be the Most Powerful in the World</div>
         <div class="article-row-excerpt">Rome governed 21% of the world's population. Amsterdam invented the stock exchange. Lisbon opened the global spice trade.</div>
       </div>
@@ -364,7 +424,11 @@
     <a href="/empires" class="article-row">
       <div class="article-row-num">07</div>
       <div class="article-row-body">
-        <span class="article-row-tag">Ranking · Global · Geopolitics</span>
+        <div style="display:flex; gap:16px; margin-bottom:6px; flex-wrap:wrap;">
+          <span style="font-size:10px; color:var(--blue); letter-spacing:0.12em; text-transform:uppercase;">Ranking · Geopolitics</span>
+          <span style="font-size:10px; color:var(--white-faint);">2026</span>
+          <span style="font-size:10px; color:var(--white-faint);">8 min read</span>
+        </div>
         <div class="article-row-title">European Empires Ranked by How They Still Rule the World</div>
         <div class="article-row-excerpt">Not by peak size. By what survived — language, institutions, borders and conflicts that are still happening right now.</div>
       </div>
@@ -374,33 +438,32 @@
     <a href="/gdp-europe-2026" class="article-row">
       <div class="article-row-num">08</div>
       <div class="article-row-body">
-        <span class="article-row-tag">Finance · Europe · IMF 2026</span>
+        <div style="display:flex; gap:16px; margin-bottom:6px; flex-wrap:wrap;">
+          <span style="font-size:10px; color:var(--blue); letter-spacing:0.12em; text-transform:uppercase;">Finance · IMF 2026</span>
+          <span style="font-size:10px; color:var(--white-faint);">2026</span>
+          <span style="font-size:10px; color:var(--white-faint);">5 min read</span>
+        </div>
         <div class="article-row-title">Europe's 10 Largest Economies in 2026</div>
         <div class="article-row-excerpt">Germany at $5.45T. Poland in the top ten for the first time. Ireland's suspicious per capita number explained.</div>
       </div>
       <div class="article-row-arrow">→</div>
     </a>
 
-    <div class="section-heading">Coming soon</div>
+  </div>
 
-    <div class="coming-row">
-      <div class="article-row-num">06</div>
-      <div class="coming-body">
-        <span class="coming-tag">Real estate · Finland</span>
-        <div class="coming-title">Best Cities to Buy Property in Finland Right Now</div>
-        <span class="coming-label">Coming soon</span>
-      </div>
+  <!-- EMAIL SIGNUP -->
+  <div style="padding:56px 52px; border-top:1px solid var(--border); background:var(--surface); display:grid; grid-template-columns:1fr 1fr; gap:52px; align-items:center;">
+    <div>
+      <div style="font-family:'Playfair Display',serif; font-size:clamp(22px,3vw,32px); font-weight:700; color:var(--white); margin-bottom:12px; line-height:1.2;">Get the next Vantage<br />analysis in your inbox</div>
+      <p style="font-size:14px; color:var(--white-faint); line-height:1.7;">Published when it's ready, not on a schedule. No spam. Unsubscribe anytime.</p>
     </div>
-
-    <div class="coming-row">
-      <div class="article-row-num">07</div>
-      <div class="coming-body">
-        <span class="coming-tag">Ranking · History</span>
-        <div class="coming-title">Most Powerful European Families in History</div>
-        <span class="coming-label">Coming soon</span>
+    <div>
+      <div style="display:flex; gap:0;">
+        <input type="email" id="vantage-email" placeholder="your@email.com" style="flex:1; background:var(--black); border:1px solid var(--border-light); border-right:none; color:var(--white); font-family:'Inter',sans-serif; font-size:14px; padding:14px 16px; outline:none;" />
+        <button onclick="handleVantageSignup()" style="padding:14px 24px; background:var(--blue); color:var(--white); font-family:'Inter',sans-serif; font-size:11px; font-weight:600; letter-spacing:0.14em; text-transform:uppercase; border:none; cursor:pointer; white-space:nowrap;">Subscribe →</button>
       </div>
+      <div id="vantage-signup-success" style="display:none; font-size:13px; color:var(--blue); margin-top:10px;">Done. We'll be in touch when the next piece is ready.</div>
     </div>
-
   </div>
 
   <!-- ABOUT STRIP -->
@@ -429,7 +492,21 @@
     const d = new Date();
     const days = ['Sunday','Monday','Tuesday','Wednesday','Thursday','Friday','Saturday'];
     const months = ['January','February','March','April','May','June','July','August','September','October','November','December'];
-    document.getElementById('masthead-date').textContent = days[d.getDay()] + ', ' + months[d.getMonth()] + ' ' + d.getDate() + ', ' + d.getFullYear();
+    async function handleVantageSignup() {
+    const email = document.getElementById('vantage-email').value.trim();
+    if (!email) return;
+    try {
+      await fetch('https://formspree.io/f/xlgyayql', {
+        method: 'POST',
+        headers: { 'Content-Type': 'application/json', 'Accept': 'application/json' },
+        body: JSON.stringify({ _subject: 'Vantage newsletter signup — ' + email, email: email, source: 'Vantage page signup' })
+      });
+    } catch(e) {}
+    document.getElementById('vantage-email').style.display = 'none';
+    document.getElementById('vantage-email').nextElementSibling.style.display = 'none';
+    document.getElementById('vantage-signup-success').style.display = 'block';
+  }
+  document.getElementById('masthead-date').textContent = days[d.getDay()] + ', ' + months[d.getMonth()] + ' ' + d.getDate() + ', ' + d.getFullYear();
   </script>
 
 </body>

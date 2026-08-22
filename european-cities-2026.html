@@ -299,7 +299,18 @@
 
       <div style="margin-top: 64px; padding-top: 48px; border-top: 1px solid var(--border); max-width: 660px;">
         <p>What this list shows is that European power in 2026 is concentrated, diverse and not going anywhere. London and Paris operate at a level no other European city reaches. Below them, the rest of the top ten each hold a specific kind of power — financial, institutional, cultural, military — that keeps Europe relevant at the centre of world affairs.</p>
-        <a href="/vantage" class="back-link" style="border-color:var(--red); color:var(--red);">← Back to The Vantage</a>
+        
+  <!-- EMAIL CAPTURE -->
+  <div style="margin:64px 0 48px; padding:36px 40px; background:var(--surface); border:1px solid var(--border-light); border-left:3px solid var(--blue); max-width:660px;">
+    <div style="font-family:'Playfair Display',serif; font-size:20px; font-weight:700; color:var(--white); margin-bottom:8px;">Get the next Vantage analysis</div>
+    <p style="font-size:13px; color:var(--white-faint); margin-bottom:20px; line-height:1.6;">Published when it's ready. No spam. Unsubscribe anytime.</p>
+    <div style="display:flex; gap:0; max-width:480px;">
+      <input type="email" id="art-email" placeholder="your@email.com" style="flex:1; background:var(--black); border:1px solid var(--border-light); border-right:none; color:var(--white); font-family:'Inter',sans-serif; font-size:14px; padding:12px 14px; outline:none;" />
+      <button onclick="handleArtSignup()" style="padding:12px 20px; background:var(--blue); color:var(--white); font-family:'Inter',sans-serif; font-size:10px; font-weight:600; letter-spacing:0.14em; text-transform:uppercase; border:none; cursor:pointer; white-space:nowrap;">Subscribe →</button>
+    </div>
+    <div id="art-signup-ok" style="display:none; font-size:13px; color:var(--blue); margin-top:10px;">Done. We'll be in touch.</div>
+  </div>
+      <a href="/vantage" class="back-link" style="border-color:var(--red); color:var(--red);">← Back to The Vantage</a>
       </div>
 
       <div class="sources-block">
@@ -355,7 +366,30 @@
     </div>
   </div>
 
-  <footer>
+  
+  <!-- READ NEXT -->
+  <div style="padding:0 52px 72px; border-top:1px solid var(--border); margin-top:0; padding-top:48px;">
+    <span style="font-size:10px; letter-spacing:0.22em; text-transform:uppercase; color:var(--white-faint); display:block; margin-bottom:24px;">Read next</span>
+    <div style="display:grid; grid-template-columns:repeat(3,1fr); gap:1px; background:var(--border);">
+      <a href="/european-influence-index-2026" style="background:var(--surface); padding:24px; text-decoration:none; display:block; border:1px solid var(--border); transition:background 0.2s;" onmouseover="this.style.background='var(--surface-2)'" onmouseout="this.style.background='var(--surface)'">
+        <div style="font-size:10px; letter-spacing:0.14em; text-transform:uppercase; color:var(--blue); margin-bottom:10px;">Ranking · Geopolitics</div>
+        <div style="font-family:'Playfair Display',serif; font-size:16px; font-weight:700; color:var(--white); line-height:1.3;">Top 10 Most Influential Countries in Europe 2026</div>
+        <div style="font-size:12px; color:var(--blue); margin-top:12px;">Read →</div>
+      </a>
+      <a href="/european-cities-power" style="background:var(--surface); padding:24px; text-decoration:none; display:block; border:1px solid var(--border); transition:background 0.2s;" onmouseover="this.style.background='var(--surface-2)'" onmouseout="this.style.background='var(--surface)'">
+        <div style="font-size:10px; letter-spacing:0.14em; text-transform:uppercase; color:var(--blue); margin-bottom:10px;">Ranking · History</div>
+        <div style="font-family:'Playfair Display',serif; font-size:16px; font-weight:700; color:var(--white); line-height:1.3;">Top 5 European Cities That Used to Be the Most Powerful</div>
+        <div style="font-size:12px; color:var(--blue); margin-top:12px;">Read →</div>
+      </a>
+      <a href="/gdp-europe-2026" style="background:var(--surface); padding:24px; text-decoration:none; display:block; border:1px solid var(--border); transition:background 0.2s;" onmouseover="this.style.background='var(--surface-2)'" onmouseout="this.style.background='var(--surface)'">
+        <div style="font-size:10px; letter-spacing:0.14em; text-transform:uppercase; color:var(--blue); margin-bottom:10px;">Finance · IMF 2026</div>
+        <div style="font-family:'Playfair Display',serif; font-size:16px; font-weight:700; color:var(--white); line-height:1.3;">Europe's 10 Largest Economies in 2026</div>
+        <div style="font-size:12px; color:var(--blue); margin-top:12px;">Read →</div>
+      </a>
+    </div>
+  </div>
+
+<footer>
     <a href="/" class="footer-logo">Nordic Luxury Media</a>
     <div class="footer-copy">© 2026 Nordic Luxury Media · Helsinki, Finland</div>
   </footer>
