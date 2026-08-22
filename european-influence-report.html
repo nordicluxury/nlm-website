@@ -349,7 +349,7 @@
     btn.textContent = 'Loading...';
 
     try {
-      await fetch('https://formspree.io/f/xlgyayql', {
+      const res = await fetch('https://formspree.io/f/xlgyayql', {
         method: 'POST',
         headers: { 'Content-Type': 'application/json', 'Accept': 'application/json' },
         body: JSON.stringify({
@@ -359,10 +359,24 @@
           email: email
         })
       });
-    } catch(e) {}
 
-    document.getElementById('download-form').style.display = 'none';
-    document.getElementById('download-success').classList.add('visible');
+      if (res.ok) {
+        document.getElementById('download-form').style.display = 'none';
+        document.getElementById('download-success').classList.add('visible');
+      } else {
+        // Formspree failed — still show download but flag the error
+        console.error('Formspree error:', res.status, await res.text());
+        document.getElementById('download-form').style.display = 'none';
+        document.getElementById('download-success').classList.add('visible');
+        btn.disabled = false;
+      }
+    } catch(e) {
+      console.error('Fetch error:', e);
+      // Network error — still let them download
+      document.getElementById('download-form').style.display = 'none';
+      document.getElementById('download-success').classList.add('visible');
+      btn.disabled = false;
+    }
   }
 
   function toggleMenu() {
