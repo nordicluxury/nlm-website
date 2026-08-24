@@ -395,6 +395,19 @@
   </div>
 </div>
 
+  <!-- FOOTER NAV -->
+  <div style="border-top:1px solid #222222; padding:36px 52px; display:flex; justify-content:space-between; align-items:center; flex-wrap:wrap; gap:20px;">
+    <div style="display:flex; gap:28px; flex-wrap:wrap;">
+      <a href="/vantage" style="font-size:11px; letter-spacing:0.13em; text-transform:uppercase; color:rgba(240,235,227,0.45); text-decoration:none;">The Vantage</a>
+      <a href="/advertise" style="font-size:11px; letter-spacing:0.13em; text-transform:uppercase; color:rgba(240,235,227,0.45); text-decoration:none;">Advertise</a>
+      <a href="/channels" style="font-size:11px; letter-spacing:0.13em; text-transform:uppercase; color:rgba(240,235,227,0.45); text-decoration:none;">Channels</a>
+      <a href="/about" style="font-size:11px; letter-spacing:0.13em; text-transform:uppercase; color:rgba(240,235,227,0.45); text-decoration:none;">About</a>
+      <a href="/tilaa" style="font-size:11px; letter-spacing:0.13em; text-transform:uppercase; color:rgba(240,235,227,0.45); text-decoration:none;">List your property</a>
+      <a href="/#contact" style="font-size:11px; letter-spacing:0.13em; text-transform:uppercase; color:rgba(240,235,227,0.45); text-decoration:none;">Contact</a>
+      <a href="/privacy" style="font-size:11px; letter-spacing:0.13em; text-transform:uppercase; color:rgba(240,235,227,0.45); text-decoration:none;">Privacy Policy</a>
+    </div>
+    <div style="font-size:11px; color:rgba(240,235,227,0.25);">contact@nordicluxurymedia.com</div>
+  </div>
 <footer>
   <a href="/" class="footer-logo">Nordic Luxury Media</a>
   <div class="footer-copy">© 2026 Nordic Luxury Media · contact@nordicluxurymedia.com</div>
@@ -550,7 +563,7 @@
 
 
   <!-- COOKIE CONSENT -->
-  <div id="cookie-banner" style="display:none; position:fixed; bottom:0; left:0; right:0; z-index:9999; background:#111111; border-top:1px solid #2C2C2C; padding:20px 52px; display:flex; align-items:center; justify-content:space-between; gap:24px; flex-wrap:wrap;">
+  <div id="cookie-banner" style="display:none; position:fixed; bottom:0; left:0; right:0; z-index:9999; background:#111111; border-top:1px solid #2C2C2C; padding:20px 52px; align-items:center; justify-content:space-between; gap:24px; flex-wrap:wrap;">
     <p style="font-size:13px; color:rgba(240,235,227,0.6); line-height:1.6; margin:0; max-width:640px;">This site uses cookies to analyse traffic via Google Analytics. No personal data is collected without your consent. <a href="/privacy" style="color:#4A7FC1; text-decoration:none;">Privacy Policy</a></p>
     <div style="display:flex; gap:10px; flex-shrink:0;">
       <button onclick="declineCookies()" style="padding:9px 20px; background:transparent; border:1px solid #2C2C2C; color:rgba(240,235,227,0.5); font-family:'Inter',sans-serif; font-size:11px; letter-spacing:0.12em; text-transform:uppercase; cursor:pointer;">Decline</button>
@@ -561,9 +574,9 @@
     (function() {
       var consent = localStorage.getItem('nlm_cookie_consent');
       if (!consent) {
-        document.getElementById('cookie-banner').style.display = 'flex';
+        var b = document.getElementById('cookie-banner');
+        b.style.display = 'flex';
       } else if (consent === 'declined') {
-        // Disable GA if previously declined
         window['ga-disable-G-CJCRZBWQTH'] = true;
       }
     })();
