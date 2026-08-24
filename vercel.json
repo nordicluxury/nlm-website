@@ -26,10 +26,12 @@
     { "source": "/asml", "destination": "/asml.html" },
     { "source": "/european-influence-index-2026", "destination": "/european-influence-index-2026.html" },
     { "source": "/european-influence-report", "destination": "/european-influence-report.html" },
+    { "source": "/privacy", "destination": "/privacy.html" },
     { "source": "/european-power-index", "destination": "/european-power-index.html" },
     { "source": "/asml", "destination": "/asml.html" },
     { "source": "/european-influence-index-2026", "destination": "/european-influence-index-2026.html" },
     { "source": "/european-influence-report", "destination": "/european-influence-report.html" },
+    { "source": "/privacy", "destination": "/privacy.html" },
     { "source": "/tilaa", "destination": "/tilaa.html" }
   ]
 }
