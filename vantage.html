@@ -32,8 +32,8 @@
       --red-dim: rgba(74,127,193,0.15);
       --red-faint: rgba(74,127,193,0.08);
     }
-    html { scroll-behavior: smooth; }
-    body { background: var(--black); color: var(--white); font-family: 'Inter', sans-serif; font-size: 16px; line-height: 1.7; -webkit-font-smoothing: antialiased; }
+    html { scroll-behavior: smooth; overflow-x: hidden; }
+    body { overflow-x: hidden; background: var(--black); color: var(--white); font-family: 'Inter', sans-serif; font-size: 16px; line-height: 1.7; -webkit-font-smoothing: antialiased; }
 
     nav {
       position: fixed; top: 0; left: 0; right: 0; z-index: 100;
@@ -256,6 +256,25 @@
       /* Footer nav */
       .footer-nav-mobile { flex-direction: column !important; gap: 16px !important; }
       .footer-nav-mobile div:first-child { flex-direction: column !important; gap: 14px !important; }
+    }
+
+    @media (max-width: 768px) {
+      html, body { overflow-x: hidden; max-width: 100vw; }
+      * { max-width: 100%; }
+      .reports-mobile-fix { grid-template-columns: 1fr !important; }
+      .email-signup-mobile { grid-template-columns: 1fr !important; padding: 36px 20px !important; }
+      .email-input-row { flex-direction: column !important; }
+      .email-input-row input { border-right: 1px solid #2C2C2C !important; }
+      .email-input-row button { width: 100% !important; }
+      div[style*="grid-template-columns:1fr 1fr"] { grid-template-columns: 1fr !important; }
+      div[style*="grid-template-columns: 2fr 1fr"] { grid-template-columns: 1fr !important; }
+      div[style*="padding: 56px 52px"] { padding: 36px 20px !important; }
+      div[style*="padding:56px 52px"] { padding: 36px 20px !important; }
+      div[style*="padding: 48px 52px"] { padding: 32px 20px !important; }
+      div[style*="padding:28px 52px"] { padding: 16px 20px !important; }
+      div[style*="max-width:640px"] { max-width: 100% !important; }
+      div[style*="max-width: 640px"] { max-width: 100% !important; }
+      .about-strip { padding: 48px 20px !important; }
     }
   </style>
   <script type="application/ld+json">
