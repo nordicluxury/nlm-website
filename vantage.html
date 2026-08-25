@@ -221,9 +221,11 @@
       .masthead-nav a { padding: 10px 16px; font-size: 10px; white-space: nowrap; }
       .featured-grid { grid-template-columns: 1fr; }
       .featured-side { flex-direction: column; }
-      .featured-main { min-height: auto; padding: 28px 20px; }
-      .featured-side-item { padding: 20px; }
-      .art-title-lg { font-size: clamp(22px, 7vw, 32px); }
+      .featured-main { min-height: auto !important; padding: 24px 20px; justify-content: flex-start !important; gap: 20px; }
+      .featured-main .art-foot { margin-top: 0; padding-top: 16px; border-top: 1px solid var(--border); }
+      .featured-side-item { padding: 20px; min-height: auto !important; }
+      .art-title-lg { font-size: clamp(22px, 7vw, 32px); margin-bottom: 10px; }
+      .art-excerpt { font-size: 14px; line-height: 1.6; margin-bottom: 0; }
 
       /* Intelligence Reports - stack to 1 column */
       .reports-mobile-fix { grid-template-columns: 1fr !important; }
@@ -357,7 +359,7 @@
   </div>
 
   <!-- INTELLIGENCE REPORTS -->
-  <div style="padding: 48px 20px; border-top: 1px solid var(--border); border-bottom: 1px solid var(--border);">
+  <div style="padding: 36px 20px; border-top: 1px solid var(--border); border-bottom: 1px solid var(--border);">
     <div class="reports-header-mobile" style="display:flex; justify-content:space-between; align-items:baseline; margin-bottom:32px;">
       <span style="font-size:10px; letter-spacing:0.22em; text-transform:uppercase; color:var(--blue);">Intelligence Reports</span>
       <span style="font-size:12px; color:var(--white-faint);">Long-form research from The Vantage</span>
