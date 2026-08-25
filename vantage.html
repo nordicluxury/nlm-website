@@ -210,6 +210,51 @@
     .mobile-menu a { font-size: 13px; letter-spacing: 0.12em; text-transform: uppercase; color: var(--white-dim); text-decoration: none; padding: 14px 0; border-bottom: 1px solid var(--border); transition: color 0.2s; }
     .mobile-menu a:last-child { border-bottom: none; }
     .mobile-menu a:hover { color: var(--white); }
+
+    /* MOBILE FIXES */
+    @media (max-width: 768px) {
+      nav { padding: 0 20px; }
+      .hamburger { display: flex; }
+      .masthead { padding: 72px 20px 0; }
+      .masthead-title h1 { font-size: clamp(36px, 11vw, 60px); }
+      .masthead-nav { overflow-x: auto; justify-content: flex-start; -webkit-overflow-scrolling: touch; }
+      .masthead-nav a { padding: 10px 16px; font-size: 10px; white-space: nowrap; }
+      .featured-grid { grid-template-columns: 1fr; }
+      .featured-side { flex-direction: column; }
+      .featured-main { min-height: auto; padding: 28px 20px; }
+      .featured-side-item { padding: 20px; }
+      .art-title-lg { font-size: clamp(22px, 7vw, 32px); }
+
+      /* Intelligence Reports - stack to 1 column */
+      .reports-mobile-fix { grid-template-columns: 1fr !important; }
+
+      /* Reports section header - stack */
+      .reports-header-mobile { flex-direction: column !important; gap: 8px !important; }
+
+      /* Article list header - stack */
+      .articles-header-mobile { flex-direction: column !important; align-items: flex-start !important; gap: 6px !important; }
+
+      /* Article rows */
+      .article-row { padding: 20px; flex-wrap: wrap; }
+      .article-row-num { font-size: 28px; min-width: 36px; }
+      .article-row-body { padding: 0 12px; }
+      .article-row-arrow { display: none; }
+      .article-row-title { font-size: 16px; }
+      .article-row-excerpt { font-size: 13px; display: -webkit-box; -webkit-line-clamp: 2; -webkit-box-orient: vertical; overflow: hidden; }
+
+      /* Email signup - stack */
+      .email-signup-mobile { grid-template-columns: 1fr !important; gap: 24px !important; }
+      .email-input-row { flex-direction: column !important; }
+      .email-input-row input { border-right: 1px solid #2C2C2C !important; border-bottom: none !important; }
+      .email-input-row button { width: 100% !important; }
+
+      /* About strip */
+      .about-strip-mobile { grid-template-columns: 1fr !important; }
+
+      /* Footer nav */
+      .footer-nav-mobile { flex-direction: column !important; gap: 16px !important; }
+      .footer-nav-mobile div:first-child { flex-direction: column !important; gap: 14px !important; }
+    }
   </style>
   <script type="application/ld+json">
   {
@@ -312,12 +357,12 @@
   </div>
 
   <!-- INTELLIGENCE REPORTS -->
-  <div style="padding: 56px 52px; border-top: 1px solid var(--border); border-bottom: 1px solid var(--border);">
-    <div style="display:flex; justify-content:space-between; align-items:baseline; margin-bottom:32px;">
+  <div style="padding: 48px 20px; border-top: 1px solid var(--border); border-bottom: 1px solid var(--border);">
+    <div class="reports-header-mobile" style="display:flex; justify-content:space-between; align-items:baseline; margin-bottom:32px;">
       <span style="font-size:10px; letter-spacing:0.22em; text-transform:uppercase; color:var(--blue);">Intelligence Reports</span>
       <span style="font-size:12px; color:var(--white-faint);">Long-form research from The Vantage</span>
     </div>
-    <div style="display:grid; grid-template-columns:1fr 1fr; gap:1px; background:var(--border);">
+    <div class="reports-mobile-fix" style="display:grid; grid-template-columns:1fr 1fr; gap:1px; background:var(--border);">
       <a href="/european-power-index" style="background:var(--surface); padding:32px; text-decoration:none; display:block; transition:background 0.2s;" onmouseover="this.style.background='var(--surface-2)'" onmouseout="this.style.background='var(--surface)'">
         <div style="font-size:10px; letter-spacing:0.16em; text-transform:uppercase; color:var(--blue); margin-bottom:12px; display:flex; align-items:center; gap:10px;">PDF Report <span style="background:var(--blue); color:var(--white); padding:2px 8px; font-size:9px;">PAID</span></div>
         <div style="font-family:'Playfair Display',serif; font-size:20px; font-weight:700; color:var(--white); margin-bottom:8px; line-height:1.2;">The European Power Index</div>
@@ -342,8 +387,8 @@
   </div>
 
   <!-- ARTICLE LIST -->
-  <div class="content-list" style="padding-bottom:64px;">
-    <div style="display:flex; justify-content:space-between; align-items:center; padding:28px 52px 0; margin-bottom:0;">
+  <div class="content-list" style="padding-bottom:64px; padding: 0 0 64px;">
+    <div class="articles-header-mobile" style="display:flex; justify-content:space-between; align-items:center; padding:28px 20px 0; margin-bottom:0;">
       <span style="font-size:10px; letter-spacing:0.22em; text-transform:uppercase; color:var(--blue);">Analysis · Rankings · Investigations</span>
       <span style="font-size:11px; color:var(--white-faint);">8 articles published</span>
     </div>
@@ -470,7 +515,7 @@
       <p style="font-size:14px; color:var(--white-faint); line-height:1.7;">Published when it's ready, not on a schedule. No spam. Unsubscribe anytime.</p>
     </div>
     <div>
-      <div style="display:flex; gap:0;">
+      <div class="email-input-row" style="display:flex; gap:0;">
         <input type="email" id="vantage-email" placeholder="your@email.com" style="flex:1; background:var(--black); border:1px solid var(--border-light); border-right:none; color:var(--white); font-family:'Inter',sans-serif; font-size:14px; padding:14px 16px; outline:none;" />
         <button onclick="handleVantageSignup()" style="padding:14px 24px; background:var(--blue); color:var(--white); font-family:'Inter',sans-serif; font-size:11px; font-weight:600; letter-spacing:0.14em; text-transform:uppercase; border:none; cursor:pointer; white-space:nowrap;">Subscribe →</button>
       </div>
