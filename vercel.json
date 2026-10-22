@@ -28,12 +28,15 @@
     { "source": "/european-influence-report", "destination": "/european-influence-report.html" },
     { "source": "/privacy", "destination": "/privacy.html" },
     { "source": "/most-powerful-courts-europe", "destination": "/most-powerful-courts-europe.html" },
+    { "source": "/european-media-power-2026", "destination": "/european-media-power-2026.html" },
     { "source": "/european-power-index", "destination": "/european-power-index.html" },
     { "source": "/asml", "destination": "/asml.html" },
     { "source": "/european-influence-index-2026", "destination": "/european-influence-index-2026.html" },
     { "source": "/european-influence-report", "destination": "/european-influence-report.html" },
     { "source": "/privacy", "destination": "/privacy.html" },
     { "source": "/most-powerful-courts-europe", "destination": "/most-powerful-courts-europe.html" },
-    { "source": "/tilaa", "destination": "/tilaa.html" }
+    { "source": "/european-media-power-2026", "destination": "/european-media-power-2026.html" },
+    { "source": "/tilaa", "destination": "/tilaa.html" },
+    { "source": "/european-megaproject-overruns", "destination": "/european-megaproject-overruns.html" }
   ]
 }
