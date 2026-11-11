@@ -277,7 +277,7 @@
       .about-strip { padding: 48px 20px !important; }
     }
   
-    /* ── NAV ALWAYS DARK (brand identity) ── */
+    /* ── TOP NAV ALWAYS DARK (brand identity) ── */
     nav:not(.masthead-nav) { background: #080808 !important; border-bottom: 1px solid #1A1A1A !important; }
     .nav-logo { color: #F0EBE3 !important; }
     .nav-logo:hover { color: #F0EBE3 !important; }
@@ -290,6 +290,10 @@
     .mobile-menu { background: rgba(8,8,8,0.98) !important; border-bottom-color: #222222 !important; }
     .mobile-menu a { color: rgba(240,235,227,0.70) !important; border-bottom-color: #222222 !important; }
     .mobile-menu a:hover { color: #F0EBE3 !important; }
+    /* ── MASTHEAD-NAV: undo the inherited fixed-nav styles so it sits in page flow ── */
+    .masthead-nav { position: static !important; top: auto !important; left: auto !important; right: auto !important; height: auto !important; background: transparent !important; backdrop-filter: none !important; z-index: auto !important; padding: 0 !important; border-bottom: 1px solid var(--border) !important; }
+    .masthead-nav a { color: rgba(17,17,17,0.68) !important; }
+    .masthead-nav a:hover { color: #111111 !important; background: rgba(17,17,17,0.04) !important; }
     /* cookie banner stays dark */
     #cookie-banner { background: #111111 !important; border-top-color: #2C2C2C !important; }
 
