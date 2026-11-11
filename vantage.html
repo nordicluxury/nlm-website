@@ -19,15 +19,15 @@
   <style>
     *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
     :root {
-      --black: #080808;
-      --surface: #111111;
-      --surface-2: #181818;
-      --border: #222222;
-      --border-light: #2C2C2C;
-      --white: #F0EBE3;
-      --white-dim: rgba(240,235,227,0.78);
-      --white-faint: rgba(240,235,227,0.35);
-      --white-ghost: rgba(240,235,227,0.06);
+      --black: #F7F5F2;
+      --surface: #FFFFFF;
+      --surface-2: #EEEAE4;
+      --border: #DDD9D2;
+      --border-light: #E8E4DE;
+      --white: #111111;
+      --white-dim: rgba(17,17,17,0.68);
+      --white-faint: rgba(17,17,17,0.44);
+      --white-ghost: rgba(17,17,17,0.04);
       --red: #4A7FC1;
       --red-dim: rgba(74,127,193,0.15);
       --red-faint: rgba(74,127,193,0.08);
@@ -276,6 +276,21 @@
       div[style*="max-width: 640px"] { max-width: 100% !important; }
       .about-strip { padding: 48px 20px !important; }
     }
+  
+    /* ── NAV ALWAYS DARK (brand identity) ── */
+    nav { background: #080808 !important; border-bottom: 1px solid #1A1A1A !important; }
+    .nav-logo { color: #F0EBE3 !important; }
+    .nav-back { color: #4A7FC1 !important; }
+    .nav-links a { color: rgba(240,235,227,0.70) !important; }
+    .nav-links a:hover { color: #F0EBE3 !important; }
+    .nav-links a.vantage { color: #4A7FC1 !important; }
+    .hamburger span { background: #F0EBE3 !important; }
+    .mobile-menu { background: rgba(8,8,8,0.98) !important; border-bottom-color: #222222 !important; }
+    .mobile-menu a { color: rgba(240,235,227,0.70) !important; border-bottom-color: #222222 !important; }
+    .mobile-menu a:hover { color: #F0EBE3 !important; }
+    /* cookie banner stays dark */
+    #cookie-banner { background: #111111 !important; border-top-color: #2C2C2C !important; }
+
   </style>
   <script type="application/ld+json">
   {
