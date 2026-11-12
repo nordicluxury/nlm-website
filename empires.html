@@ -130,6 +130,7 @@
     /* cookie banner stays dark */
     #cookie-banner { background: #111111 !important; border-top-color: #2C2C2C !important; }
 
+    nav { transition: transform 0.3s ease; }
   </style>
   <link rel="sitemap" type="application/xml" href="/sitemap.xml" />
   <script type="application/ld+json">
@@ -438,5 +439,18 @@
       document.getElementById('cookie-banner').style.display = 'none';
     }
   </script>
+<script>
+(function(){
+  var nav=document.querySelector('nav');
+  if(!nav)return;
+  var lastY=0;
+  window.addEventListener('scroll',function(){
+    var y=window.scrollY||window.pageYOffset;
+    if(y>80&&y>lastY){nav.style.transform='translateY(-100%)';}
+    else{nav.style.transform='translateY(0)';}
+    lastY=y;
+  },{passive:true});
+})();
+</script>
 </body>
 </html>

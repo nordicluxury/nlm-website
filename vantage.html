@@ -290,13 +290,15 @@
     .mobile-menu { background: rgba(8,8,8,0.98) !important; border-bottom-color: #222222 !important; }
     .mobile-menu a { color: rgba(240,235,227,0.70) !important; border-bottom-color: #222222 !important; }
     .mobile-menu a:hover { color: #F0EBE3 !important; }
-    /* ── MASTHEAD-NAV: undo the inherited fixed-nav styles so it sits in page flow ── */
-    .masthead-nav { position: static !important; top: auto !important; left: auto !important; right: auto !important; height: auto !important; background: transparent !important; backdrop-filter: none !important; z-index: auto !important; padding: 0 !important; border-bottom: 1px solid var(--border) !important; }
+    /* ── MASTHEAD-NAV: undo inherited fixed-nav styles; stick under the brand bar ── */
+    .masthead-nav { position: sticky !important; top: 60px !important; left: auto !important; right: auto !important; height: auto !important; background: #F7F5F2 !important; backdrop-filter: none !important; z-index: 90 !important; padding: 0 !important; border-bottom: 1px solid var(--border) !important; box-shadow: 0 1px 4px rgba(0,0,0,0.06) !important; }
     .masthead-nav a { color: rgba(17,17,17,0.68) !important; }
     .masthead-nav a:hover { color: #111111 !important; background: rgba(17,17,17,0.04) !important; }
     /* cookie banner stays dark */
     #cookie-banner { background: #111111 !important; border-top-color: #2C2C2C !important; }
 
+    nav:not(.masthead-nav) { transition: transform 0.3s ease; }
+    .masthead-nav { transition: top 0.3s ease !important; }
   </style>
   <script type="application/ld+json">
   {
@@ -689,5 +691,24 @@
       document.getElementById('cookie-banner').style.display = 'none';
     }
   </script>
+<script>
+(function(){
+  var nav=document.querySelector('nav:not(.masthead-nav)');
+  var mn=document.querySelector('.masthead-nav');
+  if(!nav)return;
+  var lastY=0;
+  window.addEventListener('scroll',function(){
+    var y=window.scrollY||window.pageYOffset;
+    if(y>80&&y>lastY){
+      nav.style.transform='translateY(-100%)';
+      if(mn)mn.style.top='0px';
+    }else{
+      nav.style.transform='translateY(0)';
+      if(mn)mn.style.top='60px';
+    }
+    lastY=y;
+  },{passive:true});
+})();
+</script>
 </body>
 </html>
